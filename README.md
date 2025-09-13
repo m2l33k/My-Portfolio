@@ -4,7 +4,7 @@ This is the repository for my personal portfolio website, built to showcase my s
 
 ## ✨ Features
 
-- **Responsive Design:** Fully responsive layout that looks great on all devices, from mobile phones to desktops.
+- **Responsive Design:** Fully responsive layout that looks great on all devices, from mobile phones to desktops....
 - **Dynamic Sections:** Includes dedicated sections for:
   - Hero & Introduction
   - Education & Certifications
