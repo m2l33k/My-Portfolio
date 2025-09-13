@@ -17,10 +17,10 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
 
     if (form.current) {
       emailjs.sendForm(
-        'service_kulzmio',
-        'template_p96ojvr',
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         form.current,
-        'RKmeYd_N7wcg9HeEt'
+        import.meta.env.VITE_EMAILJS_USER_ID
       )
       .then((result) => {
           console.log(result.text);
