@@ -51,7 +51,7 @@ const ProjectsSection = () => {
       category: "Cyber Security",
       technologies: ["Python", "Scapy"],
       highlights: ["Network traffic monitoring", "Suspicious activity detection"],
-      status: "In Progress",
+      status: "Completed",
     },
     {
       title: "Phishing Awareness Training",
