@@ -13,7 +13,7 @@ const CertificationsSection = () => {
       credentialId: "1tO0Ys3ITkGJkXM3sgBKrQ",
       description: "Deep learning fundamentals and practical implementation using Python",
       skills: ["Deep Learning", "Python", "Neural Networks", "AI Development"],
-      url: "https://www.credly.com/users/malek-aziz-hassayoun"
+      url: "https://learn.nvidia.com/certificates?id=1tO0Ys3ITkGJkXM3sgBKrQ"
     },
     {
       name: "Evaluation and Light Customization of Large Language Models",
@@ -23,7 +23,7 @@ const CertificationsSection = () => {
       credentialId: "M9kdR7yQQ5WiuvosdW_R4g",
       description: "Evaluation and light customization of large language models",
       skills: ["Large Language Models", "Evaluation", "Customization"],
-      url: "https://www.credly.com/users/malek-aziz-hassayoun"
+      url: "https://learn.nvidia.com/certificates?id=M9kdR7yQQ5WiuvosdW_R4g"
     },
     {
       name: "AppSec (CAP)",
@@ -33,7 +33,7 @@ const CertificationsSection = () => {
       credentialId: "10087776",
       description: "Application security fundamentals and secure development practices",
       skills: ["Application Security", "Secure Coding", "OWASP", "Vulnerability Assessment"],
-      url: "https://www.credly.com/users/malek-aziz-hassayoun"
+      url: "https://pentestingexams.com/certificate-validation/"
     },
     {
       name: "Scrum Foundation",
