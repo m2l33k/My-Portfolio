@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Download, Mail, Github, Linkedin, Shield, Terminal, Phone } from "lucide-react";
+import { Download, Mail, Github, Linkedin, Shield, Terminal, Phone, Award } from "lucide-react";
 import ContactForm from './ContactForm';
 import CvDownloadModal from './CvDownloadModal';
 import SkillsMatrixModal from './SkillsMatrixModal';
@@ -79,6 +79,11 @@ const HeroSection = () => {
                 <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" asChild>
                   <a href="https://linkedin.com/in/malek-hassayoun" target="_blank" rel="noopener noreferrer">
                     <Linkedin className="h-5 w-5" />
+                  </a>
+                </Button>
+                <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" asChild>
+                  <a href="https://www.credly.com/users/malek-aziz-hassayoun" target="_blank" rel="noopener noreferrer">
+                    <Award className="h-5 w-5" />
                   </a>
                 </Button>
                 <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" asChild>
