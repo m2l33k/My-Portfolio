@@ -1,6 +1,6 @@
 # 🚀 ROOTKEPEER - Malek Aziz Hassayoun's Portfolio
 
-![Portfolio Preview](/public/placeholder.svg)
+![Portfolio Preview](/public/Capture%20d'écran%202025-12-18%20122108.png)
 
 > A modern, responsive, and interactive portfolio website built to showcase my journey as a Computer Engineering Student specializing in Cybersecurity, AI, and Blockchain.
 
