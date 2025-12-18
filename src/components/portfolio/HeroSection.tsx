@@ -101,6 +101,10 @@ const HeroSection = () => {
                   <Bot className="mr-2 h-4 w-4" />
                   Ask AI
                 </Button>
+                <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground" onClick={() => navigate('/activity')}>
+                  <Github className="mr-2 h-4 w-4" />
+                  Activity
+                </Button>
               </div>
 
               <div className="flex gap-4">

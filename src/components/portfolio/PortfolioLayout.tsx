@@ -6,6 +6,7 @@ import InternshipsSection from "./InternshipsSection";
 import EducationSection from "./EducationSection";
 import LanguagesSection from "./LanguagesSection";
 import MotivationSection from "./MotivationSection";
+import CodingActivitySection from "./CodingActivitySection";
 
 const PortfolioLayout = () => {
   return (
