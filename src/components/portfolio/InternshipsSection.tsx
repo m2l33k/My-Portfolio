@@ -14,9 +14,9 @@ const InternshipsSection = () => {
       location: "Paris / Remote",
       description: "Developed an AI-powered penetration testing agent designed to automate the security assessment of web applications Integrated advanced vulnerability scanning techniques enhanced by machine learning to identify potential threats more efficiently Achieved higher detection accuracy while significantly reducing manual testing time, streamlining the overall security testing process",
       logoUrl: "oxynas-logo-slogan.png",
-      companyUrl: "https://oxynas.com",
+      companyUrl: "https://oxynas.com/",
       technologies: ["AI", "Web Security", "Python", "Automation"],
-      certificateUrl: ""
+      certificateUrl: "https://res.cloudinary.com/dvmuvjukn/image/upload/v1766060184/Capture_d_%C3%A9cran_2025-12-18_131425_kcqq6t.png"
     },
     {
       company: "ESPRIT",
@@ -27,7 +27,7 @@ const InternshipsSection = () => {
       logoUrl: "image-removebg-preview(17).png",
       companyUrl: "https://esprit.tn",
       technologies: ["Blockchain", "AI", "Smart Grid", "Security Research"],
-      certificateUrl: ""
+      certificateUrl: "https://res.cloudinary.com/dvmuvjukn/image/upload/v1766060218/WhatsApp_Image_2025-12-18_at_13.16.30_s57ofs.jpg"
     },
     {
       company: "TALAN-TUNISIA",
@@ -38,7 +38,7 @@ const InternshipsSection = () => {
       logoUrl: "image-removebg-preview(16).png",
       companyUrl: "https://talan.com",
       technologies: ["OWASP ZAP", "Python", "Web Security", "Automation"],
-      certificateUrl: "/Talan_attestation_stage_Malek_Aziz_Hassayoun_page-0001.jpg"
+      certificateUrl: "https://res.cloudinary.com/dvmuvjukn/image/upload/v1766060199/Capture_d_%C3%A9cran_2025-12-18_131434_qjcrmc.png"
     },
     {
       company: "ESPRIT",
@@ -49,7 +49,7 @@ const InternshipsSection = () => {
       logoUrl: "image-removebg-preview(17).png",
       companyUrl: "https://esprit.tn",
       technologies: ["Wireless Security", "Bluetooth Security", "Network Attacks", "Countermeasures"],
-      certificateUrl: "/Attestation de stage .jpg"
+      certificateUrl: "https://res.cloudinary.com/dvmuvjukn/image/upload/v1766060203/Capture_d_%C3%A9cran_2025-12-18_131442_r92h0t.png"
     },
   ];
 

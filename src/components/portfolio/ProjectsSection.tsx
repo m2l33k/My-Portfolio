@@ -64,8 +64,8 @@ const ProjectsSection = () => {
       technologies: ["Python 3.12+", "Ollama", "Llama 3:8b", "numpy", "pygame"],
       highlights: ["Three-tiered intelligence model", "Decentralized bidding protocol", "Energy-efficient PoA blockchain"],
       status: "In Development",
-      images: ["/placeholder.svg", "/placeholder.svg"],
-      githubUrl: "https://github.com/yourusername/sworm-intelligent7.git"
+      images: ["https://res.cloudinary.com/dvmuvjukn/image/upload/v1766058347/Capture_d_%C3%A9cran_2025-12-18_124535_iqmteb.png"],
+      githubUrl: "https://github.com/m2l33k/Strategy-Aware"
     },
     {
       title: "Offensive Message Filter System",
@@ -78,7 +78,8 @@ const ProjectsSection = () => {
       technologies: ["Python", "Machine Learning", "REST API", "Angular"],
       highlights: ["Real-time offensive content filtering", "ML-based classification", "REST API integration"],
       status: "Completed",
-      images: ["/placeholder.svg", "/placeholder.svg"]
+      images: ["https://corp-backend.brevo.com/wp-content/uploads/2024/07/How-do-spam-filters-work.png"],
+      githubUrl: "https://github.com/m2l33k/filtre-chain"
     },
     {
       title: "Cyber Sentinel - Advanced Security Analysis Tool",
@@ -91,7 +92,8 @@ const ProjectsSection = () => {
       technologies: ["Python", "Semgrep", "Nmap", "AI/ML", "DNS Recon"],
       highlights: ["AI-powered vulnerability assessment", "Automated code scanning (Semgrep)", "Network reconnaissance & fuzzing"],
       status: "Completed",
-      images: ["/placeholder.svg", "/placeholder.svg"]
+      images: ["https://res.cloudinary.com/dvmuvjukn/image/upload/v1766058972/0d884e77-138f-4107-857d-cdb1c21b515f_h5pthx.jpg"],
+      githubUrl: "https://github.com/m2l33k/ASAT"
     },
     {
       title: "ERP SYSTEM FOR ISO 9001 PROCESS AUTOMATION",
@@ -101,11 +103,10 @@ const ProjectsSection = () => {
       description: "Integrated an ERP system to automate ISO 9001 compliance, reducing manual work by 60% and improving quality management through real-time reporting.",
       icon: Briefcase,
       category: "Dev",
-      technologies: ["SpringBoot", "Angular 19 ", "PostgreSQL", "Maven", "Git", "Jenkins", "Docker", "Kubernetes", "Jira"],
+      technologies: ["SpringBoot", "Angular 19 ", "PostgreSQL", "Maven", "Git", "Jenkins", "Docker", "Kubernetes", "Jira" , "keycloack" , "Mysql" , "PostgreSQL"],
       highlights: ["60% reduction in manual work", "Real-time compliance reporting", "Quality management automation"],
       status: "Completed",
-      images: ["/placeholder.svg", "/placeholder.svg"],
-      githubUrl: "https://github.com/yourusername/erp-iso-9001"
+      images: ["https://res.cloudinary.com/dvmuvjukn/image/upload/v1766057205/Solution_1_yr6jfp.jpg", "https://res.cloudinary.com/dvmuvjukn/image/upload/v1766057203/Capture_d_%C3%A9cran_2025-05-11_203439_f777hs.png"]
     },
     {
       title: "AI-DRIVEN CYBERSECURITY INCIDENT RESPONSE PLATFORM",
@@ -118,7 +119,7 @@ const ProjectsSection = () => {
       technologies: ["Python", "Scikit-learn", "Snort", "Suricata", "Pandas", "NumPy", "Jupyter Notebook"],
       highlights: ["35% faster incident response", "Automated threat analysis", "ML-based detection"],
       status: "Completed",
-      images: ["/placeholder.svg", "/placeholder.svg"]
+      images: ["https://res.cloudinary.com/dvmuvjukn/image/upload/v1766059422/Screenshot_2024-11-10_06_39_04_1_d6wzgr.png"]
     },
     {
       title: "TechPioneers",
@@ -131,7 +132,8 @@ const ProjectsSection = () => {
       technologies: ["Symfony 6", "MySQL", "HTML", "CSS", "JavaScript"],
       highlights: ["Educational e-learning platform", "Modern software engineering focus"],
       status: "Completed",
-      images: ["/placeholder.svg", "/placeholder.svg"]
+      images: ["https://res.cloudinary.com/dvmuvjukn/image/upload/v1766057105/Capture_d_%C3%A9cran_2024-12-19_195218_qbnrmj.png", "https://res.cloudinary.com/dvmuvjukn/image/upload/v1766057104/Capture_d_%C3%A9cran_2024-12-10_195042_pomejt.png"],
+      githubUrl: "https://github.com/m2l33k/techPioneers"
     },
     {
       title: "BASIC NETWORK SNIFFER",
@@ -144,7 +146,7 @@ const ProjectsSection = () => {
       technologies: ["Python", "Scapy"],
       highlights: ["Network traffic monitoring", "Suspicious activity detection"],
       status: "Completed",
-      images: ["/placeholder.svg", "/placeholder.svg"]
+      images: ["https://res.cloudinary.com/dvmuvjukn/image/upload/v1766059611/e680537d-7085-4064-8a85-7447424300ad_dqbwjx.jpg"]
     },
     {
       title: "Phishing Awareness Training",
@@ -157,20 +159,7 @@ const ProjectsSection = () => {
       technologies: [],
       highlights: ["Interactive training sessions", "Phishing attack prevention"],
       status: "Completed",
-      images: ["/placeholder.svg", "/placeholder.svg"]
-    },
-    {
-      title: "SmartShield AI-Powered",
-      company: "Personal Project",
-      period: "2024",
-      location: "",
-      description: "An advanced cybersecurity solution powered by AI to detect and prevent threats in real-time.",
-      icon: Shield,
-      category: "IA",
-      technologies: ["Python", "TensorFlow" , "SAST" , "DAST" , "Nmap" , "Jupyter" , "Git" , "Docker","OWASP" , "ZAP"],
-      highlights: ["AI-powered threat detection", "Real-time prevention"],
-      status: "Completed",
-      images: ["/placeholder.svg", "/placeholder.svg"]
+      images: ["https://res.cloudinary.com/dvmuvjukn/image/upload/v1766059695/d63a90bf-81ed-4ea2-bc0e-1e4eb24a69e0_soqtgs.jpg"]
     },
     {
       title: "NextJEEL",
@@ -183,7 +172,7 @@ const ProjectsSection = () => {
       technologies: ["React.js"],
       highlights: ["Modern & responsive platform", "Interactive learning focus"],
       status: "Completed",
-      images: ["/placeholder.svg", "/placeholder.svg"]
+      images: ["https://res.cloudinary.com/dvmuvjukn/image/upload/v1766057146/Capture_d_%C3%A9cran_2024-12-08_223405_i5pu0b.png", "https://res.cloudinary.com/dvmuvjukn/image/upload/v1766057135/Capture_d_%C3%A9cran_2024-12-10_194913_e21wqo.png" , "https://res.cloudinary.com/dvmuvjukn/image/upload/v1766057133/Capture_d_%C3%A9cran_2024-12-10_194924_kw3p2o.png" , "https://res.cloudinary.com/dvmuvjukn/image/upload/v1766057123/Capture_d_%C3%A9cran_2024-12-10_194955_hjg5pk.png"]
     },
     {
       title: "Luducatio - Robot éducatif pour l'apprentissage des échecs",
@@ -196,7 +185,8 @@ const ProjectsSection = () => {
       technologies: ["python" , "machine learning" , "opencv"],
       highlights: ["Robotic platform integration", "Chess learning application"],
       status: "Completed",
-      images: ["/placeholder.svg", "/placeholder.svg"]
+      images: ["https://res.cloudinary.com/dvmuvjukn/image/upload/v1766059909/82b965d8-6669-40ea-bacc-afd6925b0475_mdodr3.jpg"],
+      githubUrl: "https://github.com/m2l33k/ChessRobot"
     },
   ];
 

@@ -28,6 +28,7 @@ const EducationSection = () => {
 
   const onlineCourses = [
     { name: "CyberSecurity 101 ", provider: "Tryhackme", year: "2025" },
+    { name: "Global Education Program Focused on AI", provider: "Samsung Innovation Campus", year: "2025" },
 
   ];
 
