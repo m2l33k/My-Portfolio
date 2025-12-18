@@ -11,7 +11,7 @@ const Navigation = () => {
     { icon: Briefcase, label: "Projects", href: "#projects" },
     { icon: Briefcase, label: "Internships", href: "#internships" },
     { icon: GraduationCap, label: "Education", href: "#education" },
-    { icon: Languages, label: "Languages", href: "#languages" },
+    { icon: Languages, label: "Skills", href: "#languages" },
     { icon: Heart, label: "Motivation", href: "#motivation" },
   ];
 

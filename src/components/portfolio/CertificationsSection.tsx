@@ -7,6 +7,7 @@ import {
   Cpu, Shield, Code, Cloud, Server, Database, Github, Flag, Lock, Network, Blocks, Brain
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import CertificationDetailsModal, { Certification } from "./CertificationDetailsModal";
 import { certifications } from "@/data/portfolio";
 
@@ -39,31 +40,35 @@ const CertificationsSection = () => {
   return (
     <section id="certifications" className="py-24 bg-surface-dark">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-2 text-primary mb-4">
-            <Award className="h-6 w-6" />
-            <span className="text-sm uppercase tracking-wide">Professional Credentials</span>
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-2 text-primary mb-4">
+              <Award className="h-6 w-6" />
+              <span className="text-sm uppercase tracking-wide">Professional Credentials</span>
+            </div>
+            <h2 className="text-4xl font-bold mb-6">Certifications</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Industry-recognized certifications demonstrating expertise in cybersecurity, AI, and cloud technologies
+            </p>
           </div>
-          <h2 className="text-4xl font-bold mb-6">Certifications</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Industry-recognized certifications demonstrating expertise in cybersecurity, AI, and cloud technologies
-          </p>
-        </div>
+        </ScrollReveal>
 
         <Tabs defaultValue="All" className="w-full">
-          <div className="flex justify-center mb-10">
-            <TabsList className="bg-secondary/50 p-1">
-              {categories.map((category) => (
-                <TabsTrigger 
-                  key={category} 
-                  value={category}
-                  className="px-6 py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all"
-                >
-                  {category}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-          </div>
+          <ScrollReveal delay={0.2}>
+            <div className="flex justify-center mb-10">
+              <TabsList className="bg-secondary/50 p-1">
+                {categories.map((category) => (
+                  <TabsTrigger 
+                    key={category} 
+                    value={category}
+                    className="px-6 py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all"
+                  >
+                    {category}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
+          </ScrollReveal>
 
           {categories.map((category) => (
             <TabsContent key={category} value={category} className="mt-0">
@@ -71,85 +76,87 @@ const CertificationsSection = () => {
                 {certifications
                   .filter(cert => category === "All" || cert.category === category)
                   .map((cert, index) => (
-                    <Card key={index} className="group bg-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-glow flex flex-col h-full">
-                      <CardHeader>
-                        <div className="flex flex-col gap-2">
-                          <div className="flex justify-between items-start">
-                            <CardTitle className="text-lg group-hover:text-primary transition-colors line-clamp-2 flex-1 mr-2">
-                              {cert.name}
-                            </CardTitle>
-                            <div className="flex flex-col items-end gap-2">
-                              <Badge 
-                                variant={cert.status === "Active" ? "default" : "secondary"}
-                                className={`shrink-0 ${cert.status === "Active" ? "bg-primary text-primary-foreground" : ""}`}
-                              >
-                                <CheckCircle className="h-3 w-3 mr-1" />
-                                {cert.status}
-                              </Badge>
+                    <ScrollReveal key={index} delay={index * 0.1}>
+                      <Card className="group bg-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-glow flex flex-col h-full">
+                        <CardHeader>
+                          <div className="flex flex-col gap-2">
+                            <div className="flex justify-between items-start">
+                              <CardTitle className="text-lg group-hover:text-primary transition-colors line-clamp-2 flex-1 mr-2">
+                                {cert.name}
+                              </CardTitle>
+                              <div className="flex flex-col items-end gap-2">
+                                <Badge 
+                                  variant={cert.status === "Active" ? "default" : "secondary"}
+                                  className={`shrink-0 ${cert.status === "Active" ? "bg-primary text-primary-foreground" : ""}`}
+                                >
+                                  <CheckCircle className="h-3 w-3 mr-1" />
+                                  {cert.status}
+                                </Badge>
+                              </div>
+                            </div>
+                            <div className="flex items-center gap-2 text-primary font-semibold text-sm">
+                              <div className="p-1 bg-primary/10 rounded-md h-8 w-8 flex items-center justify-center shrink-0">
+                                {cert.issuerLogoUrl ? (
+                                  <img 
+                                    src={cert.issuerLogoUrl} 
+                                    alt={cert.issuer} 
+                                    className="max-h-full max-w-full object-contain"
+                                  />
+                                ) : (
+                                  getProviderIcon(cert.issuer)
+                                )}
+                              </div>
+                              {cert.issuer}
                             </div>
                           </div>
-                          <div className="flex items-center gap-2 text-primary font-semibold text-sm">
-                            <div className="p-1 bg-primary/10 rounded-md h-8 w-8 flex items-center justify-center shrink-0">
-                              {cert.issuerLogoUrl ? (
-                                <img 
-                                  src={cert.issuerLogoUrl} 
-                                  alt={cert.issuer} 
-                                  className="max-h-full max-w-full object-contain"
-                                />
-                              ) : (
-                                getProviderIcon(cert.issuer)
-                              )}
-                            </div>
-                            {cert.issuer}
-                          </div>
-                        </div>
-                      </CardHeader>
-                      
-                      <CardContent className="space-y-4 flex-1 flex flex-col">
-                        <p className="text-muted-foreground text-sm line-clamp-3 flex-1">{cert.description}</p>
+                        </CardHeader>
                         
-                        <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                          <div className="flex items-center gap-1">
-                            <Calendar className="h-3 w-3" />
-                            {cert.date}
+                        <CardContent className="space-y-4 flex-1 flex flex-col">
+                          <p className="text-muted-foreground text-sm line-clamp-3 flex-1">{cert.description}</p>
+                          
+                          <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                            <div className="flex items-center gap-1">
+                              <Calendar className="h-3 w-3" />
+                              {cert.date}
+                            </div>
+                            <div className="truncate max-w-[150px]" title={cert.credentialId}>
+                              ID: {cert.credentialId}
+                            </div>
                           </div>
-                          <div className="truncate max-w-[150px]" title={cert.credentialId}>
-                            ID: {cert.credentialId}
+
+                          <div className="flex flex-wrap gap-1.5 pt-2">
+                            {cert.skills.slice(0, 3).map((skill, skillIndex) => (
+                              <Badge key={skillIndex} variant="outline" className="text-[10px]">
+                                {skill}
+                              </Badge>
+                            ))}
+                            {cert.skills.length > 3 && (
+                              <Badge variant="outline" className="text-[10px]">
+                                +{cert.skills.length - 3}
+                              </Badge>
+                            )}
                           </div>
-                        </div>
 
-                        <div className="flex flex-wrap gap-1.5 pt-2">
-                          {cert.skills.slice(0, 3).map((skill, skillIndex) => (
-                            <Badge key={skillIndex} variant="outline" className="text-[10px]">
-                              {skill}
-                            </Badge>
-                          ))}
-                          {cert.skills.length > 3 && (
-                            <Badge variant="outline" className="text-[10px]">
-                              +{cert.skills.length - 3}
-                            </Badge>
-                          )}
-                        </div>
-
-                        <div className="pt-2 mt-auto grid grid-cols-2 gap-2">
-                          <Button 
-                            variant="ghost" 
-                            size="sm" 
-                            className="w-full"
-                            onClick={() => handleOpenModal(cert)}
-                          >
-                            <Eye className="h-4 w-4 mr-2" />
-                            Details
-                          </Button>
-                          <a href={cert.url} target="_blank" rel="noopener noreferrer" className="w-full">
-                            <Button variant="outline" size="sm" className="w-full group">
-                              <ExternalLink className="h-4 w-4 mr-2" />
-                              Verify
+                          <div className="pt-2 mt-auto grid grid-cols-2 gap-2">
+                            <Button 
+                              variant="ghost" 
+                              size="sm" 
+                              className="w-full"
+                              onClick={() => handleOpenModal(cert)}
+                            >
+                              <Eye className="h-4 w-4 mr-2" />
+                              Details
                             </Button>
-                          </a>
-                        </div>
-                      </CardContent>
-                    </Card>
+                            <a href={cert.url} target="_blank" rel="noopener noreferrer" className="w-full">
+                              <Button variant="outline" size="sm" className="w-full group">
+                                <ExternalLink className="h-4 w-4 mr-2" />
+                                Verify
+                              </Button>
+                            </a>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </ScrollReveal>
                   ))}
               </div>
             </TabsContent>
