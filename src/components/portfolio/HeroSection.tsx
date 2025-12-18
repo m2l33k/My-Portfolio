@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Download, Mail, Github, Linkedin, Shield, Terminal, Phone, Award } from "lucide-react";
@@ -6,6 +6,31 @@ import ContactForm from './ContactForm';
 import CvDownloadModal from './CvDownloadModal';
 import SkillsMatrixModal from './SkillsMatrixModal';
 import PortfolioStats from './PortfolioStats';
+
+const Typewriter = ({ text, speed = 100 }: { text: string; speed?: number }) => {
+  const [displayText, setDisplayText] = useState('');
+
+  useEffect(() => {
+    let i = 0;
+    const timer = setInterval(() => {
+      if (i <= text.length) {
+        setDisplayText(text.slice(0, i));
+        i++;
+      } else {
+        clearInterval(timer);
+      }
+    }, speed);
+
+    return () => clearInterval(timer);
+  }, [text, speed]);
+
+  return (
+    <span>
+      {displayText}
+      <span className="animate-pulse">_</span>
+    </span>
+  );
+};
 
 const HeroSection = () => {
   const [isContactFormOpen, setContactFormOpen] = useState(false);
@@ -41,7 +66,9 @@ const HeroSection = () => {
               <div className="space-y-4">
                 <div className="flex items-center gap-2 text-primary">
                   <Terminal className="h-5 w-5" />
-                  <span className="text-sm uppercase tracking-wide">Computer Engineering Student</span>
+                  <span className="text-sm uppercase tracking-wide">
+                    <Typewriter text="Computer Engineering Student" />
+                  </span>
                 </div>
                 <h1 className="text-4xl lg:text-6xl font-bold">
                   <span className="text-foreground">Hi, I'm</span>{" "}
