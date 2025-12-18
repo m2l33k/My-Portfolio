@@ -1,9 +1,15 @@
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Briefcase, Github, ExternalLink, Lock, Shield, Bug, Network } from "lucide-react";
+import ProjectDetailsModal from "./ProjectDetailsModal";
 
 const ProjectsSection = () => {
+  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState("All");
+
   const projects = [
     {
       title: "ERP SYSTEM FOR ISO 9001 PROCESS AUTOMATION",
@@ -12,10 +18,11 @@ const ProjectsSection = () => {
       location: "ESPRIT",
       description: "Integrated an ERP system to automate ISO 9001 compliance, reducing manual work by 60% and improving quality management through real-time reporting.",
       icon: Briefcase,
-      category: "Enterprise Software",
+      category: "Dev",
       technologies: ["SpringBoot", "Angular 19 ", "PostgreSQL", "Maven", "Git", "Jenkins", "Docker", "Kubernetes", "Jira"],
       highlights: ["60% reduction in manual work", "Real-time compliance reporting", "Quality management automation"],
       status: "Completed",
+      images: ["/placeholder.svg", "/placeholder.svg"]
     },
     {
       title: "AI-DRIVEN CYBERSECURITY INCIDENT RESPONSE PLATFORM",
@@ -24,10 +31,11 @@ const ProjectsSection = () => {
       location: "",
       description: "Designed an AI/ML-based platform for automated threat analysis, integrating Snort/Suricata to accelerate incident response by 35%",
       icon: Shield,
-      category: "AI/Cybersecurity",
+      category: "IA",
       technologies: ["Python", "Scikit-learn", "Snort", "Suricata", "Pandas", "NumPy", "Jupyter Notebook"],
       highlights: ["35% faster incident response", "Automated threat analysis", "ML-based detection"],
       status: "Completed",
+      images: ["/placeholder.svg", "/placeholder.svg"]
     },
     {
       title: "Techpioneers",
@@ -36,10 +44,11 @@ const ProjectsSection = () => {
       location: "",
       description: "A project focused on developing innovative software solutions for modern engineering challenges.",
       icon: Briefcase,
-      category: "Web Development",
+      category: "Dev",
       technologies: ["Symfony 6", "MySQL"],
       highlights: ["Innovative software solutions", "Modern engineering focus"],
       status: "Completed",
+      images: ["/placeholder.svg", "/placeholder.svg"]
     },
     {
       title: "BASIC NETWORK SNIFFER",
@@ -48,10 +57,11 @@ const ProjectsSection = () => {
       location: "",
       description: "An initial phase of network traffic monitoring to detect suspicious activities in cybersecurity.",
       icon: Network,
-      category: "Cyber Security",
+      category: "Cybersecurity",
       technologies: ["Python", "Scapy"],
       highlights: ["Network traffic monitoring", "Suspicious activity detection"],
       status: "Completed",
+      images: ["/placeholder.svg", "/placeholder.svg"]
     },
     {
       title: "Phishing Awareness Training",
@@ -60,10 +70,11 @@ const ProjectsSection = () => {
       location: "",
       description: "A training program designed to raise awareness and prevent phishing attacks through interactive sessions.",
       icon: Shield,
-      category: "Cyber Security",
+      category: "Cybersecurity",
       technologies: [],
       highlights: ["Interactive training sessions", "Phishing attack prevention"],
       status: "Completed",
+      images: ["/placeholder.svg", "/placeholder.svg"]
     },
     {
       title: "SmartShield AI-Powered",
@@ -72,10 +83,11 @@ const ProjectsSection = () => {
       location: "",
       description: "An advanced cybersecurity solution powered by AI to detect and prevent threats in real-time.",
       icon: Shield,
-      category: "Cyber Security",
+      category: "IA",
       technologies: ["Python", "TensorFlow" , "SAST" , "DAST" , "Nmap" , "Jupyter" , "Git" , "Docker","OWASP" , "ZAP"],
       highlights: ["AI-powered threat detection", "Real-time prevention"],
       status: "Completed",
+      images: ["/placeholder.svg", "/placeholder.svg"]
     },
     {
       title: "NextJEEL",
@@ -84,10 +96,11 @@ const ProjectsSection = () => {
       location: "",
       description: "A web development project focused on creating a modern, responsive platform for interactive learning.",
       icon: Briefcase,
-      category: "Web Development",
+      category: "Dev",
       technologies: ["React.js"],
       highlights: ["Modern & responsive platform", "Interactive learning focus"],
       status: "Completed",
+      images: ["/placeholder.svg", "/placeholder.svg"]
     },
     {
       title: "Luducatio - Robot éducatif pour l'apprentissage des échecs",
@@ -96,12 +109,24 @@ const ProjectsSection = () => {
       location: "",
       description: "An educational web project integrating a robotic platform for chess learning and skill-building.",
       icon: Briefcase,
-      category: "Web Development",
+      category: "IA",
       technologies: ["python" , "machine learning" , "opencv"],
       highlights: ["Robotic platform integration", "Chess learning application"],
       status: "Completed",
+      images: ["/placeholder.svg", "/placeholder.svg"]
     },
   ];
+
+  const categories = ["All", "Cybersecurity", "IA", "Dev"];
+
+  const filteredProjects = activeCategory === "All" 
+    ? projects 
+    : projects.filter(project => project.category === activeCategory);
+
+  const handleProjectClick = (project: any) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
 
   return (
     <section id="projects" className="py-24">
@@ -117,12 +142,29 @@ const ProjectsSection = () => {
           </p>
         </div>
 
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {categories.map((category) => (
+            <Button
+              key={category}
+              variant={activeCategory === category ? "default" : "outline"}
+              onClick={() => setActiveCategory(category)}
+              className="min-w-[100px] transition-all duration-300"
+            >
+              {category}
+            </Button>
+          ))}
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <Card key={index} className="group bg-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-glow">
+          {filteredProjects.map((project, index) => (
+            <Card 
+              key={index} 
+              className="group bg-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-glow cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+              onClick={() => handleProjectClick(project)}
+            >
               <CardHeader>
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-primary/10 rounded-lg">
+                  <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors duration-300">
                     <project.icon className="h-6 w-6 text-primary" />
                   </div>
                   <div className="flex-1">
@@ -150,37 +192,51 @@ const ProjectsSection = () => {
               </CardHeader>
               
               <CardContent className="space-y-6">
-                <p className="text-muted-foreground">{project.description}</p>
+                <p className="text-muted-foreground line-clamp-3">{project.description}</p>
                 
                 <div>
                   <h4 className="font-semibold mb-2 text-foreground">Key Highlights:</h4>
                   <ul className="space-y-1">
-                    {project.highlights.map((highlight, highlightIndex) => (
+                    {project.highlights.slice(0, 2).map((highlight, highlightIndex) => (
                       <li key={highlightIndex} className="text-sm text-muted-foreground flex items-center gap-2">
                         <div className="w-1 h-1 bg-primary rounded-full" />
                         {highlight}
                       </li>
                     ))}
+                    {project.highlights.length > 2 && (
+                      <li className="text-xs text-primary mt-1 italic">
+                        + {project.highlights.length - 2} more (click to view)
+                      </li>
+                    )}
                   </ul>
                 </div>
 
                 <div>
                   <h4 className="font-semibold mb-2 text-foreground">Technologies:</h4>
                   <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, techIndex) => (
+                    {project.technologies.slice(0, 5).map((tech, techIndex) => (
                       <Badge key={techIndex} variant="outline" className="text-xs">
                         {tech}
                       </Badge>
                     ))}
+                    {project.technologies.length > 5 && (
+                      <Badge variant="outline" className="text-xs">
+                        +{project.technologies.length - 5}
+                      </Badge>
+                    )}
                   </div>
                 </div>
-
-
               </CardContent>
             </Card>
           ))}
         </div>
       </div>
+      
+      <ProjectDetailsModal 
+        project={selectedProject} 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </section>
   );
 };
