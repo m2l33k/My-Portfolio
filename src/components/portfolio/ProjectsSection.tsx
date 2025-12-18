@@ -126,22 +126,22 @@ const ProjectsSection = () => {
                     <project.icon className="h-6 w-6 text-primary" />
                   </div>
                   <div className="flex-1">
-                    <div className="flex items-start justify-between">
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
                       <CardTitle className="text-xl group-hover:text-primary transition-colors">
                         {project.title}
                       </CardTitle>
-                      <Badge variant="outline" className="ml-2">
+                      <Badge variant="outline" className="w-fit">
                         {project.category}
                       </Badge>
                     </div>
-                    <div className="flex items-center gap-4 mt-2 text-sm text-muted-foreground">
+                    <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-sm text-muted-foreground">
                       <p>{project.company}</p>
                       <p>{project.period}</p>
-                      <p>{project.location}</p>
+                      {project.location && <p>{project.location}</p>}
                     </div>
                     <Badge 
                       variant={project.status === "Completed" ? "default" : "secondary"}
-                      className="mt-2"
+                      className="mt-2 w-fit"
                     >
                       {project.status}
                     </Badge>

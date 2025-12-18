@@ -54,7 +54,7 @@ const InternshipsSection = () => {
                   <CardHeader>
                     <CardTitle className="text-xl text-foreground">{internship.company}</CardTitle>
                     <p className="text-primary font-semibold">{internship.role}</p>
-                    <div className="flex items-center gap-4 mt-2 text-sm text-muted-foreground">
+                    <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-sm text-muted-foreground">
                       <p>{internship.period}</p>
                       <p>{internship.location}</p>
                     </div>

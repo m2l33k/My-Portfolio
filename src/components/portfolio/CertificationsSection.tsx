@@ -135,7 +135,7 @@ const CertificationsSection = () => {
           {certifications.map((cert, index) => (
             <Card key={index} className="group bg-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-glow">
               <CardHeader>
-                <div className="flex items-start justify-between">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                   <div className="flex-1">
                     <CardTitle className="text-xl group-hover:text-primary transition-colors">
                       {cert.name}
@@ -144,7 +144,7 @@ const CertificationsSection = () => {
                   </div>
                   <Badge 
                     variant={cert.status === "Active" ? "default" : "secondary"}
-                    className={cert.status === "Active" ? "bg-primary text-primary-foreground" : ""}
+                    className={`w-fit ${cert.status === "Active" ? "bg-primary text-primary-foreground" : ""}`}
                   >
                     <CheckCircle className="h-3 w-3 mr-1" />
                     {cert.status}
@@ -153,14 +153,14 @@ const CertificationsSection = () => {
               </CardHeader>
               
               <CardContent className="space-y-4">
-                <p className="text-muted-foreground">{cert.description}</p>
+                <p className="text-muted-foreground text-sm sm:text-base">{cert.description}</p>
                 
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-1">
                     <Calendar className="h-4 w-4" />
                     {cert.date}
                   </div>
-                  <div>ID: {cert.credentialId}</div>
+                  <div className="break-all">ID: {cert.credentialId}</div>
                 </div>
 
                 <div className="flex flex-wrap gap-2">

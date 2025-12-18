@@ -55,12 +55,12 @@ const EducationSection = () => {
                     <p className="text-primary font-semibold">{edu.institution}</p>
                     <p className="text-sm text-muted-foreground">{edu.location}</p>
                   </div>
-                  <div className="text-right">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                  <div className="flex flex-col gap-2 md:items-end">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <Calendar className="h-4 w-4" />
                       {edu.period}
                     </div>
-                    <Badge variant="default" className="bg-primary text-primary-foreground">
+                    <Badge variant="default" className="w-fit bg-primary text-primary-foreground">
                       {edu.status}
                     </Badge>
                   </div>
@@ -111,12 +111,12 @@ const EducationSection = () => {
           <CardContent>
             <div className="grid md:grid-cols-2 gap-4">
               {onlineCourses.map((course, index) => (
-                <div key={index} className="flex items-center justify-between p-3 bg-secondary/50 rounded-lg">
-                  <div>
+                <div key={index} className="flex items-start justify-between p-3 bg-secondary/50 rounded-lg gap-4">
+                  <div className="flex-1">
                     <p className="font-medium text-foreground">{course.name}</p>
                     <p className="text-sm text-primary">{course.provider}</p>
                   </div>
-                  <Badge variant="outline">{course.year}</Badge>
+                  <Badge variant="outline" className="shrink-0">{course.year}</Badge>
                 </div>
               ))}
             </div>
