@@ -18,7 +18,7 @@ const ProjectsSection = () => {
       location: "",
       description: "A pioneering digital health platform designed to bridge the gap between clinical developmental assessment and home-based therapy using multimodal AI.",
       icon: Briefcase,
-      category: "IA",
+      category: "AI",
       technologies: ["Next.js 14", "Python FastAPI", "Supabase", "OpenCV", "Phi-4 Multimodal Model", "Tailwind CSS"],
       highlights: ["AI-based developmental disorder detection", "Gamified therapy integration", "Real-time progress tracking"],
       status: "Completed",
@@ -46,7 +46,7 @@ const ProjectsSection = () => {
       location: "",
       description: "An advanced Multi-Agent System (MAS) where AI models compete to solve algorithmic problems with a Human-in-the-Loop architecture and real-time Web UI.",
       icon: Bot,
-      category: "IA",
+      category: "AI",
       technologies: ["Python 3.10+", "Ollama", "Llama 3.1", "Mistral", "GPT-4o", "Flask", "HTML/CSS"],
       highlights: ["Multi-Agent System with Hybrid Intelligence", "Real-time gamified battle UI", "Human-in-the-Loop architecture"],
       status: "Completed",
@@ -60,7 +60,7 @@ const ProjectsSection = () => {
       location: "",
       description: "A Python-based simulation of a decentralized fleet of autonomous delivery vehicles using swarm intelligence, a Proof-of-Authority blockchain, and a local Large Language Model (LLM) for strategic oversight.",
       icon: Network,
-      category: "IA",
+      category: "AI",
       technologies: ["Python 3.12+", "Ollama", "Llama 3:8b", "numpy", "pygame"],
       highlights: ["Three-tiered intelligence model", "Decentralized bidding protocol", "Energy-efficient PoA blockchain"],
       status: "In Development",
@@ -74,7 +74,7 @@ const ProjectsSection = () => {
       location: "",
       description: "An intelligent message filtering system designed to detect and filter offensive content in chat applications. The system uses machine learning to classify messages as either offensive or non-offensive.",
       icon: Shield,
-      category: "IA",
+      category: "AI",
       technologies: ["Python", "Machine Learning", "REST API", "Angular"],
       highlights: ["Real-time offensive content filtering", "ML-based classification", "REST API integration"],
       status: "Completed",
@@ -115,7 +115,7 @@ const ProjectsSection = () => {
       location: "",
       description: "Designed an AI/ML-based platform for automated threat analysis, integrating Snort/Suricata to accelerate incident response by 35%",
       icon: Shield,
-      category: "IA",
+      category: "AI",
       technologies: ["Python", "Scikit-learn", "Snort", "Suricata", "Pandas", "NumPy", "Jupyter Notebook"],
       highlights: ["35% faster incident response", "Automated threat analysis", "ML-based detection"],
       status: "Completed",
@@ -181,7 +181,7 @@ const ProjectsSection = () => {
       location: "",
       description: "An educational web project integrating a robotic platform for chess learning and skill-building.",
       icon: Briefcase,
-      category: "IA",
+      category: "AI",
       technologies: ["python" , "machine learning" , "opencv"],
       highlights: ["Robotic platform integration", "Chess learning application"],
       status: "Completed",
@@ -190,7 +190,7 @@ const ProjectsSection = () => {
     },
   ];
 
-  const categories = ["All", "Cybersecurity", "IA", "Dev"];
+  const categories = ["All", "Cybersecurity", "AI", "Dev"];
 
   const filteredProjects = activeCategory === "All" 
     ? projects 

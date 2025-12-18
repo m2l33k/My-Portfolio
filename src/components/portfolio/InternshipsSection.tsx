@@ -24,7 +24,7 @@ const InternshipsSection = () => {
       period: "July 2025 – Present",
       location: "Tunis, Tunisia",
       description: "Developed a blockchain-based solution for smart grid security, analyzing performance, reliability, and latency in a simulated environment, achieving a benchmark latency of 49.5 ms for anomaly detection in the model.",
-      logoUrl: "image-removebg-preview(17).png",
+      logoUrl: "https://res.cloudinary.com/dvmuvjukn/image/upload/v1724034102/My-Resume/sdwjguyjgdvlkw3cmh56.png",
       companyUrl: "https://esprit.tn",
       technologies: ["Blockchain", "AI", "Smart Grid", "Security Research"],
       certificateUrl: "https://res.cloudinary.com/dvmuvjukn/image/upload/v1766060218/WhatsApp_Image_2025-12-18_at_13.16.30_s57ofs.jpg"
@@ -46,7 +46,7 @@ const InternshipsSection = () => {
       period: "June 2024 – August 2024",
       location: "Tunis, Tunisia",
       description: "Simulated wireless network attacks, identified vulnerabilities, and implemented countermeasures, reducing the attack surface by 40%.",
-      logoUrl: "image-removebg-preview(17).png",
+      logoUrl: "https://res.cloudinary.com/dvmuvjukn/image/upload/v1724034102/My-Resume/sdwjguyjgdvlkw3cmh56.png",
       companyUrl: "https://esprit.tn",
       technologies: ["Wireless Security", "Bluetooth Security", "Network Attacks", "Countermeasures"],
       certificateUrl: "https://res.cloudinary.com/dvmuvjukn/image/upload/v1766060203/Capture_d_%C3%A9cran_2025-12-18_131442_r92h0t.png"
