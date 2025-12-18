@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Briefcase, Github, ExternalLink, Lock, Shield, Bug, Network } from "lucide-react";
+import { Briefcase, Github, ExternalLink, Lock, Shield, Bug, Network, Bot, Headphones } from "lucide-react";
 import ProjectDetailsModal from "./ProjectDetailsModal";
 
 const ProjectsSection = () => {
@@ -11,6 +11,88 @@ const ProjectsSection = () => {
   const [activeCategory, setActiveCategory] = useState("All");
 
   const projects = [
+    {
+      title: "Cognicare",
+      company: "IEEE",
+      period: "December 2025",
+      location: "",
+      description: "A pioneering digital health platform designed to bridge the gap between clinical developmental assessment and home-based therapy using multimodal AI.",
+      icon: Briefcase,
+      category: "IA",
+      technologies: ["Next.js 14", "Python FastAPI", "Supabase", "OpenCV", "Phi-4 Multimodal Model", "Tailwind CSS"],
+      highlights: ["AI-based developmental disorder detection", "Gamified therapy integration", "Real-time progress tracking"],
+      status: "Completed",
+      images: ["/placeholder.svg", "/placeholder.svg"],
+      githubUrl: "https://github.com/yourusername/erp-iso-9001"
+    },
+    {
+      title: "ZenFlow Sanctuary",
+      company: "Personal Project",
+      period: "2025",
+      location: "",
+      description: "A modern web application designed to enhance focus and productivity through ambient sound mixing and Pomodoro time management.",
+      icon: Headphones,
+      category: "Dev",
+      technologies: ["React 18", "TypeScript", "Tailwind CSS", "Vite", "Radix UI", "Cloudinary"],
+      highlights: ["Advanced Sound Mixer with 20+ ambient sounds", "Customizable Pomodoro Timer", "Scene Saving & Glassmorphism UI"],
+      status: "Completed",
+      images: ["/placeholder.svg", "/placeholder.svg"],
+      githubUrl: "https://github.com/m2l33k/ZenFLow"
+    },
+    {
+      title: "Code Arena AI: Multi-Agent Coding Tournament",
+      company: "Personal Project",
+      period: "November 2025",
+      location: "",
+      description: "An advanced Multi-Agent System (MAS) where AI models compete to solve algorithmic problems with a Human-in-the-Loop architecture and real-time Web UI.",
+      icon: Bot,
+      category: "IA",
+      technologies: ["Python 3.10+", "Ollama", "Llama 3.1", "Mistral", "GPT-4o", "Flask", "HTML/CSS"],
+      highlights: ["Multi-Agent System with Hybrid Intelligence", "Real-time gamified battle UI", "Human-in-the-Loop architecture"],
+      status: "Completed",
+      images: ["/placeholder.svg", "/placeholder.svg"],
+      githubUrl: "https://github.com/yourusername/code_arena_ai.git"
+    },
+    {
+      title: "Decentralized Swarm Logistics Simulation",
+      company: "Personal Project",
+      period: "Sep 2025",
+      location: "",
+      description: "A Python-based simulation of a decentralized fleet of autonomous delivery vehicles using swarm intelligence, a Proof-of-Authority blockchain, and a local Large Language Model (LLM) for strategic oversight.",
+      icon: Network,
+      category: "IA",
+      technologies: ["Python 3.12+", "Ollama", "Llama 3:8b", "numpy", "pygame"],
+      highlights: ["Three-tiered intelligence model", "Decentralized bidding protocol", "Energy-efficient PoA blockchain"],
+      status: "In Development",
+      images: ["/placeholder.svg", "/placeholder.svg"],
+      githubUrl: "https://github.com/yourusername/sworm-intelligent7.git"
+    },
+    {
+      title: "Offensive Message Filter System",
+      company: "Personal Project",
+      period: "2024",
+      location: "",
+      description: "An intelligent message filtering system designed to detect and filter offensive content in chat applications. The system uses machine learning to classify messages as either offensive or non-offensive.",
+      icon: Shield,
+      category: "IA",
+      technologies: ["Python", "Machine Learning", "REST API", "Angular"],
+      highlights: ["Real-time offensive content filtering", "ML-based classification", "REST API integration"],
+      status: "Completed",
+      images: ["/placeholder.svg", "/placeholder.svg"]
+    },
+    {
+      title: "Cyber Sentinel - Advanced Security Analysis Tool",
+      company: "Personal Project",
+      period: "2024",
+      location: "",
+      description: "A comprehensive security analysis platform that combines code scanning, network reconnaissance, and AI-powered vulnerability assessment into one integrated solution.",
+      icon: Shield,
+      category: "Cybersecurity",
+      technologies: ["Python", "Semgrep", "Nmap", "AI/ML", "DNS Recon"],
+      highlights: ["AI-powered vulnerability assessment", "Automated code scanning (Semgrep)", "Network reconnaissance & fuzzing"],
+      status: "Completed",
+      images: ["/placeholder.svg", "/placeholder.svg"]
+    },
     {
       title: "ERP SYSTEM FOR ISO 9001 PROCESS AUTOMATION",
       company: "Cocosunult",
@@ -39,15 +121,15 @@ const ProjectsSection = () => {
       images: ["/placeholder.svg", "/placeholder.svg"]
     },
     {
-      title: "Techpioneers",
+      title: "TechPioneers",
       company: "Personal Project",
-      period: "2025",
+      period: "2024",
       location: "",
-      description: "A project focused on developing innovative software solutions for modern engineering challenges.",
+      description: "An educational e-learning platform focused on delivering modern software engineering courses and interactive learning experiences.",
       icon: Briefcase,
       category: "Dev",
-      technologies: ["Symfony 6", "MySQL"],
-      highlights: ["Innovative software solutions", "Modern engineering focus"],
+      technologies: ["Symfony 6", "MySQL", "HTML", "CSS", "JavaScript"],
+      highlights: ["Educational e-learning platform", "Modern software engineering focus"],
       status: "Completed",
       images: ["/placeholder.svg", "/placeholder.svg"]
     },
