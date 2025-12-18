@@ -1,14 +1,22 @@
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import InternshipDetailsModal, { Internship } from "./InternshipDetailsModal";
 
 const InternshipsSection = () => {
-  const internships = [
+  const [selectedInternship, setSelectedInternship] = useState<Internship | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const internships: Internship[] = [
     {
       company: "OXYNAS",
       role: "INTERN IN AI-POWERED WEB APPLICATION PENTESTING",
       period: "June 2025 – August 2025",
       location: "Paris / Remote",
-      description: "Developed an AI-based web pentesting automation tool, enhancing vulnerability detection and reducing manual effort by 80%",
-      logoUrl: "oxynas-logo-slogan.png", // Replace with actual path or URL
+      description: "Developed an AI-powered penetration testing agent designed to automate the security assessment of web applications Integrated advanced vulnerability scanning techniques enhanced by machine learning to identify potential threats more efficiently Achieved higher detection accuracy while significantly reducing manual testing time, streamlining the overall security testing process",
+      logoUrl: "oxynas-logo-slogan.png",
+      companyUrl: "https://oxynas.com",
+      technologies: ["AI", "Web Security", "Python", "Automation"],
+      certificateUrl: ""
     },
     {
       company: "ESPRIT",
@@ -16,7 +24,10 @@ const InternshipsSection = () => {
       period: "July 2025 – Present",
       location: "Tunis, Tunisia",
       description: "Developed a blockchain-based solution for smart grid security, analyzing performance, reliability, and latency in a simulated environment, achieving a benchmark latency of 49.5 ms for anomaly detection in the model.",
-      logoUrl: "image-removebg-preview(17).png", // Replace with actual path or URL
+      logoUrl: "image-removebg-preview(17).png",
+      companyUrl: "https://esprit.tn",
+      technologies: ["Blockchain", "AI", "Smart Grid", "Security Research"],
+      certificateUrl: ""
     },
     {
       company: "TALAN-TUNISIA",
@@ -24,7 +35,10 @@ const InternshipsSection = () => {
       period: "June 2024 – September 2024",
       location: "Tunis, Tunisia",
       description: "Enhanced ZAP Proxy-based pentesting through automation and custom scripts, accelerating vulnerability assessment.",
-      logoUrl: "image-removebg-preview(16).png", // Replace with actual path or URL
+      logoUrl: "image-removebg-preview(16).png",
+      companyUrl: "https://talan.com",
+      technologies: ["OWASP ZAP", "Python", "Web Security", "Automation"],
+      certificateUrl: "/Talan_attestation_stage_Malek_Aziz_Hassayoun_page-0001.jpg"
     },
     {
       company: "ESPRIT",
@@ -32,9 +46,17 @@ const InternshipsSection = () => {
       period: "June 2024 – August 2024",
       location: "Tunis, Tunisia",
       description: "Simulated wireless network attacks, identified vulnerabilities, and implemented countermeasures, reducing the attack surface by 40%.",
-      logoUrl: "image-removebg-preview(17).png", // Replace with actual path or URL
+      logoUrl: "image-removebg-preview(17).png",
+      companyUrl: "https://esprit.tn",
+      technologies: ["Wireless Security", "Bluetooth Security", "Network Attacks", "Countermeasures"],
+      certificateUrl: "/Attestation de stage .jpg"
     },
   ];
+
+  const handleInternshipClick = (internship: Internship) => {
+    setSelectedInternship(internship);
+    setIsModalOpen(true);
+  };
 
   return (
     <section id="internships" className="py-24">
@@ -45,14 +67,18 @@ const InternshipsSection = () => {
 
         <div className="space-y-8">
           {internships.map((internship, index) => (
-            <Card key={index} className="bg-card border-border hover:border-primary/50 transition-all duration-300 overflow-hidden">
+            <Card 
+              key={index} 
+              className="bg-card border-border hover:border-primary/50 transition-all duration-300 overflow-hidden cursor-pointer hover:shadow-glow group"
+              onClick={() => handleInternshipClick(internship)}
+            >
               <div className="flex flex-col md:flex-row">
-                <div className="md:w-1/4 flex items-center justify-center p-6 bg-muted/40">
+                <div className="md:w-1/4 flex items-center justify-center p-6 bg-muted/40 group-hover:bg-primary/5 transition-colors duration-300">
                   <img src={internship.logoUrl} alt={`${internship.company} logo`} className="h-20 w-auto object-contain" />
                 </div>
                 <div className="md:w-3/4">
                   <CardHeader>
-                    <CardTitle className="text-xl text-foreground">{internship.company}</CardTitle>
+                    <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors">{internship.company}</CardTitle>
                     <p className="text-primary font-semibold">{internship.role}</p>
                     <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-sm text-muted-foreground">
                       <p>{internship.period}</p>
@@ -60,7 +86,7 @@ const InternshipsSection = () => {
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground">{internship.description}</p>
+                    <p className="text-muted-foreground line-clamp-2">{internship.description}</p>
                   </CardContent>
                 </div>
               </div>
@@ -68,6 +94,12 @@ const InternshipsSection = () => {
           ))}
         </div>
       </div>
+
+      <InternshipDetailsModal 
+        internship={selectedInternship}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </section>
   );
 };
