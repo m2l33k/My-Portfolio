@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Download, Mail, Github, Linkedin, Shield, Terminal, Phone, Award } from "lucide-react";
+import { Download, Mail, Github, Linkedin, Shield, Terminal, Phone, Award, Bot } from "lucide-react";
 import ContactForm from './ContactForm';
 import CvDownloadModal from './CvDownloadModal';
 import SkillsMatrixModal from './SkillsMatrixModal';
@@ -33,6 +34,7 @@ const Typewriter = ({ text, speed = 100 }: { text: string; speed?: number }) => 
 };
 
 const HeroSection = () => {
+  const navigate = useNavigate();
   const [isContactFormOpen, setContactFormOpen] = useState(false);
   const [isCvModalOpen, setCvModalOpen] = useState(false);
   const [isSkillsMatrixOpen, setSkillsMatrixOpen] = useState(false);
@@ -94,6 +96,10 @@ const HeroSection = () => {
                 <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground" onClick={handleOpenSkillsMatrix}>
                   <Shield className="mr-2 h-4 w-4" />
                   Skills Matrix
+                </Button>
+                <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground" onClick={() => navigate('/chat')}>
+                  <Bot className="mr-2 h-4 w-4" />
+                  Ask AI
                 </Button>
               </div>
 

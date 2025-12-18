@@ -3,6 +3,34 @@ import { Certification } from "@/components/portfolio/CertificationDetailsModal"
 import { Internship } from "@/components/portfolio/InternshipDetailsModal";
 import { Project } from "@/components/portfolio/ProjectDetailsModal";
 
+export const onlineCourses = [
+  { name: "CyberSecurity 101 ", provider: "Tryhackme", year: "2025" },
+  { name: "Global Education Program Focused on AI", provider: "Samsung Innovation Campus", year: "2025" },
+];
+
+export const education = [
+  {
+    degree: "B.S. Software Engineering",
+    institution: "The High Private School of Engineering and Technology (ESPRIT)",
+    location: "Ariana, Tunisia",
+    period: "2023 - Present",
+    status: "In Progress",
+    description: "Comprehensive software engineering education with focus on cybersecurity, AI, and blockchain technologies.",
+    coursework: ["Software Architecture", "Cybersecurity", "AI & Machine Learning", "Blockchain Technology", "DevSecOps"],
+    achievements: ["Multiple Pentesting Internships", "Active in IEEE Projects"]
+  },
+  {
+    degree: "Preparatory Studies for Engineering",
+    institution: "Faculty of Sciences Monastir",
+    location: "Monastir, Tunisia",
+    period: "2020 - 2023",
+    status: "Graduated",
+    description: "Foundational engineering studies preparing for advanced computer science and cybersecurity specialization.",
+    coursework: ["Mathematics", "Physics", "Computer Science Fundamentals", "Engineering Principles", "Problem Solving"],
+    achievements: ["Strong foundation in STEM subjects"]
+  }
+];
+
 export const projects: Project[] = [
   {
     title: "Cognicare",
