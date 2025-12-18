@@ -22,8 +22,8 @@ const ProjectsSection = () => {
       technologies: ["Next.js 14", "Python FastAPI", "Supabase", "OpenCV", "Phi-4 Multimodal Model", "Tailwind CSS"],
       highlights: ["AI-based developmental disorder detection", "Gamified therapy integration", "Real-time progress tracking"],
       status: "Completed",
-      images: ["/placeholder.svg", "/placeholder.svg"],
-      githubUrl: "https://github.com/yourusername/erp-iso-9001"
+      images: ["https://res.cloudinary.com/dvmuvjukn/image/upload/v1766057101/Capture_d_%C3%A9cran_2025-12-17_185840_f78uk9.png", "https://res.cloudinary.com/dvmuvjukn/image/upload/v1766057098/Capture_d_%C3%A9cran_2025-12-17_185421_xyh7fm.png" , "https://res.cloudinary.com/dvmuvjukn/image/upload/v1766057091/Capture_d_%C3%A9cran_2025-12-17_184931_nitskg.png" , "https://res.cloudinary.com/dvmuvjukn/image/upload/v1766057091/Capture_d_%C3%A9cran_2025-12-17_185338_wdhvwt.png"],
+      githubUrl: "https://github.com/m2l33k/ConiCare"
     },
     {
       title: "ZenFlow Sanctuary",
@@ -36,7 +36,7 @@ const ProjectsSection = () => {
       technologies: ["React 18", "TypeScript", "Tailwind CSS", "Vite", "Radix UI", "Cloudinary"],
       highlights: ["Advanced Sound Mixer with 20+ ambient sounds", "Customizable Pomodoro Timer", "Scene Saving & Glassmorphism UI"],
       status: "Completed",
-      images: ["/placeholder.svg", "/placeholder.svg"],
+      images: ["https://res.cloudinary.com/dvmuvjukn/image/upload/v1766057870/Capture_d_%C3%A9cran_2025-12-18_123000_sj9qkp.png"],
       githubUrl: "https://github.com/m2l33k/ZenFLow"
     },
     {
@@ -50,8 +50,8 @@ const ProjectsSection = () => {
       technologies: ["Python 3.10+", "Ollama", "Llama 3.1", "Mistral", "GPT-4o", "Flask", "HTML/CSS"],
       highlights: ["Multi-Agent System with Hybrid Intelligence", "Real-time gamified battle UI", "Human-in-the-Loop architecture"],
       status: "Completed",
-      images: ["/placeholder.svg", "/placeholder.svg"],
-      githubUrl: "https://github.com/yourusername/code_arena_ai.git"
+      images: ["https://res.cloudinary.com/dvmuvjukn/image/upload/v1766058091/generated-image_iknfnh.jpg", "https://res.cloudinary.com/dvmuvjukn/image/upload/v1766058105/Capture_d_%C3%A9cran_2025-12-18_124111_vzghzq.png"],
+      githubUrl: "https://github.com/m2l33k/SentenX"
     },
     {
       title: "Decentralized Swarm Logistics Simulation",
