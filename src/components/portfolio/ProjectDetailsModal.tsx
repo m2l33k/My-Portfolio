@@ -15,7 +15,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Calendar, MapPin, Building2, CheckCircle2 } from "lucide-react";
+import { Calendar, MapPin, Building2, CheckCircle2, Github } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 // Define the interface based on usage in ProjectsSection
 export interface Project {
@@ -30,6 +31,7 @@ export interface Project {
   highlights: string[];
   status: string;
   images?: string[]; // New field for photos
+  githubUrl?: string; // New field for GitHub URL
 }
 
 interface ProjectDetailsModalProps {
@@ -121,6 +123,14 @@ const ProjectDetailsModal = ({ project, isOpen, onClose }: ProjectDetailsModalPr
                     <div className="flex items-center gap-2 text-muted-foreground">
                       <MapPin className="h-4 w-4 text-primary" />
                       <span>{project.location}</span>
+                    </div>
+                  )}
+                  {project.githubUrl && (
+                    <div className="pt-2">
+                      <Button variant="outline" size="sm" className="gap-2" onClick={() => window.open(project.githubUrl, '_blank')}>
+                        <Github className="h-4 w-4" />
+                        View Source Code
+                      </Button>
                     </div>
                   )}
                 </div>

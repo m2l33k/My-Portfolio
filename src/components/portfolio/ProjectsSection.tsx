@@ -22,7 +22,8 @@ const ProjectsSection = () => {
       technologies: ["SpringBoot", "Angular 19 ", "PostgreSQL", "Maven", "Git", "Jenkins", "Docker", "Kubernetes", "Jira"],
       highlights: ["60% reduction in manual work", "Real-time compliance reporting", "Quality management automation"],
       status: "Completed",
-      images: ["/placeholder.svg", "/placeholder.svg"]
+      images: ["/placeholder.svg", "/placeholder.svg"],
+      githubUrl: "https://github.com/yourusername/erp-iso-9001"
     },
     {
       title: "AI-DRIVEN CYBERSECURITY INCIDENT RESPONSE PLATFORM",
@@ -172,9 +173,25 @@ const ProjectsSection = () => {
                       <CardTitle className="text-xl group-hover:text-primary transition-colors">
                         {project.title}
                       </CardTitle>
-                      <Badge variant="outline" className="w-fit">
-                        {project.category}
-                      </Badge>
+                      <div className="flex items-center gap-2">
+                        {project.githubUrl && (
+                          <Button 
+                            variant="ghost" 
+                            size="icon" 
+                            className="h-8 w-8 text-muted-foreground hover:text-primary" 
+                            onClick={(e) => { 
+                              e.stopPropagation(); 
+                              window.open(project.githubUrl, '_blank'); 
+                            }}
+                            title="View Source Code"
+                          >
+                            <Github className="h-5 w-5" />
+                          </Button>
+                        )}
+                        <Badge variant="outline" className="w-fit">
+                          {project.category}
+                        </Badge>
+                      </div>
                     </div>
                     <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-sm text-muted-foreground">
                       <p>{project.company}</p>
