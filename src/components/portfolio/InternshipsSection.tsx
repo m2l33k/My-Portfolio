@@ -1,57 +1,11 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import InternshipDetailsModal, { Internship } from "./InternshipDetailsModal";
+import { internships } from "@/data/portfolio";
 
 const InternshipsSection = () => {
   const [selectedInternship, setSelectedInternship] = useState<Internship | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const internships: Internship[] = [
-    {
-      company: "OXYNAS",
-      role: "INTERN IN AI-POWERED WEB APPLICATION PENTESTING",
-      period: "June 2025 – August 2025",
-      location: "Paris / Remote",
-      description: "Developed an AI-powered penetration testing agent designed to automate the security assessment of web applications Integrated advanced vulnerability scanning techniques enhanced by machine learning to identify potential threats more efficiently Achieved higher detection accuracy while significantly reducing manual testing time, streamlining the overall security testing process",
-      logoUrl: "oxynas-logo-slogan.png",
-      companyUrl: "https://oxynas.com/",
-      technologies: ["AI", "Web Security", "Python", "Automation"],
-      certificateUrl: "https://res.cloudinary.com/dvmuvjukn/image/upload/v1766060184/Capture_d_%C3%A9cran_2025-12-18_131425_kcqq6t.png"
-    },
-    {
-      company: "ESPRIT",
-      role: "BLOCKCHAIN & AI RESEARCH INTERN – SMART GRID SECURITY",
-      period: "July 2025 – Present",
-      location: "Tunis, Tunisia",
-      description: "Developed a blockchain-based solution for smart grid security, analyzing performance, reliability, and latency in a simulated environment, achieving a benchmark latency of 49.5 ms for anomaly detection in the model.",
-      logoUrl: "https://res.cloudinary.com/dvmuvjukn/image/upload/v1724034102/My-Resume/sdwjguyjgdvlkw3cmh56.png",
-      companyUrl: "https://esprit.tn",
-      technologies: ["Blockchain", "AI", "Smart Grid", "Security Research"],
-      certificateUrl: "https://res.cloudinary.com/dvmuvjukn/image/upload/v1766060218/WhatsApp_Image_2025-12-18_at_13.16.30_s57ofs.jpg"
-    },
-    {
-      company: "TALAN-TUNISIA",
-      role: "PENTESTING WEB APPLICATION INTERN",
-      period: "June 2024 – September 2024",
-      location: "Tunis, Tunisia",
-      description: "Enhanced ZAP Proxy-based pentesting through automation and custom scripts, accelerating vulnerability assessment.",
-      logoUrl: "image-removebg-preview(16).png",
-      companyUrl: "https://talan.com",
-      technologies: ["OWASP ZAP", "Python", "Web Security", "Automation"],
-      certificateUrl: "https://res.cloudinary.com/dvmuvjukn/image/upload/v1766060199/Capture_d_%C3%A9cran_2025-12-18_131434_qjcrmc.png"
-    },
-    {
-      company: "ESPRIT",
-      role: "PENTESTING WIFI/BLUETOOTH INTERN",
-      period: "June 2024 – August 2024",
-      location: "Tunis, Tunisia",
-      description: "Simulated wireless network attacks, identified vulnerabilities, and implemented countermeasures, reducing the attack surface by 40%.",
-      logoUrl: "https://res.cloudinary.com/dvmuvjukn/image/upload/v1724034102/My-Resume/sdwjguyjgdvlkw3cmh56.png",
-      companyUrl: "https://esprit.tn",
-      technologies: ["Wireless Security", "Bluetooth Security", "Network Attacks", "Countermeasures"],
-      certificateUrl: "https://res.cloudinary.com/dvmuvjukn/image/upload/v1766060203/Capture_d_%C3%A9cran_2025-12-18_131442_r92h0t.png"
-    },
-  ];
 
   const handleInternshipClick = (internship: Internship) => {
     setSelectedInternship(internship);
