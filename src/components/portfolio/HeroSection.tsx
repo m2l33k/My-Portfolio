@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Download, Mail, Github, Linkedin, Shield, Terminal, Phone, Award, Bot } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { CyberParticles } from "@/components/ui/CyberParticles";
 import ContactForm from './ContactForm';
 import CvDownloadModal from './CvDownloadModal';
 import SkillsMatrixModal from './SkillsMatrixModal';
@@ -51,8 +52,9 @@ const HeroSection = () => {
 
   return (
     <>
-      <section id="about" className="min-h-screen flex items-center justify-center pt-16 matrix-bg">
-        <div className="container mx-auto px-4">
+      <section id="about" className="min-h-screen flex items-center justify-center pt-16 matrix-bg relative">
+        <CyberParticles />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Image Content - Now on the left */}
             <ScrollReveal direction="right">

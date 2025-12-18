@@ -155,9 +155,4 @@ All colors MUST be HSL.
     background: radial-gradient(ellipse at center, hsl(var(--primary) / 0.15) 0%, transparent 80%);
     z-index: 0;
   }
-
-  .matrix-bg > * {
-    position: relative;
-    z-index: 1;
-  }
 }
