@@ -41,8 +41,13 @@ const TryHackMeStats = () => {
   }, []);
 
   if (error) {
-     // Silently fail or show minimal error
-     return null;
+    return (
+      <Card className="bg-destructive/10 border-destructive/20 w-full max-w-5xl mx-auto mt-6">
+        <CardContent className="p-6 text-center text-destructive">
+          <p>Error loading TryHackMe stats: {error}</p>
+        </CardContent>
+      </Card>
+    );
   }
 
   if (loading) {

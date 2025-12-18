@@ -59,12 +59,13 @@ app.get('/api/github-achievements', async (req, res) => {
   try {
     const response = await fetch('https://github.com/m2l33k?tab=achievements', {
       headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8'
       }
     });
     
     if (!response.ok) {
-      throw new Error(`GitHub fetch failed: ${response.statusText}`);
+      throw new Error(`GitHub fetch failed: ${response.status} ${response.statusText}`);
     }
 
     const html = await response.text();
@@ -94,12 +95,12 @@ app.get('/api/tryhackme-stats', async (req, res) => {
   try {
     const response = await fetch('https://tryhackme.com/api/v2/public-profile?username=RootKeeper', {
       headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
       }
     });
     
     if (!response.ok) {
-      throw new Error(`THM fetch failed: ${response.statusText}`);
+      throw new Error(`THM fetch failed: ${response.status} ${response.statusText}`);
     }
 
     const data = await response.json();
