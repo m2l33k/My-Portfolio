@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Chatbot from "./pages/Chatbot";
 import Activity from "./pages/Activity";
 import NotFound from "./pages/NotFound";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const queryClient = new QueryClient();
 
