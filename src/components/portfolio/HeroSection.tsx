@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Download, Mail, Github, Linkedin, Shield, Terminal, Phone, Award, Bot } from "lucide-react";
+import { Download, Mail, Github, Linkedin, Shield, Terminal, Phone, Award, Bot, Database } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CyberParticles } from "@/components/ui/CyberParticles";
 import ContactForm from './ContactForm';
@@ -122,6 +122,11 @@ const HeroSection = () => {
                   <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" asChild>
                     <a href="https://linkedin.com/in/malek-hassayoun" target="_blank" rel="noopener noreferrer">
                       <Linkedin className="h-5 w-5" />
+                    </a>
+                  </Button>
+                  <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" asChild>
+                    <a href="https://www.kaggle.com/malek11azizhassayoun" target="_blank" rel="noopener noreferrer">
+                      <Database className="h-5 w-5" />
                     </a>
                   </Button>
                   <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" asChild>
