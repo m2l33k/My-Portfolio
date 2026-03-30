@@ -18,7 +18,7 @@ const InternshipsSection = () => {
       <div className="container mx-auto px-4">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6">Internships</h2>
+            <h2 className="text-4xl font-bold mb-6">Intern/Experience</h2>
           </div>
         </ScrollReveal>
 

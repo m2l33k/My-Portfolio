@@ -26,7 +26,7 @@ const PortfolioStats = () => {
   const completedProjects = projects.filter(p => p.status === "Completed").length;
   const stats = [
     { name: "Projects Completed", value: completedProjects, icon: Briefcase },
-    { name: "Internships", value: internships.length, icon: BarChart },
+    { name: "Intern/Experience", value: internships.length, icon: BarChart },
     { name: "Certifications", value: certifications.length, icon: Award },
   ];
 

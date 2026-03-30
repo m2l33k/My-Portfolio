@@ -9,7 +9,7 @@ const Navigation = () => {
     { icon: User, label: "About", href: "#about" },
     { icon: Award, label: "Certifications", href: "#certifications" },
     { icon: Briefcase, label: "Projects", href: "#projects" },
-    { icon: Briefcase, label: "Internships", href: "#internships" },
+    { icon: Briefcase, label: "Intern/Experience", href: "#internships" },
     { icon: GraduationCap, label: "Education", href: "#education" },
     { icon: Languages, label: "Skills", href: "#languages" },
     { icon: Heart, label: "Motivation", href: "#motivation" },
