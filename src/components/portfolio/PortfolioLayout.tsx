@@ -7,6 +7,7 @@ import EducationSection from "./EducationSection";
 import LanguagesSection from "./LanguagesSection";
 import MotivationSection from "./MotivationSection";
 import CodingActivitySection from "./CodingActivitySection";
+import Footer from "./Footer";
 
 const PortfolioLayout = () => {
   return (
@@ -21,6 +22,7 @@ const PortfolioLayout = () => {
         <LanguagesSection />
         <MotivationSection />
       </main>
+      <Footer />
     </div>
   );
 };
