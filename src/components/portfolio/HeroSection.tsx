@@ -58,98 +58,111 @@ const HeroSection = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Image Content - Now on the left */}
             <ScrollReveal direction="right">
-              <div className="relative lg:justify-self-start">
-                <div className="absolute inset-0 bg-green-500/20 blur-3xl rounded-full"></div>
-                <img 
-                  src="/3d4febb1-a352-4c43-b67f-919a19b6554a-removebg-preview.png" 
-                  alt="Hassayoun Malek Aziz" 
-                  className="relative w-full max-w-md mx-auto rounded-full shadow-2xl"
-                />
+              <div className="relative lg:justify-self-start flex items-center justify-center">
+                <div className="absolute inset-0 bg-primary/15 blur-[80px] rounded-full"></div>
+                <div className="absolute inset-0 bg-cyan-500/10 blur-[60px] rounded-full translate-x-8 -translate-y-4"></div>
+                <div className="relative">
+                  <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary/40 via-cyan-500/20 to-primary/10 blur-md"></div>
+                  <img
+                    src="/3d4febb1-a352-4c43-b67f-919a19b6554a-removebg-preview.png"
+                    alt="Hassayoun Malek Aziz"
+                    className="relative w-full max-w-md mx-auto rounded-full shadow-2xl ring-1 ring-primary/20"
+                  />
+                </div>
               </div>
             </ScrollReveal>
 
             {/* Text Content - Now on the right */}
             <ScrollReveal direction="left" delay={0.2}>
-              <div className="space-y-6">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-2 text-primary">
-                    <Terminal className="h-5 w-5" />
-                    <span className="text-sm uppercase tracking-wide">
+              <div className="space-y-8">
+                {/* Name & Title */}
+                <div className="space-y-3">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 backdrop-blur-sm">
+                    <Terminal className="h-4 w-4 text-primary" />
+                    <span className="text-xs font-semibold uppercase tracking-widest text-primary">
                       <Typewriter text="Computer Engineering Student" />
                     </span>
                   </div>
-                  <h1 className="text-4xl lg:text-6xl font-bold">
+                  <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
                     <span className="text-foreground">Hi, I'm</span>{" "}
-                    <span className="bg-gradient-cyber bg-clip-text text-transparent">
+                    <span className="bg-gradient-cyber bg-clip-text text-transparent drop-shadow-[0_0_25px_hsl(120,100%,50%,0.3)]">
                       Hassayoun Malek Aziz
                     </span>
                   </h1>
-                  <p className="text-xl text-muted-foreground max-w-lg">
-                    Engineering student building LLM-powered security automation systems. Developed an AI pentesting agent reducing manual testing by 60% and detecting 85% of OWASP vulnerabilities. Ranked in the Top 5% on TryHackMe, with a strong background in AI, DevSecOps, and blockchain-based security architectures.
-                  </p>
                 </div>
 
-                <div className="flex flex-wrap gap-4">
-                  <Button className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow" onClick={handleOpenCvModal}>
+                {/* Bio Card */}
+                <div className="relative max-w-xl">
+                  <div className="absolute -inset-px rounded-xl bg-gradient-to-r from-primary/40 via-cyan-500/20 to-primary/10 blur-sm"></div>
+                  <div className="relative rounded-xl border border-primary/20 bg-card/80 backdrop-blur-md p-5 space-y-3">
+                    <p className="text-base leading-relaxed text-foreground/90">
+                      Engineering student building <span className="text-primary font-semibold">LLM-powered security automation</span> systems.
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-primary/10 border border-primary/20 text-xs font-medium text-primary">
+                        <Shield className="h-3 w-3" />
+                        60% less manual testing
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-primary/10 border border-primary/20 text-xs font-medium text-primary">
+                        <Bot className="h-3 w-3" />
+                        85% OWASP detection
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-primary/10 border border-primary/20 text-xs font-medium text-primary">
+                        <Award className="h-3 w-3" />
+                        Top 5% TryHackMe
+                      </span>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      Strong background in AI, DevSecOps, and blockchain-based security architectures.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex flex-wrap gap-3">
+                  <Button className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow font-semibold" onClick={handleOpenCvModal}>
                     <Download className="mr-2 h-4 w-4" />
                     Download CV
                   </Button>
-                  <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground" onClick={handleOpenContactForm}>
+                  <Button variant="outline" className="border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground backdrop-blur-sm" onClick={handleOpenContactForm}>
                     <Mail className="mr-2 h-4 w-4" />
                     Contact Me
                   </Button>
-                  <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground" onClick={handleOpenSkillsMatrix}>
+                  <Button variant="outline" className="border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground backdrop-blur-sm" onClick={handleOpenSkillsMatrix}>
                     <Shield className="mr-2 h-4 w-4" />
                     Skills Matrix
                   </Button>
-                  <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground" onClick={() => navigate('/chat')}>
+                  <Button variant="outline" className="border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground backdrop-blur-sm" onClick={() => navigate('/chat')}>
                     <Bot className="mr-2 h-4 w-4" />
                     Ask AI
                   </Button>
-                  <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground" onClick={() => navigate('/activity')}>
+                  <Button variant="outline" className="border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground backdrop-blur-sm" onClick={() => navigate('/activity')}>
                     <Github className="mr-2 h-4 w-4" />
                     Activity
                   </Button>
                 </div>
 
-                <div className="flex gap-4">
-                  <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" asChild>
-                    <a href="https://github.com/m2l33k" target="_blank" rel="noopener noreferrer">
-                      <Github className="h-5 w-5" />
-                    </a>
-                  </Button>
-                  <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" asChild>
-                    <a href="https://linkedin.com/in/malek-hassayoun" target="_blank" rel="noopener noreferrer">
-                      <Linkedin className="h-5 w-5" />
-                    </a>
-                  </Button>
-                  <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" asChild>
-                    <a href="https://www.kaggle.com/malek11azizhassayoun" target="_blank" rel="noopener noreferrer">
-                      <Database className="h-5 w-5" />
-                    </a>
-                  </Button>
-                  <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" asChild>
-                    <a href="https://www.credly.com/users/malek-aziz-hassayoun" target="_blank" rel="noopener noreferrer">
-                      <Award className="h-5 w-5" />
-                    </a>
-                  </Button>
-                  <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" asChild>
-                    <a href="https://tryhackme.com/p/RootKeeper" target="_blank" rel="noopener noreferrer">
-                      <Shield className="h-5 w-5" />
-                    </a>
-                  </Button>
-                  <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" asChild>
-                    <a href="mailto:malekaziz.hassayoun@esprit.tn">
-                      <Mail className="h-5 w-5" />
-                    </a>
-                  </Button>
-                  <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" asChild>
-                    <a href="tel:+21653117541">
-                      <Phone className="h-5 w-5" />
-                    </a>
-                  </Button>
+                {/* Social Links */}
+                <div className="flex items-center gap-1">
+                  {[
+                    { href: "https://github.com/m2l33k", icon: Github, label: "GitHub" },
+                    { href: "https://linkedin.com/in/malek-hassayoun", icon: Linkedin, label: "LinkedIn" },
+                    { href: "https://www.kaggle.com/malek11azizhassayoun", icon: Database, label: "Kaggle" },
+                    { href: "https://www.credly.com/users/malek-aziz-hassayoun", icon: Award, label: "Credly" },
+                    { href: "https://tryhackme.com/p/RootKeeper", icon: Shield, label: "TryHackMe" },
+                    { href: "mailto:malekaziz.hassayoun@esprit.tn", icon: Mail, label: "Email" },
+                    { href: "tel:+21653117541", icon: Phone, label: "Phone" },
+                  ].map((link) => (
+                    <Button key={link.label} variant="ghost" size="icon" className="text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300" asChild>
+                      <a href={link.href} target={link.href.startsWith("http") ? "_blank" : undefined} rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}>
+                        <link.icon className="h-5 w-5" />
+                      </a>
+                    </Button>
+                  ))}
                 </div>
-                <div className="mt-4 space-y-4">
+
+                {/* Stats & Badge */}
+                <div className="space-y-4">
                   <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=3036625" style={{border:"none"}} width="350" height="100"></iframe>
                   <PortfolioStats />
                 </div>

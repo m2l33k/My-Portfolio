@@ -138,10 +138,10 @@ All colors MUST be HSL.
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: 
-      linear-gradient(to right, hsl(var(--primary) / 0.1) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(var(--primary) / 0.1) 1px, transparent 1px);
-    background-size: 60px 60px;
+    background-image:
+      linear-gradient(to right, hsl(var(--primary) / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--primary) / 0.06) 1px, transparent 1px);
+    background-size: 50px 50px;
     z-index: 0;
   }
 
@@ -152,7 +152,48 @@ All colors MUST be HSL.
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(ellipse at center, hsl(var(--primary) / 0.15) 0%, transparent 80%);
+    background:
+      radial-gradient(ellipse at 20% 50%, hsl(var(--primary) / 0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, hsl(var(--cyber-blue) / 0.08) 0%, transparent 50%);
     z-index: 0;
   }
+}
+
+/* Smooth section transitions */
+section {
+  position: relative;
+}
+
+section + section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.3), transparent);
+}
+
+/* Enhanced card hover effects */
+.hover\:shadow-glow:hover {
+  box-shadow: 0 0 30px hsl(var(--cyber-green) / 0.2), 0 0 60px hsl(var(--cyber-green) / 0.05);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--darker-surface));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
 }
