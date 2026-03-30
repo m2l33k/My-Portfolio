@@ -213,6 +213,24 @@ export const projects: Project[] = [
 
 export const internships: Internship[] = [
   {
+    company: "TCodeX (TeachCode X)",
+    role: "PROFESSIONAL INSTRUCTOR AI",
+    period: "January 2026 – Present",
+    location: "Tunisia",
+    description: "Delivering hands-on training programs focused on Artificial Intelligence, LLM systems, and applied cybersecurity automation. Designing and teaching practical workshops covering Large Language Models, RAG architectures, Prompt Engineering, AI agents, Machine Learning fundamentals, AI-driven cybersecurity automation, and Python for AI development. Mentoring students through real-world projects, guiding them in building AI-powered applications and secure automation systems.",
+    logoUrl: "https://media.licdn.com/dms/image/v2/D4D0BAQHqVxbwllodtw/company-logo_200_200/B4DZusYwimI8AI-/0/1768123730777?e=1776297600&v=beta&t=vOSr-BDX9hIiONEedTbhuF268SoWCGUAHTJUL-7IpnY",
+    technologies: ["LLMs", "RAG", "Prompt Engineering", "AI Agents", "Machine Learning", "Python", "Cybersecurity Automation"]
+  },
+  {
+    company: "Esprit Career Center",
+    role: "JUNIOR CAREER CENTER ASSISTANT - PROFESSIONAL ENGAGEMENT (BENEVOLAT)",
+    period: "January 2024 – December 2025",
+    location: "Tunisia",
+    description: "Assisted in organizing career-related events such as job fairs, company forums, workshops, and coaching sessions.",
+    logoUrl: "https://media.licdn.com/dms/image/v2/D4D0BAQH_jyovpjlKug/company-logo_200_200/company-logo_200_200/0/1696320293598?e=1776297600&v=beta&t=LuwdXzFrFnW_tyAjsF7n93DMLpubXucSDqMfwwty7KA",
+    technologies: ["Event Organization", "Career Development", "Workshops", "Coaching"]
+  },
+  {
     company: "OXYNAS",
     role: "INTERN IN AI-POWERED WEB APPLICATION PENTESTING",
     period: "June 2025 – August 2025",
