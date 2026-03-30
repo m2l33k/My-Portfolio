@@ -85,8 +85,7 @@ const HeroSection = () => {
                     </span>
                   </h1>
                   <p className="text-xl text-muted-foreground max-w-lg">
-                    Computer Engineering student seeking a final-year internship, specializing in 
-                    cybersecurity, AI, and blockchain technologies with hands-on pentesting experience.
+                    Engineering student building LLM-powered security automation systems. Developed an AI pentesting agent reducing manual testing by 60% and detecting 85% of OWASP vulnerabilities. Ranked in the Top 5% on TryHackMe, with a strong background in AI, DevSecOps, and blockchain-based security architectures.
                   </p>
                 </div>
 
