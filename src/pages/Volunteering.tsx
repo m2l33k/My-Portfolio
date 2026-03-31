@@ -85,16 +85,16 @@ const spotlightItems: SpotlightItem[] = [
     title: "My Profile",
     role: "Volunteer & Community Leader",
     period: "IEEE / JCI / Civic Engagement",
-    image: "/3d4febb1-a352-4c43-b67f-919a19b6554a-removebg-preview.png",
+    image: "https://res.cloudinary.com/dvmuvjukn/image/upload/v1774974603/IMG20240205214727_iumkyl.jpg",
     position: "md:-top-5 md:left-0",
     motion: "animate-volunteer-float",
-    fit: "contain",
+    fit: "cover",
   },
   {
     title: "Event Moments",
     role: "Workshops and community activities",
     period: "Recent participation highlights",
-    image: "/Capture%20d%27%C3%A9cran%202025-12-18%20122108.png",
+    image: "https://res.cloudinary.com/dvmuvjukn/image/upload/v1774974602/IMG20231011151826_o3wxci.jpg",
     position: "md:top-10 md:-right-6",
     motion: "animate-volunteer-float-delayed",
     fit: "cover",
@@ -103,7 +103,7 @@ const spotlightItems: SpotlightItem[] = [
     title: "Field Actions",
     role: "Public initiatives and volunteer operations",
     period: "Community impact in action",
-    image: "/Capture%20d%27%C3%A9cran%202025-12-18%20164235.png",
+    image: "https://res.cloudinary.com/dvmuvjukn/image/upload/v1774974594/FB_IMG_1625503585131_tgvz12.jpg",
     position: "md:bottom-0 md:left-12",
     motion: "animate-volunteer-float-slow",
     fit: "cover",
@@ -239,7 +239,7 @@ const Volunteering = () => {
                       <div className="rounded-2xl border border-primary/20 bg-background/85 p-4 shadow-[0_18px_45px_hsl(120,100%,50%,0.12)] md:absolute md:left-1/2 md:top-1/2 md:w-[270px] md:-translate-x-1/2 md:-translate-y-1/2">
                         <div className="overflow-hidden rounded-xl border border-primary/15 bg-background/70">
                           <img
-                            src="/3d4febb1-a352-4c43-b67f-919a19b6554a-removebg-preview.png"
+                            src="https://res.cloudinary.com/dvmuvjukn/image/upload/v1774974596/IMG_20240421_21532837_bx8nn8.jpg"
                             alt="Malek Aziz Hassayoun"
                             className="h-36 w-full object-contain p-2"
                             loading="lazy"
@@ -358,3 +358,4 @@ const Volunteering = () => {
 };
 
 export default Volunteering;
+
