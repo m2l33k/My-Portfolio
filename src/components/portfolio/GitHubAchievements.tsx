@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Award, Loader2 } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface Achievement {
   name: string;
@@ -12,21 +13,20 @@ const GitHubAchievements = () => {
   const [achievements, setAchievements] = useState<Achievement[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const fetchAchievements = async () => {
       try {
-        // Use relative path to leverage Vite proxy
-        const response = await fetch('/api/github-achievements');
+        const response = await fetch("/api/github-achievements");
         if (!response.ok) {
           throw new Error(`Failed to fetch achievements: ${response.status} ${response.statusText}`);
         }
         const data = await response.json();
         setAchievements(data);
       } catch (err) {
-        const errorMessage = err instanceof Error ? err.message : 'An error occurred';
+        const errorMessage = err instanceof Error ? err.message : "An error occurred";
         setError(errorMessage);
-        console.error("GitHub Achievements Error:", err);
       } finally {
         setLoading(false);
       }
@@ -39,8 +39,10 @@ const GitHubAchievements = () => {
     return (
       <Card className="bg-destructive/10 border-destructive/20 w-full max-w-5xl mx-auto mt-6">
         <CardContent className="p-6 text-center text-destructive">
-          <p>Error loading achievements: {error}</p>
-          <p className="text-xs mt-2 text-muted-foreground">Make sure the backend server is running (npm run dev).</p>
+          <p>
+            {t("github.achievement.error")}: {error}
+          </p>
+          <p className="text-xs mt-2 text-muted-foreground">{t("github.achievement.hint")}</p>
         </CardContent>
       </Card>
     );
@@ -68,10 +70,8 @@ const GitHubAchievements = () => {
             <Award className="h-5 w-5 text-primary" />
           </div>
           <div>
-            GitHub Achievements
-            <div className="text-xs font-normal text-muted-foreground mt-0.5">
-              Badges earned from GitHub activity
-            </div>
+            {t("github.achievement.title")}
+            <div className="text-xs font-normal text-muted-foreground mt-0.5">{t("github.achievement.subtitle")}</div>
           </div>
         </CardTitle>
       </CardHeader>
@@ -82,9 +82,9 @@ const GitHubAchievements = () => {
               <Tooltip delayDuration={0}>
                 <TooltipTrigger asChild>
                   <div className="group relative w-24 h-24 flex items-center justify-center bg-card/50 rounded-lg border border-border hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 cursor-pointer">
-                    <img 
-                      src={achievement.image} 
-                      alt={achievement.name} 
+                    <img
+                      src={achievement.image}
+                      alt={achievement.name}
                       className="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
                     />
                   </div>

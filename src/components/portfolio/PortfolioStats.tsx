@@ -1,9 +1,10 @@
 import { Card } from "@/components/ui/card";
 import { Briefcase, BarChart, Award } from "lucide-react";
 import { useEffect, useState } from "react";
-import { projects, internships, certifications } from "@/data/portfolio";
+import { usePortfolioData } from "@/hooks/usePortfolioData";
+import { useLanguage } from "@/context/LanguageContext";
 
-const CountUp = ({ end, duration = 2000 }: { end: number, duration?: number }) => {
+const CountUp = ({ end, duration = 2000 }: { end: number; duration?: number }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -23,11 +24,13 @@ const CountUp = ({ end, duration = 2000 }: { end: number, duration?: number }) =
 };
 
 const PortfolioStats = () => {
-  const completedProjects = projects.filter(p => p.status === "Completed").length;
+  const { t } = useLanguage();
+  const { projects, internships, certifications } = usePortfolioData();
+  const completedProjects = projects.filter((p) => p.status === "Completed").length;
   const stats = [
-    { name: "Projects Completed", value: completedProjects, icon: Briefcase },
-    { name: "Intern/Experience", value: internships.length, icon: BarChart },
-    { name: "Certifications", value: certifications.length, icon: Award },
+    { name: t("hero.stats.projectsCompleted"), value: completedProjects, icon: Briefcase },
+    { name: t("hero.stats.experience"), value: internships.length, icon: BarChart },
+    { name: t("hero.stats.certifications"), value: certifications.length, icon: Award },
   ];
 
   return (
@@ -50,3 +53,6 @@ const PortfolioStats = () => {
 };
 
 export default PortfolioStats;
+
+
+

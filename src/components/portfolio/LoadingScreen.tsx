@@ -1,16 +1,18 @@
 import { useState, useEffect } from "react";
 import { Shield } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
   const [progress, setProgress] = useState(0);
   const [phase, setPhase] = useState(0);
   const [fadeOut, setFadeOut] = useState(false);
+  const { t } = useLanguage();
 
   const lines = [
-    "Initializing system...",
-    "Loading security modules...",
-    "Connecting to portfolio...",
-    "Access granted.",
+    t("hero.loading.line1"),
+    t("hero.loading.line2"),
+    t("hero.loading.line3"),
+    t("hero.loading.line4"),
   ];
 
   useEffect(() => {
@@ -45,7 +47,6 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
         fadeOut ? "opacity-0" : "opacity-100"
       }`}
     >
-      {/* Grid background */}
       <div className="absolute inset-0 opacity-20">
         <div
           className="w-full h-full"
@@ -57,37 +58,25 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
         />
       </div>
 
-      {/* Radial glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,hsl(120,100%,50%,0.08)_0%,transparent_60%)]" />
 
       <div className="relative z-10 flex flex-col items-center gap-8 px-4">
-        {/* Logo */}
         <div className="relative">
           <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full animate-pulse" />
           <Shield className="relative h-16 w-16 text-primary drop-shadow-[0_0_20px_hsl(120,100%,50%,0.4)]" />
         </div>
 
-        {/* Title */}
         <div className="text-center space-y-1">
-          <h1 className="text-2xl font-bold bg-gradient-cyber bg-clip-text text-transparent">
-            RootKeeper
-          </h1>
-          <p className="text-xs text-muted-foreground tracking-widest uppercase">
-            Portfolio System
-          </p>
+          <h1 className="text-2xl font-bold bg-gradient-cyber bg-clip-text text-transparent">RootKeeper</h1>
+          <p className="text-xs text-muted-foreground tracking-widest uppercase">{t("hero.loading.systemLabel")}</p>
         </div>
 
-        {/* Terminal lines */}
         <div className="w-72 sm:w-80 space-y-1.5 font-mono text-xs">
           {lines.map((line, i) => (
             <div
               key={i}
               className={`flex items-center gap-2 transition-all duration-300 ${
-                i <= phase
-                  ? i === phase
-                    ? "text-primary"
-                    : "text-muted-foreground/60"
-                  : "text-transparent"
+                i <= phase ? (i === phase ? "text-primary" : "text-muted-foreground/60") : "text-transparent"
               }`}
             >
               <span className={i < phase ? "text-primary/60" : i === phase ? "text-primary" : ""}>
@@ -98,7 +87,6 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
           ))}
         </div>
 
-        {/* Progress bar */}
         <div className="w-72 sm:w-80 space-y-2">
           <div className="h-1 rounded-full bg-card overflow-hidden border border-primary/10">
             <div
@@ -106,9 +94,7 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
               style={{ width: `${progress}%` }}
             />
           </div>
-          <p className="text-center text-[10px] text-muted-foreground/50 font-mono">
-            {progress}%
-          </p>
+          <p className="text-center text-[10px] text-muted-foreground/50 font-mono">{progress}%</p>
         </div>
       </div>
     </div>

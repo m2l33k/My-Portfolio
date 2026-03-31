@@ -2,18 +2,34 @@ import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { 
-  Award, ExternalLink, Calendar, CheckCircle, Eye, 
-  Cpu, Shield, Code, Cloud, Server, Database, Github, Flag, Lock, Network, Blocks, Brain
+import {
+  Award,
+  ExternalLink,
+  Calendar,
+  CheckCircle,
+  Eye,
+  Cpu,
+  Shield,
+  Code,
+  Cloud,
+  Server,
+  Database,
+  Github,
+  Flag,
+  Lock,
+  Blocks,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import CertificationDetailsModal, { Certification } from "./CertificationDetailsModal";
-import { certifications } from "@/data/portfolio";
+import { usePortfolioData } from "@/hooks/usePortfolioData";
+import { useLanguage } from "@/context/LanguageContext";
 
 const CertificationsSection = () => {
   const [selectedCert, setSelectedCert] = useState<Certification | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { t } = useLanguage();
+  const { certifications } = usePortfolioData();
 
   const handleOpenModal = (cert: Certification) => {
     setSelectedCert(cert);
@@ -23,7 +39,7 @@ const CertificationsSection = () => {
   const getProviderIcon = (issuer: string) => {
     const normalizedIssuer = issuer.toLowerCase();
     if (normalizedIssuer.includes("nvidia")) return <Cpu className="h-5 w-5" />;
-    if (normalizedIssuer.includes("cisco")) return <Shield className="h-5 w-5" />; // or Network
+    if (normalizedIssuer.includes("cisco")) return <Shield className="h-5 w-5" />;
     if (normalizedIssuer.includes("python")) return <Code className="h-5 w-5" />;
     if (normalizedIssuer.includes("aws")) return <Cloud className="h-5 w-5" />;
     if (normalizedIssuer.includes("ibm")) return <Server className="h-5 w-5" />;
@@ -35,7 +51,12 @@ const CertificationsSection = () => {
     return <Award className="h-5 w-5" />;
   };
 
-  const categories = ["All", "Dev", "AI", "Cybersecurity"];
+  const categories = [
+    { value: "All", label: t("certifications.tab.all") },
+    { value: "Dev", label: t("certifications.tab.dev") },
+    { value: "AI", label: t("certifications.tab.ai") },
+    { value: "Cybersecurity", label: t("certifications.tab.cybersecurity") },
+  ] as const;
 
   return (
     <section id="certifications" className="py-24 bg-surface-dark">
@@ -44,12 +65,10 @@ const CertificationsSection = () => {
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-2 text-primary mb-4">
               <Award className="h-6 w-6" />
-              <span className="text-sm uppercase tracking-wide">Professional Credentials</span>
+              <span className="text-sm uppercase tracking-wide">{t("certifications.eyebrow")}</span>
             </div>
-            <h2 className="text-4xl font-bold mb-6">Certifications</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Industry-recognized certifications demonstrating expertise in cybersecurity, AI, and cloud technologies
-            </p>
+            <h2 className="text-4xl font-bold mb-6">{t("certifications.title")}</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{t("certifications.subtitle")}</p>
           </div>
         </ScrollReveal>
 
@@ -58,12 +77,12 @@ const CertificationsSection = () => {
             <div className="flex justify-center mb-10">
               <TabsList className="bg-secondary/50 p-1">
                 {categories.map((category) => (
-                  <TabsTrigger 
-                    key={category} 
-                    value={category}
+                  <TabsTrigger
+                    key={category.value}
+                    value={category.value}
                     className="px-6 py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all"
                   >
-                    {category}
+                    {category.label}
                   </TabsTrigger>
                 ))}
               </TabsList>
@@ -71,10 +90,10 @@ const CertificationsSection = () => {
           </ScrollReveal>
 
           {categories.map((category) => (
-            <TabsContent key={category} value={category} className="mt-0">
+            <TabsContent key={category.value} value={category.value} className="mt-0">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {certifications
-                  .filter(cert => category === "All" || cert.category === category)
+                  .filter((cert) => category.value === "All" || cert.category === category.value)
                   .map((cert, index) => (
                     <ScrollReveal key={index} delay={index * 0.1}>
                       <Card className="group bg-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-glow flex flex-col h-full">
@@ -85,7 +104,7 @@ const CertificationsSection = () => {
                                 {cert.name}
                               </CardTitle>
                               <div className="flex flex-col items-end gap-2">
-                                <Badge 
+                                <Badge
                                   variant={cert.status === "Active" ? "default" : "secondary"}
                                   className={`shrink-0 ${cert.status === "Active" ? "bg-primary text-primary-foreground" : ""}`}
                                 >
@@ -97,11 +116,7 @@ const CertificationsSection = () => {
                             <div className="flex items-center gap-2 text-primary font-semibold text-sm">
                               <div className="p-1 bg-primary/10 rounded-md h-8 w-8 flex items-center justify-center shrink-0">
                                 {cert.issuerLogoUrl ? (
-                                  <img 
-                                    src={cert.issuerLogoUrl} 
-                                    alt={cert.issuer} 
-                                    className="max-h-full max-w-full object-contain"
-                                  />
+                                  <img src={cert.issuerLogoUrl} alt={cert.issuer} className="max-h-full max-w-full object-contain" />
                                 ) : (
                                   getProviderIcon(cert.issuer)
                                 )}
@@ -110,10 +125,10 @@ const CertificationsSection = () => {
                             </div>
                           </div>
                         </CardHeader>
-                        
+
                         <CardContent className="space-y-4 flex-1 flex flex-col">
                           <p className="text-muted-foreground text-sm line-clamp-3 flex-1">{cert.description}</p>
-                          
+
                           <div className="flex items-center gap-4 text-xs text-muted-foreground">
                             <div className="flex items-center gap-1">
                               <Calendar className="h-3 w-3" />
@@ -138,19 +153,14 @@ const CertificationsSection = () => {
                           </div>
 
                           <div className="pt-2 mt-auto grid grid-cols-2 gap-2">
-                            <Button 
-                              variant="ghost" 
-                              size="sm" 
-                              className="w-full"
-                              onClick={() => handleOpenModal(cert)}
-                            >
+                            <Button variant="ghost" size="sm" className="w-full" onClick={() => handleOpenModal(cert)}>
                               <Eye className="h-4 w-4 mr-2" />
-                              Details
+                              {t("certifications.details")}
                             </Button>
                             <a href={cert.url} target="_blank" rel="noopener noreferrer" className="w-full">
                               <Button variant="outline" size="sm" className="w-full group">
                                 <ExternalLink className="h-4 w-4 mr-2" />
-                                Verify
+                                {t("certifications.verify")}
                               </Button>
                             </a>
                           </div>
@@ -163,14 +173,13 @@ const CertificationsSection = () => {
           ))}
         </Tabs>
       </div>
-      
-      <CertificationDetailsModal 
-        certification={selectedCert} 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-      />
+
+      <CertificationDetailsModal certification={selectedCert} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 };
 
 export default CertificationsSection;
+
+
+

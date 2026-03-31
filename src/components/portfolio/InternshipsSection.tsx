@@ -2,11 +2,14 @@ import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import InternshipDetailsModal, { Internship } from "./InternshipDetailsModal";
-import { internships } from "@/data/portfolio";
+import { usePortfolioData } from "@/hooks/usePortfolioData";
+import { useLanguage } from "@/context/LanguageContext";
 
 const InternshipsSection = () => {
   const [selectedInternship, setSelectedInternship] = useState<Internship | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { t } = useLanguage();
+  const { internships } = usePortfolioData();
 
   const handleInternshipClick = (internship: Internship) => {
     setSelectedInternship(internship);
@@ -18,14 +21,14 @@ const InternshipsSection = () => {
       <div className="container mx-auto px-4">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6">Intern/Experience</h2>
+            <h2 className="text-4xl font-bold mb-6">{t("experience.title")}</h2>
           </div>
         </ScrollReveal>
 
         <div className="space-y-8">
           {internships.map((internship, index) => (
             <ScrollReveal key={index} delay={index * 0.1}>
-              <Card 
+              <Card
                 className="bg-card border-border hover:border-primary/50 transition-all duration-300 overflow-hidden cursor-pointer hover:shadow-glow group"
                 onClick={() => handleInternshipClick(internship)}
               >
@@ -53,13 +56,12 @@ const InternshipsSection = () => {
         </div>
       </div>
 
-      <InternshipDetailsModal 
-        internship={selectedInternship}
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
+      <InternshipDetailsModal internship={selectedInternship} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 };
 
 export default InternshipsSection;
+
+
+

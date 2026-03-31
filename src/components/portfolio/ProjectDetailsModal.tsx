@@ -17,8 +17,8 @@ import {
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Calendar, MapPin, Building2, CheckCircle2, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/context/LanguageContext";
 
-// Define the interface based on usage in ProjectsSection
 export interface Project {
   title: string;
   company: string;
@@ -30,8 +30,8 @@ export interface Project {
   technologies: string[];
   highlights: string[];
   status: string;
-  images?: string[]; // New field for photos
-  githubUrl?: string; // New field for GitHub URL
+  images?: string[];
+  githubUrl?: string;
 }
 
 interface ProjectDetailsModalProps {
@@ -41,16 +41,20 @@ interface ProjectDetailsModalProps {
 }
 
 const ProjectDetailsModal = ({ project, isOpen, onClose }: ProjectDetailsModalProps) => {
+  const { t, lang } = useLanguage();
   if (!project) return null;
 
-  // Default placeholder images if none provided
-  const images = project.images && project.images.length > 0 
-    ? project.images 
-    : [
-        "/placeholder.svg",
-        "/placeholder.svg",
-        "/placeholder.svg"
-      ];
+  const images = project.images && project.images.length > 0 ? project.images : ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"];
+  const statusLabel =
+    project.status === "Completed"
+      ? lang === "fr"
+        ? "Termine"
+        : "Completed"
+      : project.status === "In Development"
+        ? lang === "fr"
+          ? "En cours"
+          : "In Development"
+        : project.status;
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
@@ -62,22 +66,16 @@ const ProjectDetailsModal = ({ project, isOpen, onClose }: ProjectDetailsModalPr
                 <project.icon className="h-6 w-6 text-primary" />
                 {project.title}
               </DialogTitle>
-              <DialogDescription className="mt-2 text-base">
-                {project.category}
-              </DialogDescription>
+              <DialogDescription className="mt-2 text-base">{project.category}</DialogDescription>
             </div>
-            <Badge 
-              variant={project.status === "Completed" ? "default" : "secondary"}
-              className="shrink-0"
-            >
-              {project.status}
+            <Badge variant={project.status === "Completed" ? "default" : "secondary"} className="shrink-0">
+              {statusLabel}
             </Badge>
           </div>
         </DialogHeader>
 
         <ScrollArea className="flex-1 p-6 pt-0">
           <div className="space-y-8">
-            {/* Image Carousel */}
             <div className="w-full px-12">
               <Carousel className="w-full max-w-2xl mx-auto">
                 <CarouselContent>
@@ -85,11 +83,7 @@ const ProjectDetailsModal = ({ project, isOpen, onClose }: ProjectDetailsModalPr
                     <CarouselItem key={index}>
                       <div className="p-1">
                         <AspectRatio ratio={16 / 9} className="bg-muted rounded-lg overflow-hidden border">
-                          <img 
-                            src={img} 
-                            alt={`${project.title} screenshot ${index + 1}`} 
-                            className="object-cover w-full h-full"
-                          />
+                          <img src={img} alt={`${project.title} screenshot ${index + 1}`} className="object-cover w-full h-full" />
                         </AspectRatio>
                       </div>
                     </CarouselItem>
@@ -100,14 +94,11 @@ const ProjectDetailsModal = ({ project, isOpen, onClose }: ProjectDetailsModalPr
               </Carousel>
             </div>
 
-            {/* Project Details */}
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-lg font-semibold mb-3">About the Project</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {project.description}
-                  </p>
+                  <h3 className="text-lg font-semibold mb-3">{t("projects.about")}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{project.description}</p>
                 </div>
 
                 <div className="flex flex-col gap-3">
@@ -127,9 +118,9 @@ const ProjectDetailsModal = ({ project, isOpen, onClose }: ProjectDetailsModalPr
                   )}
                   {project.githubUrl && (
                     <div className="pt-2">
-                      <Button variant="outline" size="sm" className="gap-2" onClick={() => window.open(project.githubUrl, '_blank')}>
+                      <Button variant="outline" size="sm" className="gap-2" onClick={() => window.open(project.githubUrl, "_blank")}>
                         <Github className="h-4 w-4" />
-                        View Source Code
+                        {t("projects.source")}
                       </Button>
                     </div>
                   )}
@@ -138,7 +129,7 @@ const ProjectDetailsModal = ({ project, isOpen, onClose }: ProjectDetailsModalPr
 
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-lg font-semibold mb-3">Key Highlights</h3>
+                  <h3 className="text-lg font-semibold mb-3">{t("projects.modal.highlights")}</h3>
                   <ul className="space-y-2">
                     {project.highlights.map((highlight, index) => (
                       <li key={index} className="flex items-start gap-2 text-muted-foreground">
@@ -150,7 +141,7 @@ const ProjectDetailsModal = ({ project, isOpen, onClose }: ProjectDetailsModalPr
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold mb-3">Technologies</h3>
+                  <h3 className="text-lg font-semibold mb-3">{t("projects.modal.technologies")}</h3>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, index) => (
                       <Badge key={index} variant="outline">

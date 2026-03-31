@@ -1,12 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { Languages, ChevronLeft, ChevronRight } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  type CarouselApi,
-} from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface Skill {
   name: string;
@@ -18,62 +14,63 @@ interface SkillCategory {
   skills: Skill[];
 }
 
-const categories: SkillCategory[] = [
-  {
-    title: "Languages",
-    skills: [
-      { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-      { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
-      { name: "C", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" },
-      { name: "PHP", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
-      { name: "Bash", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" },
-      { name: "PowerShell", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/powershell/powershell-original.svg" },
-      { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-      { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
-    ],
-  },
-  {
-    title: "Frameworks",
-    skills: [
-      { name: "React.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-      { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
-      { name: "Spring Boot", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
-      { name: "Symfony", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/symfony/symfony-original.svg" },
-      { name: "FastAPI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
-      { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
-      { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-    ],
-  },
-  {
-    title: "Security Tools",
-    skills: [
-      { name: "Burp Suite", icon: "https://www.kali.org/tools/burpsuite/images/burpsuite-logo.svg" },
-      { name: "Metasploit", icon: "https://www.kali.org/tools/metasploit-framework/images/metasploit-framework-logo.svg" },
-      { name: "Wireshark", icon: "https://upload.wikimedia.org/wikipedia/commons/d/df/Wireshark_icon.svg" },
-      { name: "Nmap", icon: "https://nmap.org/images/sitelogo-nmap.svg" },
-      { name: "OWASP ZAP", icon: "https://www.zaproxy.org/img/zap-logo.svg" },
-      { name: "John the Ripper", icon: "https://www.kali.org/tools/john/images/john-logo.svg" },
-      { name: "pfSense", icon: "https://upload.wikimedia.org/wikipedia/commons/b/b9/PfSense_logo.png" },
-      { name: "Kali Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
-    ],
-  },
-  {
-    title: "DevOps & Tools",
-    skills: [
-      { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-      { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-      { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
-      { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
-      { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
-      { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
-      { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-    ],
-  },
-];
-
 const LanguagesSection = () => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
+  const { t } = useLanguage();
+
+  const categories: SkillCategory[] = [
+    {
+      title: t("skills.category.languages"),
+      skills: [
+        { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+        { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+        { name: "C", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" },
+        { name: "PHP", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
+        { name: "Bash", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" },
+        { name: "PowerShell", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/powershell/powershell-original.svg" },
+        { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+        { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+      ],
+    },
+    {
+      title: t("skills.category.frameworks"),
+      skills: [
+        { name: "React.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+        { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+        { name: "Spring Boot", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
+        { name: "Symfony", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/symfony/symfony-original.svg" },
+        { name: "FastAPI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
+        { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+        { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+      ],
+    },
+    {
+      title: t("skills.category.securityTools"),
+      skills: [
+        { name: "Burp Suite", icon: "https://www.kali.org/tools/burpsuite/images/burpsuite-logo.svg" },
+        { name: "Metasploit", icon: "https://www.kali.org/tools/metasploit-framework/images/metasploit-framework-logo.svg" },
+        { name: "Wireshark", icon: "https://upload.wikimedia.org/wikipedia/commons/d/df/Wireshark_icon.svg" },
+        { name: "Nmap", icon: "https://nmap.org/images/sitelogo-nmap.svg" },
+        { name: "OWASP ZAP", icon: "https://www.zaproxy.org/img/zap-logo.svg" },
+        { name: "John the Ripper", icon: "https://www.kali.org/tools/john/images/john-logo.svg" },
+        { name: "pfSense", icon: "https://upload.wikimedia.org/wikipedia/commons/b/b9/PfSense_logo.png" },
+        { name: "Kali Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
+      ],
+    },
+    {
+      title: t("skills.category.devops"),
+      skills: [
+        { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+        { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+        { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
+        { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+        { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+        { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+        { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+      ],
+    },
+  ];
 
   useEffect(() => {
     if (!api) return;
@@ -81,7 +78,6 @@ const LanguagesSection = () => {
     api.on("select", () => setCurrent(api.selectedScrollSnap()));
   }, [api]);
 
-  // Auto-play: advance every 4 seconds, loop back to first
   useEffect(() => {
     if (!api) return;
     const interval = setInterval(() => {
@@ -94,10 +90,7 @@ const LanguagesSection = () => {
     return () => clearInterval(interval);
   }, [api]);
 
-  const scrollTo = useCallback(
-    (index: number) => api?.scrollTo(index),
-    [api]
-  );
+  const scrollTo = useCallback((index: number) => api?.scrollTo(index), [api]);
 
   return (
     <section id="languages" className="py-24">
@@ -106,16 +99,13 @@ const LanguagesSection = () => {
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-2 text-primary mb-4">
               <Languages className="h-6 w-6" />
-              <span className="text-sm uppercase tracking-wide">Technical Skills</span>
+              <span className="text-sm uppercase tracking-wide">{t("skills.label")}</span>
             </div>
-            <h2 className="text-4xl font-bold mb-6">Skills & Tools</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Technologies and methodologies I utilize for secure development and analysis
-            </p>
+            <h2 className="text-4xl font-bold mb-6">{t("skills.title")}</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{t("skills.subtitle")}</p>
           </div>
         </ScrollReveal>
 
-        {/* Category tabs */}
         <ScrollReveal>
           <div className="flex flex-wrap justify-center gap-2 mb-10">
             {categories.map((cat, i) => (
@@ -134,7 +124,6 @@ const LanguagesSection = () => {
           </div>
         </ScrollReveal>
 
-        {/* Carousel */}
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             <button
@@ -152,18 +141,13 @@ const LanguagesSection = () => {
               <ChevronRight className="h-5 w-5" />
             </button>
 
-            <Carousel
-              setApi={setApi}
-              opts={{ align: "center", loop: false }}
-              className="w-full"
-            >
+            <Carousel setApi={setApi} opts={{ align: "center", loop: false }} className="w-full">
               <CarouselContent>
                 {categories.map((cat) => (
                   <CarouselItem key={cat.title}>
                     <div className="relative rounded-xl border border-primary/10 bg-card/50 backdrop-blur-sm p-6 sm:p-8">
                       <div className="absolute -inset-px rounded-xl bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
 
-                      {/* Skills grid */}
                       <div className="relative grid grid-cols-3 sm:grid-cols-4 gap-4 sm:gap-6">
                         {cat.skills.map((skill) => (
                           <div
@@ -192,7 +176,6 @@ const LanguagesSection = () => {
             </Carousel>
           </div>
 
-          {/* Dot indicators */}
           <div className="flex justify-center gap-2 mt-6">
             {categories.map((_, i) => (
               <button

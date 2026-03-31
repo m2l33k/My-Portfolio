@@ -2,9 +2,13 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { GraduationCap, Calendar, Award, BookOpen } from "lucide-react";
-import { education, onlineCourses } from "@/data/portfolio";
+import { usePortfolioData } from "@/hooks/usePortfolioData";
+import { useLanguage } from "@/context/LanguageContext";
 
 const EducationSection = () => {
+  const { t, lang } = useLanguage();
+  const { education, onlineCourses } = usePortfolioData();
+
   return (
     <section id="education" className="py-24 bg-surface-dark">
       <div className="container mx-auto px-4">
@@ -12,12 +16,10 @@ const EducationSection = () => {
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-2 text-primary mb-4">
               <GraduationCap className="h-6 w-6" />
-              <span className="text-sm uppercase tracking-wide">Academic Background</span>
+              <span className="text-sm uppercase tracking-wide">{t("education.eyebrow")}</span>
             </div>
-            <h2 className="text-4xl font-bold mb-6">Education</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Continuous learning and academic excellence in cybersecurity and computer science
-            </p>
+            <h2 className="text-4xl font-bold mb-6">{t("education.title")}</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{t("education.subtitle")}</p>
           </div>
         </ScrollReveal>
 
@@ -38,17 +40,17 @@ const EducationSection = () => {
                         {edu.period}
                       </div>
                       <Badge variant="default" className="w-fit bg-primary text-primary-foreground">
-                        {edu.status}
+                        {edu.status === "In Progress" && lang === "fr" ? "En cours" : edu.status}
                       </Badge>
                     </div>
                   </div>
                 </CardHeader>
-                
+
                 <CardContent className="space-y-6">
                   <p className="text-muted-foreground">{edu.description}</p>
-                  
+
                   <div>
-                    <h4 className="font-semibold mb-3 text-foreground">Key Coursework:</h4>
+                    <h4 className="font-semibold mb-3 text-foreground">{t("education.coursework")}</h4>
                     <div className="flex flex-wrap gap-2">
                       {edu.coursework.map((course, courseIndex) => (
                         <Badge key={courseIndex} variant="outline" className="text-xs">
@@ -61,7 +63,7 @@ const EducationSection = () => {
                   <div>
                     <h4 className="font-semibold mb-3 text-foreground flex items-center gap-2">
                       <Award className="h-4 w-4 text-primary" />
-                      Achievements:
+                      {t("education.achievements")}
                     </h4>
                     <ul className="space-y-1">
                       {edu.achievements.map((achievement, achievementIndex) => (
@@ -78,13 +80,12 @@ const EducationSection = () => {
           ))}
         </div>
 
-        {/* Online Courses Section */}
         <ScrollReveal delay={0.2}>
           <Card className="bg-card border-border">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-xl">
                 <BookOpen className="h-5 w-5 text-primary" />
-                Continuing Education
+                {t("education.continuing")}
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -95,7 +96,9 @@ const EducationSection = () => {
                       <p className="font-medium text-foreground">{course.name}</p>
                       <p className="text-sm text-primary">{course.provider}</p>
                     </div>
-                    <Badge variant="outline" className="shrink-0">{course.year}</Badge>
+                    <Badge variant="outline" className="shrink-0">
+                      {course.year}
+                    </Badge>
                   </div>
                 ))}
               </div>
@@ -108,3 +111,6 @@ const EducationSection = () => {
 };
 
 export default EducationSection;
+
+
+

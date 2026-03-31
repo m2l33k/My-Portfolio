@@ -28,7 +28,7 @@ const CountUp = ({ end, suffix = "+" }: { end: number; suffix?: string }) => {
     const startTime = performance.now();
     const step = (now: number) => {
       const progress = Math.min((now - startTime) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
       start = Math.floor(eased * end);
       setCount(start);
       if (progress < 1) requestAnimationFrame(step);
@@ -38,7 +38,8 @@ const CountUp = ({ end, suffix = "+" }: { end: number; suffix?: string }) => {
 
   return (
     <span ref={ref}>
-      {count}{suffix}
+      {count}
+      {suffix}
     </span>
   );
 };
@@ -47,12 +48,12 @@ const AchievementsBanner = () => {
   const { t } = useLanguage();
 
   const achievements = [
-    { icon: Users, value: 11, label: "IEEE Roles", color: "text-blue-400" },
-    { icon: Award, value: 6, label: "Certifications", color: "text-amber-400" },
-    { icon: Briefcase, value: 5, label: "Projects", color: "text-primary" },
-    { icon: Shield, value: 4, label: "Internships", color: "text-cyan-400" },
-    { icon: Heart, value: 3, suffix: " yrs", label: "Volunteering", color: "text-rose-400" },
-    { icon: GraduationCap, value: 2, label: "Degrees", color: "text-violet-400" },
+    { icon: Users, value: 11, label: t("achievements.ieeeRoles"), color: "text-blue-400" },
+    { icon: Award, value: 6, label: t("achievements.certifications"), color: "text-amber-400" },
+    { icon: Briefcase, value: 5, label: t("achievements.projects"), color: "text-primary" },
+    { icon: Shield, value: 4, label: t("achievements.internships"), color: "text-cyan-400" },
+    { icon: Heart, value: 3, suffix: " yrs", label: t("achievements.volunteering"), color: "text-rose-400" },
+    { icon: GraduationCap, value: 2, label: t("achievements.degrees"), color: "text-violet-400" },
   ];
 
   return (
@@ -79,9 +80,7 @@ const AchievementsBanner = () => {
                     <span className="text-3xl font-bold text-foreground">
                       <CountUp end={item.value} suffix={item.suffix || "+"} />
                     </span>
-                    <span className="text-xs font-medium text-muted-foreground text-center">
-                      {item.label}
-                    </span>
+                    <span className="text-xs font-medium text-muted-foreground text-center">{item.label}</span>
                   </div>
                 );
               })}

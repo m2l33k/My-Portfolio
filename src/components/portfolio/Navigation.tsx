@@ -19,7 +19,7 @@ const Navigation = () => {
     { icon: Languages, label: t("nav.skills"), href: "#languages" },
     { icon: Heart, label: t("nav.motivation"), href: "#motivation" },
     { icon: Users, label: t("nav.volunteering"), href: "/volunteering" },
-    { icon: PenLine, label: "Blog", href: "/blog" },
+    { icon: PenLine, label: t("nav.blog"), href: "/blog" },
   ];
 
   useEffect(() => {

@@ -46,7 +46,7 @@ const posts: BlogPost[] = [
     slug: "blockchain-smart-grid",
   },
   {
-    title: "TryHackMe: Breaking Into the Top 5% — My Journey and Key Lessons",
+    title: "TryHackMe: Breaking Into the Top 5% - My Journey and Key Lessons",
     excerpt:
       "Sharing the strategies, tools, and mindset that helped me reach the top 5% on TryHackMe, from basic CTF challenges to advanced exploitation techniques.",
     date: "2025-11-05",
@@ -57,8 +57,7 @@ const posts: BlogPost[] = [
   },
   {
     title: "Prompt Engineering for Security Automation: A Practical Guide",
-    excerpt:
-      "How to craft effective prompts for AI-driven security tools, from vulnerability scanning to incident response automation.",
+    excerpt: "How to craft effective prompts for AI-driven security tools, from vulnerability scanning to incident response automation.",
     date: "2025-09-18",
     readTime: "5 min",
     tags: ["Prompt Engineering", "AI", "Security", "Tutorial"],
@@ -67,56 +66,43 @@ const posts: BlogPost[] = [
   },
 ];
 
-const categoryConfig = {
-  ctf: { color: "text-amber-400", bg: "bg-amber-400/10", border: "border-amber-400/20", label: "CTF" },
-  security: { color: "text-red-400", bg: "bg-red-400/10", border: "border-red-400/20", label: "Security" },
-  ai: { color: "text-cyan-400", bg: "bg-cyan-400/10", border: "border-cyan-400/20", label: "AI" },
-  tutorial: { color: "text-primary", bg: "bg-primary/10", border: "border-primary/20", label: "Tutorial" },
-};
-
 const Blog = () => {
   const navigate = useNavigate();
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+
+  const categoryConfig = {
+    ctf: { color: "text-amber-400", bg: "bg-amber-400/10", border: "border-amber-400/20", label: t("blog.category.ctf") },
+    security: { color: "text-red-400", bg: "bg-red-400/10", border: "border-red-400/20", label: t("blog.category.security") },
+    ai: { color: "text-cyan-400", bg: "bg-cyan-400/10", border: "border-cyan-400/20", label: t("blog.category.ai") },
+    tutorial: { color: "text-primary", bg: "bg-primary/10", border: "border-primary/20", label: t("blog.category.tutorial") },
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Header */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-primary/10 shadow-[0_1px_20px_hsl(120,100%,50%,0.05)]">
         <div className="container mx-auto px-4 h-14 flex items-center justify-between">
-          <button
-            onClick={() => navigate("/")}
-            className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-200"
-          >
+          <button onClick={() => navigate("/")} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-200">
             <ArrowLeft className="h-4 w-4" />
             <span className="text-sm font-medium">{t("blog.back")}</span>
           </button>
-          <h1 className="text-sm font-bold bg-gradient-cyber bg-clip-text text-transparent">
-            {t("blog.title")}
-          </h1>
+          <h1 className="text-sm font-bold bg-gradient-cyber bg-clip-text text-transparent">{t("blog.title")}</h1>
         </div>
       </div>
 
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
-          {/* Title */}
           <ScrollReveal>
             <div className="text-center mb-16">
               <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-                <span className="text-foreground">Blog</span>{" "}
+                <span className="text-foreground">{t("blog.heading.left")}</span>{" "}
                 <span className="bg-gradient-cyber bg-clip-text text-transparent">&</span>{" "}
-                <span className="text-foreground">Write-ups</span>
+                <span className="text-foreground">{t("blog.heading.right")}</span>
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                {t("blog.subtitle")}
-              </p>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("blog.subtitle")}</p>
 
-              {/* Category filter pills */}
               <div className="flex flex-wrap justify-center gap-2 mt-8">
                 {Object.entries(categoryConfig).map(([key, cfg]) => (
-                  <span
-                    key={key}
-                    className={`px-3 py-1.5 rounded-full text-xs font-medium border ${cfg.border} ${cfg.bg} ${cfg.color}`}
-                  >
+                  <span key={key} className={`px-3 py-1.5 rounded-full text-xs font-medium border ${cfg.border} ${cfg.bg} ${cfg.color}`}>
                     {cfg.label}
                   </span>
                 ))}
@@ -124,7 +110,6 @@ const Blog = () => {
             </div>
           </ScrollReveal>
 
-          {/* Posts */}
           <div className="max-w-3xl mx-auto space-y-6">
             {posts.map((post, i) => {
               const cfg = categoryConfig[post.category];
@@ -134,14 +119,13 @@ const Blog = () => {
                     <div className="absolute -inset-px rounded-xl bg-gradient-to-b from-primary/5 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                     <div className="relative">
-                      {/* Meta row */}
                       <div className="flex flex-wrap items-center gap-3 mb-3">
                         <span className={`px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wider border ${cfg.border} ${cfg.bg} ${cfg.color}`}>
                           {cfg.label}
                         </span>
                         <span className="flex items-center gap-1 text-xs text-muted-foreground">
                           <Calendar className="h-3 w-3" />
-                          {new Date(post.date).toLocaleDateString("en-US", {
+                          {new Date(post.date).toLocaleDateString(lang === "fr" ? "fr-FR" : "en-US", {
                             month: "short",
                             day: "numeric",
                             year: "numeric",
@@ -153,24 +137,14 @@ const Blog = () => {
                         </span>
                       </div>
 
-                      {/* Title */}
-                      <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-200 mb-2">
-                        {post.title}
-                      </h3>
+                      <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-200 mb-2">{post.title}</h3>
 
-                      {/* Excerpt */}
-                      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                        {post.excerpt}
-                      </p>
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-4">{post.excerpt}</p>
 
-                      {/* Tags & Read more */}
                       <div className="flex items-center justify-between">
                         <div className="flex flex-wrap gap-1.5">
                           {post.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="flex items-center gap-1 px-2 py-0.5 rounded-md bg-card border border-primary/10 text-[11px] text-muted-foreground"
-                            >
+                            <span key={tag} className="flex items-center gap-1 px-2 py-0.5 rounded-md bg-card border border-primary/10 text-[11px] text-muted-foreground">
                               <Tag className="h-2.5 w-2.5" />
                               {tag}
                             </span>
@@ -187,11 +161,8 @@ const Blog = () => {
               );
             })}
 
-            {/* Coming soon */}
             <ScrollReveal delay={posts.length * 0.08}>
-              <div className="text-center py-8 text-sm text-muted-foreground/50 font-mono">
-                {t("blog.comingSoon")}
-              </div>
+              <div className="text-center py-8 text-sm text-muted-foreground/50 font-mono">{t("blog.comingSoon")}</div>
             </ScrollReveal>
           </div>
         </div>

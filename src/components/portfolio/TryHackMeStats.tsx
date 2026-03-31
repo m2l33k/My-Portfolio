@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Shield, Trophy, Target, Award, Loader2 } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface THMStats {
   rank: number;
@@ -8,30 +9,30 @@ interface THMStats {
   completedRoomsNumber: number;
   badgesNumber: number;
   level: number;
-  points: number; // Assuming points might be available or calculated
+  points: number;
 }
 
 const TryHackMeStats = () => {
   const [stats, setStats] = useState<THMStats | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const response = await fetch('/api/tryhackme-stats');
+        const response = await fetch("/api/tryhackme-stats");
         if (!response.ok) {
-          throw new Error('Failed to fetch THM stats');
+          throw new Error("Failed to fetch THM stats");
         }
         const json = await response.json();
-        // The API returns { status: "success", data: { ... } }
-        if (json.status === 'success' && json.data) {
-             setStats(json.data);
+        if (json.status === "success" && json.data) {
+          setStats(json.data);
         } else {
-             throw new Error('Invalid data format');
+          throw new Error("Invalid data format");
         }
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'An error occurred');
+        setError(err instanceof Error ? err.message : "An error occurred");
       } finally {
         setLoading(false);
       }
@@ -44,7 +45,9 @@ const TryHackMeStats = () => {
     return (
       <Card className="bg-destructive/10 border-destructive/20 w-full max-w-5xl mx-auto mt-6">
         <CardContent className="p-6 text-center text-destructive">
-          <p>Error loading TryHackMe stats: {error}</p>
+          <p>
+            {t("tryhackme.error")}: {error}
+          </p>
         </CardContent>
       </Card>
     );
@@ -72,13 +75,11 @@ const TryHackMeStats = () => {
           <div className="flex-1">
             <div className="flex items-center justify-between">
               <div>
-                TryHackMe Profile
-                <div className="text-xs font-normal text-gray-400 mt-0.5">
-                  Cybersecurity Training Progress
-                </div>
+                {t("tryhackme.profile")}
+                <div className="text-xs font-normal text-gray-400 mt-0.5">{t("tryhackme.subtitle")}</div>
               </div>
               <div className="flex items-center gap-2 bg-[#88cc14]/10 px-3 py-1.5 rounded-full border border-[#88cc14]/20">
-                <span className="text-xs text-[#88cc14] uppercase tracking-wider font-semibold">Level</span>
+                <span className="text-xs text-[#88cc14] uppercase tracking-wider font-semibold">{t("tryhackme.level")}</span>
                 <span className="text-sm font-bold text-white">{stats.level}</span>
               </div>
             </div>
@@ -87,33 +88,29 @@ const TryHackMeStats = () => {
       </CardHeader>
       <CardContent className="p-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {/* Rank */}
-            <div className="flex flex-col items-center p-4 rounded-lg bg-[#162028] border border-[#202c36] hover:border-[#88cc14]/30 transition-colors">
-                <Trophy className="h-6 w-6 text-[#88cc14] mb-2" />
-                <span className="text-2xl font-bold text-white">#{stats.rank}</span>
-                <span className="text-xs text-gray-400 uppercase tracking-wider mt-1">Global Rank</span>
-            </div>
+          <div className="flex flex-col items-center p-4 rounded-lg bg-[#162028] border border-[#202c36] hover:border-[#88cc14]/30 transition-colors">
+            <Trophy className="h-6 w-6 text-[#88cc14] mb-2" />
+            <span className="text-2xl font-bold text-white">#{stats.rank}</span>
+            <span className="text-xs text-gray-400 uppercase tracking-wider mt-1">{t("tryhackme.globalRank")}</span>
+          </div>
 
-            {/* Top % */}
-            <div className="flex flex-col items-center p-4 rounded-lg bg-[#162028] border border-[#202c36] hover:border-[#88cc14]/30 transition-colors">
-                <Target className="h-6 w-6 text-[#88cc14] mb-2" />
-                <span className="text-2xl font-bold text-white">Top {stats.topPercentage}%</span>
-                <span className="text-xs text-gray-400 uppercase tracking-wider mt-1">Percentile</span>
-            </div>
+          <div className="flex flex-col items-center p-4 rounded-lg bg-[#162028] border border-[#202c36] hover:border-[#88cc14]/30 transition-colors">
+            <Target className="h-6 w-6 text-[#88cc14] mb-2" />
+            <span className="text-2xl font-bold text-white">Top {stats.topPercentage}%</span>
+            <span className="text-xs text-gray-400 uppercase tracking-wider mt-1">{t("tryhackme.percentile")}</span>
+          </div>
 
-            {/* Rooms Completed */}
-            <div className="flex flex-col items-center p-4 rounded-lg bg-[#162028] border border-[#202c36] hover:border-[#88cc14]/30 transition-colors">
-                <Shield className="h-6 w-6 text-[#88cc14] mb-2" />
-                <span className="text-2xl font-bold text-white">{stats.completedRoomsNumber}</span>
-                <span className="text-xs text-gray-400 uppercase tracking-wider mt-1">Rooms Completed</span>
-            </div>
+          <div className="flex flex-col items-center p-4 rounded-lg bg-[#162028] border border-[#202c36] hover:border-[#88cc14]/30 transition-colors">
+            <Shield className="h-6 w-6 text-[#88cc14] mb-2" />
+            <span className="text-2xl font-bold text-white">{stats.completedRoomsNumber}</span>
+            <span className="text-xs text-gray-400 uppercase tracking-wider mt-1">{t("tryhackme.roomsCompleted")}</span>
+          </div>
 
-             {/* Badges */}
-             <div className="flex flex-col items-center p-4 rounded-lg bg-[#162028] border border-[#202c36] hover:border-[#88cc14]/30 transition-colors">
-                <Award className="h-6 w-6 text-[#88cc14] mb-2" />
-                <span className="text-2xl font-bold text-white">{stats.badgesNumber}</span>
-                <span className="text-xs text-gray-400 uppercase tracking-wider mt-1">Badges Earned</span>
-            </div>
+          <div className="flex flex-col items-center p-4 rounded-lg bg-[#162028] border border-[#202c36] hover:border-[#88cc14]/30 transition-colors">
+            <Award className="h-6 w-6 text-[#88cc14] mb-2" />
+            <span className="text-2xl font-bold text-white">{stats.badgesNumber}</span>
+            <span className="text-xs text-gray-400 uppercase tracking-wider mt-1">{t("tryhackme.badgesEarned")}</span>
+          </div>
         </div>
       </CardContent>
     </Card>
