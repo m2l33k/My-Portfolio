@@ -1,87 +1,21 @@
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Calendar, Clock, ArrowRight, Tag } from "lucide-react";
+import { ArrowLeft, Bot, Clock3, ShieldCheck } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import Footer from "@/components/portfolio/Footer";
 import { useLanguage } from "@/context/LanguageContext";
 
-interface BlogPost {
-  title: string;
-  excerpt: string;
-  date: string;
-  readTime: string;
-  tags: string[];
-  category: "ctf" | "security" | "ai" | "tutorial";
-  slug: string;
-}
-
-const posts: BlogPost[] = [
-  {
-    title: "Building an AI-Powered Pentesting Agent: Reducing Manual Testing by 60%",
-    excerpt:
-      "How I designed and built an autonomous AI agent that automates web application security testing using LLMs, achieving 85% OWASP vulnerability detection coverage.",
-    date: "2026-03-15",
-    readTime: "8 min",
-    tags: ["AI", "Pentesting", "LLM", "Automation"],
-    category: "ai",
-    slug: "ai-pentesting-agent",
-  },
-  {
-    title: "RAG Architectures for Cybersecurity: Building Context-Aware Threat Analysis",
-    excerpt:
-      "Exploring how Retrieval-Augmented Generation can enhance threat intelligence by combining real-time vulnerability databases with LLM reasoning capabilities.",
-    date: "2026-02-20",
-    readTime: "6 min",
-    tags: ["RAG", "LLM", "Threat Intelligence", "AI"],
-    category: "security",
-    slug: "rag-cybersecurity",
-  },
-  {
-    title: "Blockchain-Based Smart Grid Security: Achieving 49.5ms Anomaly Detection",
-    excerpt:
-      "A deep dive into my research on using blockchain consensus mechanisms to secure smart grid infrastructure, benchmarking latency and reliability.",
-    date: "2026-01-10",
-    readTime: "10 min",
-    tags: ["Blockchain", "Smart Grid", "Security", "Research"],
-    category: "security",
-    slug: "blockchain-smart-grid",
-  },
-  {
-    title: "TryHackMe: Breaking Into the Top 5% - My Journey and Key Lessons",
-    excerpt:
-      "Sharing the strategies, tools, and mindset that helped me reach the top 5% on TryHackMe, from basic CTF challenges to advanced exploitation techniques.",
-    date: "2025-11-05",
-    readTime: "7 min",
-    tags: ["TryHackMe", "CTF", "Learning Path", "Pentesting"],
-    category: "ctf",
-    slug: "tryhackme-top-5",
-  },
-  {
-    title: "Prompt Engineering for Security Automation: A Practical Guide",
-    excerpt: "How to craft effective prompts for AI-driven security tools, from vulnerability scanning to incident response automation.",
-    date: "2025-09-18",
-    readTime: "5 min",
-    tags: ["Prompt Engineering", "AI", "Security", "Tutorial"],
-    category: "tutorial",
-    slug: "prompt-engineering-security",
-  },
-];
-
 const Blog = () => {
   const navigate = useNavigate();
-  const { t, lang } = useLanguage();
-
-  const categoryConfig = {
-    ctf: { color: "text-amber-400", bg: "bg-amber-400/10", border: "border-amber-400/20", label: t("blog.category.ctf") },
-    security: { color: "text-red-400", bg: "bg-red-400/10", border: "border-red-400/20", label: t("blog.category.security") },
-    ai: { color: "text-cyan-400", bg: "bg-cyan-400/10", border: "border-cyan-400/20", label: t("blog.category.ai") },
-    tutorial: { color: "text-primary", bg: "bg-primary/10", border: "border-primary/20", label: t("blog.category.tutorial") },
-  };
+  const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground overflow-x-clip">
       <div className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-primary/10 shadow-[0_1px_20px_hsl(120,100%,50%,0.05)]">
         <div className="container mx-auto px-4 h-14 flex items-center justify-between">
-          <button onClick={() => navigate("/")} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-200">
+          <button
+            onClick={() => navigate("/")}
+            className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-200"
+          >
             <ArrowLeft className="h-4 w-4" />
             <span className="text-sm font-medium">{t("blog.back")}</span>
           </button>
@@ -89,82 +23,73 @@ const Blog = () => {
         </div>
       </div>
 
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
+      <main className="relative pt-24 pb-16">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-primary/20 blur-3xl" />
+          <div className="absolute top-56 -left-20 h-64 w-64 rounded-full bg-cyan-500/10 blur-3xl" />
+          <div className="absolute top-72 -right-20 h-64 w-64 rounded-full bg-emerald-500/10 blur-3xl" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--primary)/0.06)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--primary)/0.06)_1px,transparent_1px)] bg-[size:34px_34px]" />
+        </div>
+
+        <div className="container relative z-10 mx-auto px-4">
           <ScrollReveal>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-                <span className="text-foreground">{t("blog.heading.left")}</span>{" "}
-                <span className="bg-gradient-cyber bg-clip-text text-transparent">&</span>{" "}
-                <span className="text-foreground">{t("blog.heading.right")}</span>
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("blog.subtitle")}</p>
+            <section className="mx-auto max-w-5xl rounded-3xl border border-primary/20 bg-card/55 backdrop-blur-md p-6 md:p-10 shadow-[0_0_0_1px_hsl(var(--primary)/0.15),0_20px_80px_hsl(var(--primary)/0.12)]">
+              <div className="mx-auto max-w-3xl text-center">
+                <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold tracking-[0.2em] uppercase text-primary">
+                  <Clock3 className="h-3.5 w-3.5" />
+                  Launching Soon
+                </div>
 
-              <div className="flex flex-wrap justify-center gap-2 mt-8">
-                {Object.entries(categoryConfig).map(([key, cfg]) => (
-                  <span key={key} className={`px-3 py-1.5 rounded-full text-xs font-medium border ${cfg.border} ${cfg.bg} ${cfg.color}`}>
-                    {cfg.label}
-                  </span>
-                ))}
+                <h2 className="mt-6 text-4xl md:text-6xl font-black leading-tight tracking-tight">
+                  <span className="text-foreground">Blog</span>
+                  <span className="mx-2 text-primary">&</span>
+                  <span className="text-foreground">Write-ups</span>
+                  <br />
+                  <span className="bg-gradient-cyber bg-clip-text text-transparent">Coming Soon</span>
+                </h2>
+
+                <p className="mt-5 text-base md:text-lg text-muted-foreground">
+                  {t("blog.subtitle")}
+                </p>
+                <p className="mt-2 text-sm text-muted-foreground/80">{t("blog.comingSoon")}</p>
               </div>
-            </div>
+
+              <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div className="rounded-xl border border-amber-400/25 bg-amber-400/10 px-4 py-4 text-left">
+                  <div className="mb-2 inline-flex rounded-md bg-amber-400/20 p-2 text-amber-300">
+                    <ShieldCheck className="h-4 w-4" />
+                  </div>
+                  <p className="text-sm font-semibold text-foreground">CTF Write-ups</p>
+                  <p className="mt-1 text-xs text-muted-foreground">Step-by-step exploit notes and methodology breakdowns.</p>
+                </div>
+
+                <div className="rounded-xl border border-red-400/25 bg-red-400/10 px-4 py-4 text-left">
+                  <div className="mb-2 inline-flex rounded-md bg-red-400/20 p-2 text-red-300">
+                    <ShieldCheck className="h-4 w-4" />
+                  </div>
+                  <p className="text-sm font-semibold text-foreground">Security Research</p>
+                  <p className="mt-1 text-xs text-muted-foreground">Real-case findings, tooling, and defensive insights.</p>
+                </div>
+
+                <div className="rounded-xl border border-cyan-400/25 bg-cyan-400/10 px-4 py-4 text-left">
+                  <div className="mb-2 inline-flex rounded-md bg-cyan-400/20 p-2 text-cyan-300">
+                    <Bot className="h-4 w-4" />
+                  </div>
+                  <p className="text-sm font-semibold text-foreground">AI Tutorials</p>
+                  <p className="mt-1 text-xs text-muted-foreground">Practical guides for AI in security and automation.</p>
+                </div>
+              </div>
+
+              <div className="mt-8 flex justify-center">
+                <button
+                  onClick={() => navigate("/")}
+                  className="rounded-xl border border-primary/30 bg-primary/10 px-5 py-2.5 text-sm font-semibold text-primary hover:bg-primary/20 transition-colors"
+                >
+                  {t("blog.back")}
+                </button>
+              </div>
+            </section>
           </ScrollReveal>
-
-          <div className="max-w-3xl mx-auto space-y-6">
-            {posts.map((post, i) => {
-              const cfg = categoryConfig[post.category];
-              return (
-                <ScrollReveal key={post.slug} delay={i * 0.08}>
-                  <article className="group relative rounded-xl border border-primary/10 bg-card/50 backdrop-blur-sm p-6 hover:border-primary/25 transition-all duration-300 cursor-pointer">
-                    <div className="absolute -inset-px rounded-xl bg-gradient-to-b from-primary/5 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                    <div className="relative">
-                      <div className="flex flex-wrap items-center gap-3 mb-3">
-                        <span className={`px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wider border ${cfg.border} ${cfg.bg} ${cfg.color}`}>
-                          {cfg.label}
-                        </span>
-                        <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                          <Calendar className="h-3 w-3" />
-                          {new Date(post.date).toLocaleDateString(lang === "fr" ? "fr-FR" : "en-US", {
-                            month: "short",
-                            day: "numeric",
-                            year: "numeric",
-                          })}
-                        </span>
-                        <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                          <Clock className="h-3 w-3" />
-                          {post.readTime}
-                        </span>
-                      </div>
-
-                      <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-200 mb-2">{post.title}</h3>
-
-                      <p className="text-sm text-muted-foreground leading-relaxed mb-4">{post.excerpt}</p>
-
-                      <div className="flex items-center justify-between">
-                        <div className="flex flex-wrap gap-1.5">
-                          {post.tags.map((tag) => (
-                            <span key={tag} className="flex items-center gap-1 px-2 py-0.5 rounded-md bg-card border border-primary/10 text-[11px] text-muted-foreground">
-                              <Tag className="h-2.5 w-2.5" />
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                        <span className="flex items-center gap-1 text-xs font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                          {t("blog.readMore")}
-                          <ArrowRight className="h-3 w-3" />
-                        </span>
-                      </div>
-                    </div>
-                  </article>
-                </ScrollReveal>
-              );
-            })}
-
-            <ScrollReveal delay={posts.length * 0.08}>
-              <div className="text-center py-8 text-sm text-muted-foreground/50 font-mono">{t("blog.comingSoon")}</div>
-            </ScrollReveal>
-          </div>
         </div>
       </main>
 
