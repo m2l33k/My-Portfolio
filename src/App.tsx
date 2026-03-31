@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -14,14 +14,16 @@ import LoadingScreen from "./components/portfolio/LoadingScreen";
 import PageTransition from "./components/portfolio/PageTransition";
 import BackToTopButton from "./components/portfolio/BackToTopButton";
 import Index from "./pages/Index";
-import Chatbot from "./pages/Chatbot";
-import Activity from "./pages/Activity";
-import Volunteering from "./pages/Volunteering";
-import Blog from "./pages/Blog";
-import NotFound from "./pages/NotFound";
 import CommandPalette from "./components/portfolio/CommandPalette";
 import CookieConsent from "./components/portfolio/CookieConsent";
 import KeyboardShortcutsModal from "./components/portfolio/KeyboardShortcutsModal";
+
+// Lazy-loaded routes for code splitting
+const Chatbot = lazy(() => import("./pages/Chatbot"));
+const Activity = lazy(() => import("./pages/Activity"));
+const Volunteering = lazy(() => import("./pages/Volunteering"));
+const Blog = lazy(() => import("./pages/Blog"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
@@ -31,15 +33,17 @@ const AnimatedRoutes = () => {
 
   return (
     <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<PageTransition><Index /></PageTransition>} />
-        <Route path="/chat" element={<PageTransition><Chatbot /></PageTransition>} />
-        <Route path="/activity" element={<PageTransition><Activity /></PageTransition>} />
-        <Route path="/volunteering" element={<PageTransition><Volunteering /></PageTransition>} />
-        <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
-        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-        <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
-      </Routes>
+      <Suspense fallback={null}>
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<PageTransition><Index /></PageTransition>} />
+          <Route path="/chat" element={<PageTransition><Chatbot /></PageTransition>} />
+          <Route path="/activity" element={<PageTransition><Activity /></PageTransition>} />
+          <Route path="/volunteering" element={<PageTransition><Volunteering /></PageTransition>} />
+          <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
+        </Routes>
+      </Suspense>
     </AnimatePresence>
   );
 };
