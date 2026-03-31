@@ -271,12 +271,12 @@ const HeroSection = () => {
 
               {/* 6. TryHackMe Badge in styled card */}
               <motion.div variants={fadeUp}>
-                <div className="relative max-w-sm">
+                <div className="relative w-[331px]">
                   <div className="absolute -inset-px rounded-xl bg-gradient-to-r from-emerald-500/20 via-cyan-500/10 to-emerald-500/20 blur-sm"></div>
-                  <div className="relative rounded-xl border border-primary/15 bg-card/60 dark:bg-card/60 backdrop-blur-sm p-3 overflow-hidden">
+                  <div className="relative rounded-xl border border-primary/15 bg-card backdrop-blur-sm p-0 overflow-hidden">
                     <iframe
                       src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=3036625"
-                      style={{ border: "none", width: "100%", height: "110px" }}
+                      style={{ border: "none", width: "105%", height: "85px", display: "block" }}
                       title="TryHackMe Badge"
                       loading="lazy"
                     />
