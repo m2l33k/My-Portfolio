@@ -1,4 +1,4 @@
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Light theme — clean, professional with green accents */
+    /* Light theme â€” clean, professional with green accents */
     --background: 0 0% 98%;
     --foreground: 210 30% 15%;
 
@@ -263,6 +263,38 @@ section + section::before {
 .animate-orbit-reverse {
   animation: orbit-reverse 45s linear infinite;
 }
+/* Volunteering floating media cards */
+@keyframes volunteer-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes volunteer-float-soft {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-volunteer-float {
+  animation: volunteer-float 6s ease-in-out infinite;
+}
+
+.animate-volunteer-float-delayed {
+  animation: volunteer-float 7.5s ease-in-out infinite;
+  animation-delay: 0.35s;
+}
+
+.animate-volunteer-float-slow {
+  animation: volunteer-float-soft 8.5s ease-in-out infinite;
+  animation-delay: 0.15s;
+}
 
 /* Print stylesheet */
 @media print {
@@ -326,3 +358,4 @@ section + section::before {
     max-width: 100% !important;
   }
 }
+

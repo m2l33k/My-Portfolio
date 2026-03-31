@@ -1,5 +1,5 @@
-import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Calendar } from "lucide-react";
+﻿import { useNavigate } from "react-router-dom";
+import { ArrowLeft, Calendar, HandHeart, Sparkles, Users } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import Footer from "@/components/portfolio/Footer";
 import { useLanguage } from "@/context/LanguageContext";
@@ -15,6 +15,16 @@ interface TimelineGroup {
   logoUrl: string;
   entries: TimelineEntry[];
   type: "ieee" | "community" | "jci" | "association";
+}
+
+interface SpotlightItem {
+  title: string;
+  role: string;
+  period: string;
+  image: string;
+  position: string;
+  motion: string;
+  fit?: "cover" | "contain";
 }
 
 const groups: TimelineGroup[] = [
@@ -70,6 +80,36 @@ const groups: TimelineGroup[] = [
   },
 ];
 
+const spotlightItems: SpotlightItem[] = [
+  {
+    title: "My Profile",
+    role: "Volunteer & Community Leader",
+    period: "IEEE / JCI / Civic Engagement",
+    image: "/3d4febb1-a352-4c43-b67f-919a19b6554a-removebg-preview.png",
+    position: "md:-top-5 md:left-0",
+    motion: "animate-volunteer-float",
+    fit: "contain",
+  },
+  {
+    title: "Event Moments",
+    role: "Workshops and community activities",
+    period: "Recent participation highlights",
+    image: "/Capture%20d%27%C3%A9cran%202025-12-18%20122108.png",
+    position: "md:top-10 md:-right-6",
+    motion: "animate-volunteer-float-delayed",
+    fit: "cover",
+  },
+  {
+    title: "Field Actions",
+    role: "Public initiatives and volunteer operations",
+    period: "Community impact in action",
+    image: "/Capture%20d%27%C3%A9cran%202025-12-18%20164235.png",
+    position: "md:bottom-0 md:left-12",
+    motion: "animate-volunteer-float-slow",
+    fit: "cover",
+  },
+];
+
 const typeConfig = {
   ieee: {
     color: "text-blue-400",
@@ -105,6 +145,12 @@ const Volunteering = () => {
   usePageTitle("Volunteering");
   const navigate = useNavigate();
   const { t } = useLanguage();
+
+  const totalRoles = groups.reduce((total, group) => total + group.entries.length, 0);
+  const activeRoles = groups.reduce(
+    (total, group) => total + group.entries.filter((entry) => entry.period.toLowerCase().includes("present")).length,
+    0,
+  );
 
   const getRoleBadge = (role: string) => {
     const lower = role.toLowerCase();
@@ -149,6 +195,87 @@ const Volunteering = () => {
                 <span className="text-foreground">{t("volunteering.title.right")}</span>
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("volunteering.subtitle")}</p>
+
+              <div className="relative mx-auto mt-10 max-w-6xl text-left">
+                <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.16),transparent_70%)] blur-3xl" />
+
+                <div className="relative overflow-hidden rounded-3xl border border-primary/20 bg-card/60 p-5 md:p-8 backdrop-blur-xl">
+                  <div className="pointer-events-none absolute -right-8 -top-12 h-40 w-40 rounded-full bg-primary/10 blur-2xl" />
+                  <div className="pointer-events-none absolute -left-10 bottom-0 h-32 w-32 rounded-full bg-blue-500/10 blur-2xl" />
+
+                  <div className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-center">
+                    <div className="space-y-4">
+                      <p className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                        <Sparkles className="h-3.5 w-3.5" />
+                        Impact Highlights
+                      </p>
+
+                      <h3 className="text-2xl md:text-3xl font-semibold leading-tight">
+                        {t("volunteering.navTitle")}
+                      </h3>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div className="rounded-xl border border-primary/15 bg-background/70 p-3">
+                          <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">{t("volunteering.roles")}</p>
+                          <p className="mt-1 text-2xl font-bold text-foreground">{totalRoles}</p>
+                        </div>
+                        <div className="rounded-xl border border-primary/15 bg-background/70 p-3">
+                          <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Active</p>
+                          <p className="mt-1 text-2xl font-bold text-primary">{activeRoles}</p>
+                        </div>
+                        <div className="rounded-xl border border-primary/15 bg-background/70 p-3">
+                          <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Organizations</p>
+                          <p className="mt-1 text-2xl font-bold text-foreground">{groups.length}</p>
+                        </div>
+                      </div>
+
+                      <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-medium text-emerald-300">
+                        <HandHeart className="h-3.5 w-3.5" />
+                        Long-term community contribution
+                      </div>
+                    </div>
+
+                    <div className="relative grid gap-3 sm:grid-cols-2 md:block md:h-[360px]">
+                      <div className="rounded-2xl border border-primary/20 bg-background/85 p-4 shadow-[0_18px_45px_hsl(120,100%,50%,0.12)] md:absolute md:left-1/2 md:top-1/2 md:w-[270px] md:-translate-x-1/2 md:-translate-y-1/2">
+                        <div className="overflow-hidden rounded-xl border border-primary/15 bg-background/70">
+                          <img
+                            src="/3d4febb1-a352-4c43-b67f-919a19b6554a-removebg-preview.png"
+                            alt="Malek Aziz Hassayoun"
+                            className="h-36 w-full object-contain p-2"
+                            loading="lazy"
+                          />
+                        </div>
+                        <p className="mt-3 text-base font-semibold text-foreground">Malek Aziz Hassayoun</p>
+                        <p className="mt-1 text-sm text-muted-foreground">Volunteer leadership and event execution</p>
+                      </div>
+
+                      {spotlightItems.map((item, index) => (
+                        <article
+                          key={item.title + index}
+                          className={`rounded-2xl border border-primary/20 bg-card/90 p-3 shadow-[0_10px_28px_hsl(120,100%,50%,0.12)] md:absolute md:w-[220px] ${item.position} ${item.motion}`}
+                        >
+                          <div className="overflow-hidden rounded-xl border border-primary/15 bg-background/80">
+                            <img
+                              src={item.image}
+                              alt={item.title}
+                              className={`h-24 w-full ${item.fit === "cover" ? "object-cover" : "object-contain p-2"}`}
+                              loading="lazy"
+                            />
+                          </div>
+                          <div className="mt-2 min-w-0">
+                            <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground">{item.title}</p>
+                            <p className="text-sm font-medium">{item.role}</p>
+                          </div>
+                          <div className="mt-2 inline-flex items-center gap-1 text-xs text-muted-foreground">
+                            <Users className="h-3.5 w-3.5" />
+                            {item.period}
+                          </div>
+                        </article>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               <div className="flex flex-wrap justify-center gap-3 mt-8">
                 {Object.entries(typeConfig).map(([key, cfg]) => (
