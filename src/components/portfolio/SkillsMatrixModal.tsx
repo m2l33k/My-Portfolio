@@ -139,10 +139,10 @@ const SkillsMatrixModal: React.FC<SkillsMatrixModalProps> = ({ onClose }) => {
             </div>
             <div>
               <h2 className="text-lg font-bold text-foreground">
-                {lang === "en" ? "Skills Matrix" : "Matrice de Competences"}
+                {{ en: "Skills Matrix", fr: "Matrice de Competences", ar: "مصفوفة المهارات" }[lang]}
               </h2>
               <p className="text-xs text-muted-foreground">
-                {lang === "en" ? "Technical proficiency across domains" : "Competence technique par domaine"}
+                {{ en: "Technical proficiency across domains", fr: "Competence technique par domaine", ar: "الكفاءة التقنية عبر المجالات" }[lang]}
               </p>
             </div>
           </div>

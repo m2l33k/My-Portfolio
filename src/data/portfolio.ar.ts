@@ -255,7 +255,7 @@ export const projects = projectsEn.map((item) => {
     title: tr?.title ?? item.title,
     description: tr?.description ?? item.description,
     highlights: tr?.highlights ?? item.highlights,
-    status: item.status === "Completed" ? "مكتمل" : item.status === "In Development" ? "قيد التطوير" : item.status,
+    status: item.status,
   };
 });
 
@@ -274,7 +274,6 @@ export const certifications = certificationsEn.map((item) => ({
   ...item,
   name: certNameAr[item.name] ?? item.name,
   description: certDescriptionAr[item.name] ?? item.description,
-  status: item.status === "Active" ? "نشط" : item.status,
 }));
 
 

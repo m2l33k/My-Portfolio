@@ -28,8 +28,13 @@ import { useLanguage } from "@/context/LanguageContext";
 const CertificationsSection = () => {
   const [selectedCert, setSelectedCert] = useState<Certification | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const { certifications } = usePortfolioData();
+
+  const getStatusLabel = (status: string) => {
+    if (status === "Active") return lang === "ar" ? "نشط" : lang === "fr" ? "Actif" : "Active";
+    return status;
+  };
 
   const handleOpenModal = (cert: Certification) => {
     setSelectedCert(cert);
@@ -72,7 +77,7 @@ const CertificationsSection = () => {
           </div>
         </ScrollReveal>
 
-        <Tabs defaultValue="All" className="w-full">
+        <Tabs defaultValue="All" className="w-full" dir={lang === "ar" ? "rtl" : "ltr"}>
           <ScrollReveal delay={0.2}>
             <div className="flex justify-center mb-10">
               <TabsList className="bg-secondary/50 p-1">
@@ -109,7 +114,7 @@ const CertificationsSection = () => {
                                   className={`shrink-0 ${cert.status === "Active" ? "bg-primary text-primary-foreground" : ""}`}
                                 >
                                   <CheckCircle className="h-3 w-3 mr-1" />
-                                  {cert.status}
+                                  {getStatusLabel(cert.status)}
                                 </Badge>
                               </div>
                             </div>

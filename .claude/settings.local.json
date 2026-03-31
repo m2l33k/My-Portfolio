@@ -8,7 +8,8 @@
       "Bash(xargs basename:*)",
       "Bash(find /c/Users/m2l3k/Desktop/My-Portfolio -maxdepth 3 -path */.github/workflows/* -type f)",
       "Bash(find /c/Users/m2l3k/Desktop/My-Portfolio -name *.css -o -name *.scss)",
-      "Bash(grep -r \"open.*source\\\\|github.*stars\\\\|github.*contribution\" /c/Users/m2l3k/Desktop/My-Portfolio/src --include=*.tsx --include=*.ts)"
+      "Bash(grep -r \"open.*source\\\\|github.*stars\\\\|github.*contribution\" /c/Users/m2l3k/Desktop/My-Portfolio/src --include=*.tsx --include=*.ts)",
+      "Bash(node -e \"const en = require\\(''./src/data/portfolio.ts''\\); console.log\\(''error: ESM''\\)\")"
     ]
   }
 }

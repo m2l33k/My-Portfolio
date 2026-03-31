@@ -32,7 +32,7 @@ interface CertificationDetailsModalProps {
 }
 
 const CertificationDetailsModal = ({ certification, isOpen, onClose }: CertificationDetailsModalProps) => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   if (!certification) return null;
 
   return (
@@ -57,7 +57,7 @@ const CertificationDetailsModal = ({ certification, isOpen, onClose }: Certifica
               </DialogDescription>
             </div>
             <Badge variant={certification.status === "Active" ? "default" : "secondary"} className="shrink-0">
-              {certification.status}
+              {certification.status === "Active" ? (lang === "ar" ? "نشط" : lang === "fr" ? "Actif" : "Active") : certification.status}
             </Badge>
           </div>
         </DialogHeader>

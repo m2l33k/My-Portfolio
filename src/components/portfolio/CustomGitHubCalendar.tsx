@@ -153,7 +153,7 @@ const CustomGitHubCalendar = () => {
                         <p>
                           <span className="font-bold text-primary">{day.count}</span> contributions
                         </p>
-                        <p className="text-muted-foreground">{new Date(day.date).toLocaleDateString(lang === "fr" ? "fr-FR" : "en-US")}</p>
+                        <p className="text-muted-foreground">{new Date(day.date).toLocaleDateString(lang === "fr" ? "fr-FR" : lang === "ar" ? "ar-TN" : "en-US")}</p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>

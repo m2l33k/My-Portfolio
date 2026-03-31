@@ -23,6 +23,7 @@ const Chatbot = lazy(() => import("./pages/Chatbot"));
 const Activity = lazy(() => import("./pages/Activity"));
 const Volunteering = lazy(() => import("./pages/Volunteering"));
 const Blog = lazy(() => import("./pages/Blog"));
+const Recruiter = lazy(() => import("./pages/Recruiter"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -40,6 +41,7 @@ const AnimatedRoutes = () => {
           <Route path="/activity" element={<PageTransition><Activity /></PageTransition>} />
           <Route path="/volunteering" element={<PageTransition><Volunteering /></PageTransition>} />
           <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
+          <Route path="/recruiter" element={<PageTransition><Recruiter /></PageTransition>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
         </Routes>

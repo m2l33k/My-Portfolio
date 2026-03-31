@@ -28,6 +28,7 @@ import {
   Download,
   Sun,
   Moon,
+  UserCheck,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { useTheme } from "next-themes";
@@ -89,6 +90,7 @@ const CommandPalette = () => {
     { label: t("hero.activity") || "Activity", icon: Activity, action: () => goTo("/activity"), group: "navigation" },
     { label: t("nav.volunteering") || "Volunteering", icon: HandHeart, action: () => goTo("/volunteering"), group: "navigation" },
     { label: t("nav.blog") || "Blog", icon: BookOpen, action: () => goTo("/blog"), group: "navigation" },
+    { label: { en: "Recruiter View", fr: "Vue Recruteur", ar: "عرض المجند" }[language] ?? "Recruiter View", icon: UserCheck, action: () => goTo("/recruiter"), group: "navigation" },
   ];
 
   const sections: CommandItem[] = [

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Menu, X, Shield, User, Award, Briefcase, GraduationCap, Languages, Heart, Users, PenLine } from "lucide-react";
+import { Menu, X, Shield, User, Award, Briefcase, GraduationCap, Languages, Heart, Users, PenLine, UserCheck } from "lucide-react";
 import LanguageToggle from "./LanguageToggle";
 import ThemeToggle from "./ThemeToggle";
 import { useLanguage } from "@/context/LanguageContext";
@@ -99,8 +99,16 @@ const Navigation = () => {
             })}
           </div>
 
-          {/* Right side: theme + language toggle + mobile menu */}
+          {/* Right side: recruiter + theme + language toggle + mobile menu */}
           <div className="flex items-center gap-2">
+            <button
+              onClick={() => navigate("/recruiter")}
+              className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border border-primary/10 bg-card/50 backdrop-blur-sm text-xs font-semibold text-muted-foreground hover:text-primary hover:border-primary/30 hover:bg-primary/5 transition-all duration-200"
+              title={t("nav.about")}
+            >
+              <UserCheck className="h-3.5 w-3.5" />
+              <span className="hidden md:inline">Recruiter</span>
+            </button>
             <ThemeToggle />
             <LanguageToggle />
             <button
