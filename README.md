@@ -1,163 +1,127 @@
-# 🚀 ROOTKEPEER - Malek Aziz Hassayoun's Portfolio
+﻿# RootKeeper Portfolio
 
-![Portfolio Preview](/public/Capture%20d'écran%202025-12-18%20164235.png)
+Modern, responsive portfolio for **Hassayoun Malek Aziz** focused on cybersecurity, AI, and software engineering.
 
-> A modern, responsive, and interactive portfolio website built to showcase my journey as a Computer Engineering Student specializing in Cybersecurity, AI, and Blockchain.
+## Overview
 
-## 📖 About The Project
+RootKeeper is a multi-page React + TypeScript portfolio with:
 
-**Aspire Folio** is a comprehensive personal portfolio designed to highlight professional achievements, technical skills, and creative projects. It goes beyond a simple static site by incorporating interactive elements, detailed project views, and a polished user experience using the latest web technologies.
+- Rich homepage sections (projects, certifications, internships, education, skills, motivation)
+- AI assistant page (`/chat`)
+- Activity dashboard (`/activity`) with GitHub and TryHackMe integrations
+- Volunteering timeline (`/volunteering`)
+- Blog/Write-ups Coming Soon page (`/blog`)
+- Command palette, keyboard shortcuts, theme switcher, language switcher, and floating back-to-top action
 
-### ✨ Key Features
+## Documentation
 
-*   **🎨 Modern & Responsive UI**: Built with a "glassmorphism" aesthetic, dark mode support, and fully responsive layout for all devices.
-*   **📂 Interactive Project Showcase**:
-    *   Detailed modals for each project.
-    *   Image carousels for project screenshots.
-    *   Links to live demos and GitHub repositories.
-*   **💼 Professional Experience & Internships**:
-    *   Dedicated timeline views for work history.
-    *   **Certificate Viewer**: Integrated modal to view internship certificates directly.
-    *   Company links and technology tags.
-*   **📊 Dynamic Skills Matrix**: A visual representation of technical proficiency across different domains (Cybersecurity, AI, Development).
-*   **🎓 Education & Certifications**: structured display of academic background and professional certifications with verification links.
-*   **📬 Functional Contact Form**: Integrated with **EmailJS** for real-time email delivery without a backend server.
-*   **⚡ High Performance**: Optimized with Vite for lightning-fast loading and smooth transitions.
+Project documentation is maintained in `docs/`:
 
-## 🛠️ Tech Stack
+- [Full Technical Handbook](./docs/README.md)
+- [API Reference](./docs/API.md)
+- [Changelog](./docs/CHANGELOG.md)
 
-This project leverages a robust ecosystem of modern tools:
+## Tech Stack
 
-### Core
-*   **[React 18](https://reactjs.org/)**: The library for web and native user interfaces.
-*   **[TypeScript](https://www.typescriptlang.org/)**: Strongly typed JavaScript for better code quality.
-*   **[Vite](https://vitejs.dev/)**: Next-generation frontend tooling.
+### Frontend
 
-### Styling & UI
-*   **[Tailwind CSS](https://tailwindcss.com/)**: Utility-first CSS framework.
-*   **[shadcn/ui](https://ui.shadcn.com/)**: Re-usable components built using Radix UI and Tailwind CSS.
-*   **[Lucide React](https://lucide.dev/)**: Beautiful & consistent icons.
-*   **[Embla Carousel](https://www.embla-carousel.com/)**: Lightweight carousel for project images.
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS
+- shadcn/ui + Radix UI
+- Framer Motion
+- React Router
+- next-themes
 
-### Functionality
-*   **[React Hook Form](https://react-hook-form.com/)** & **[Zod](https://zod.dev/)**: Form handling and schema validation.
-*   **[Recharts](https://recharts.org/)**: Composable charting library for the skills matrix.
-*   **[EmailJS](https://www.emailjs.com/)**: Client-side email service.
+### Backend (Local API)
 
-## 🚀 Getting Started
+- Express
+- CORS
+- dotenv
+- GitHub Models inference via `@azure-rest/ai-inference`
 
-Follow these steps to set up the project locally.
+### Integrations
 
-### Prerequisites
+- EmailJS (contact form)
+- GitHub APIs / public contribution sources
+- TryHackMe public profile API
+- Vercel Analytics + Speed Insights
 
-*   **Node.js** (v18 or higher)
-*   **npm** or **bun**
+## Routes
 
-### Installation
+| Route | Description |
+|---|---|
+| `/` | Main portfolio homepage |
+| `/chat` | Portfolio AI assistant |
+| `/activity` | GitHub + TryHackMe activity |
+| `/volunteering` | Community and leadership timeline |
+| `/blog` | Blog and write-ups coming soon |
 
-1.  **Clone the repository**
-    ```sh
-    git clone https://github.com/m2l33k/My-Portfolio
-    cd My-Portfolio
-    ```
+## Quick Start
 
-2.  **Install dependencies**
-    ```sh
-    npm install
-    # or
-    bun install
-    ```
+### 1) Install dependencies
 
-3.  **Environment Setup**
-    Create a `.env` file in the root directory based on `.env.example`:
-    ```env
-    VITE_EMAILJS_SERVICE_ID=your_service_id
-    VITE_EMAILJS_TEMPLATE_ID=your_template_id
-    VITE_EMAILJS_USER_ID=your_public_key
-    ```
-
-4.  **Start the Development Server**
-    ```sh
-    npm run dev
-    ```
-    Visit `http://localhost:5173` to view the app.
-
-## 📂 Project Structure
-
-```text
-src/
-├── components/
-│   ├── portfolio/          # Core portfolio sections
-│   │   ├── HeroSection.tsx
-│   │   ├── ProjectsSection.tsx
-│   │   ├── InternshipsSection.tsx  # Includes certificate modal
-│   │   ├── SkillsMatrixModal.tsx
-│   │   └── ...
-│   └── ui/                 # Reusable shadcn/ui components
-├── lib/                    # Utilities (cn, etc.)
-├── pages/                  # Main page layout
-├── App.tsx                 # App entry point
-└── main.tsx                # DOM rendering
+```bash
+npm install
 ```
 
-## 📝 Customization
+### 2) Configure environment
 
-The content is managed within the component files for easy updates:
+Create `.env` in the project root:
 
-*   **Projects**: Edit `src/components/portfolio/ProjectsSection.tsx` to add/remove projects.
-*   **Internships**: Update `src/components/portfolio/InternshipsSection.tsx` to change work experience and add certificate URLs.
-*   **Skills**: Modify `src/components/portfolio/SkillsMatrixModal.tsx` to adjust skill levels and categories.
-*   **Personal Info**: Update `src/components/portfolio/HeroSection.tsx` and `ContactSection.tsx`.
+```env
+# EmailJS (frontend)
+VITE_EMAILJS_SERVICE_ID=your_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_template_id
+VITE_EMAILJS_USER_ID=your_public_key
 
-## 📦 Deployment
+# Local API server (chat endpoint)
+GITHUB_TOKEN=your_github_models_token
+```
 
-This project is ready to be deployed on platforms like **Vercel** or **Netlify**.
+### 3) Run development mode
 
-**Build for production:**
-```sh
+```bash
+npm run dev
+```
+
+This runs:
+
+- Vite app on `http://localhost:8080`
+- API server on `http://localhost:3001`
+
+### 4) Build for production
+
+```bash
 npm run build
 ```
 
-The output will be in the `dist` folder.
+## Scripts
 
-## 📬 Contact
+| Script | Purpose |
+|---|---|
+| `npm run dev` | Start Vite + local API server concurrently |
+| `npm run build` | Production build |
+| `npm run build:dev` | Development-mode build |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Lint source code |
+| `npm test` | Run Vitest test suite |
+| `npm run test:watch` | Run Vitest in watch mode |
 
-**Malek Aziz Hassayoun**
+## Keyboard UX Highlights
 
-*   📧 Email: [malekaziz.hassayoun@esprit.tn](mailto:malekaziz.hassayoun@esprit.tn)
-*   🔗 LinkedIn: [Profile Link](https://linkedin.com/in/malek-hassayoun)
-*   🐙 GitHub: [Profile Link](https://github.com/m2l33k)
+- `Ctrl/Cmd + K`: open command palette
+- `?`: open keyboard shortcuts modal
+- `Esc`: go home or scroll to top
+- `1..7`: jump to key homepage sections
 
----
-*Built with ❤️ by Malek Aziz Hassayoun*
+## Contact and CV
 
-## EmailJS Setup Notes
+- Contact modal uses EmailJS with anti-spam safeguards (honeypot + client rate limit)
+- CV modal supports preview and download (English/French PDFs)
 
-The contact form uses `emailjs.send(...)` from `src/components/portfolio/ContactForm.tsx` and sends these template variables:
+## License
 
-- `user_name`
-- `user_email`
-- `message`
-- `title` (mapped from message)
-- `from_name`
-- `from_email`
-- `reply_to`
-- `name`
-- `email`
-
-Recommended template placeholders:
-
-- `{{user_name}}` or `{{name}}`
-- `{{user_email}}` or `{{email}}`
-- `{{message}}` or `{{title}}`
-
-### Common EmailJS Errors
-
-- `400: The template ID not found`
-  - Verify `VITE_EMAILJS_TEMPLATE_ID` matches an existing template in the same EmailJS account/workspace.
-- `412: Gmail_API: Request had insufficient authentication scopes`
-  - Reconnect Gmail in EmailJS service settings and accept all required Google scopes.
-- `Email service is not configured`
-  - Ensure `.env` exists at project root with `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, and `VITE_EMAILJS_USER_ID`.
-  - Restart the dev server after editing `.env`.
-
+This repository currently has no explicit license file.
+If you plan to open-source broadly, add a `LICENSE` file.

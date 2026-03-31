@@ -20,6 +20,11 @@ Primary audiences:
 
 ---
 
+## Related Docs
+
+- [API Reference](./API.md)
+- [Changelog](./CHANGELOG.md)
+
 ## 2) Product Summary
 
 The application is a modern React + TypeScript portfolio with a cybersecurity/AI design language.
@@ -32,6 +37,25 @@ It provides:
 - AI assistant page backed by a local Express API server
 - Activity page with GitHub and TryHackMe integrations
 - Contact workflow via EmailJS
+
+## 2.1) Visual Walkthrough (Screenshots and GIF Slots)
+
+### Current Screenshots
+
+| Feature | Preview |
+|---|---|
+| Home / Hero section | ![Home Hero](./assets/portfolio-home.png) |
+| Portfolio overview layout | ![Portfolio Overview](./assets/portfolio-overview.png) |
+
+### GIF Slots (ready to populate)
+
+Add short GIF recordings in `docs/assets/gifs/` and link them here:
+
+- `navigation-scroll.gif` (desktop + mobile nav interactions)
+- `theme-toggle.gif` (light/dark/system switch)
+- `shortcuts-and-command-palette.gif` (`Ctrl/Cmd+K`, `?`, section keys)
+- `contact-form-flow.gif` (validation + success path)
+- `back-to-top.gif` (floating icon behavior)
 
 ---
 
@@ -603,3 +627,8 @@ Current inventory under `src/components/portfolio`:
 
 Documentation owner: Hassayoun Malek Aziz
 Source of truth: this repository's codebase
+
+
+
+
+
