@@ -18,6 +18,7 @@ import Activity from "./pages/Activity";
 import Volunteering from "./pages/Volunteering";
 import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
+import CommandPalette from "./components/portfolio/CommandPalette";
 
 const queryClient = new QueryClient();
 
@@ -59,6 +60,7 @@ const App = () => {
           <Sonner />
           {loading && <LoadingScreen onComplete={handleLoadingComplete} />}
           <BrowserRouter>
+            <CommandPalette />
             <AnimatedRoutes />
             <BackToTopButton />
           </BrowserRouter>

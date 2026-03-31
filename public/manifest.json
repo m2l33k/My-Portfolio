@@ -1,0 +1,19 @@
+{
+  "name": "Hassayoun Malek Aziz | Security Engineer & AI Developer",
+  "short_name": "RootKeeper",
+  "description": "Engineering student building LLM-powered security automation systems.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#001a0d",
+  "theme_color": "#001a0d",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/Black_and_Orange_Flat_Illustrative_Social_Media_Agency_Logo-removebg-preview.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "education", "technology"]
+}
