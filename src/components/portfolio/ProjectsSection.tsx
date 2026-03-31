@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -30,9 +30,23 @@ const ProjectsSection = () => {
   };
 
   const getStatusLabel = (status: string) => {
-    if (status === "Completed") return lang === "fr" ? "Termine" : "Completed";
-    if (status === "In Development") return lang === "fr" ? "En cours" : "In Development";
+    if (status === "Completed") return lang === "ar" ? "مكتمل" : lang === "fr" ? "Termine" : "Completed";
+    if (status === "In Development") return lang === "ar" ? "قيد التطوير" : lang === "fr" ? "En cours" : "In Development";
     return status;
+  };
+
+  const getCategoryLabel = (category: string) => {
+    if (category === "Dev") return t("projects.tab.dev");
+    if (category === "AI") return t("projects.tab.ai");
+    if (category === "Cybersecurity") return t("projects.tab.cybersecurity");
+    return category;
+  };
+
+  const getCompanyLabel = (company: string) => {
+    if (company === "Personal Project") {
+      return lang === "ar" ? "مشروع شخصي" : lang === "fr" ? "Projet Personnel" : "Personal Project";
+    }
+    return company;
   };
 
   return (
@@ -95,12 +109,12 @@ const ProjectsSection = () => {
                             </Button>
                           )}
                           <Badge variant="outline" className="w-fit">
-                            {project.category}
+                            {getCategoryLabel(project.category)}
                           </Badge>
                         </div>
                       </div>
                       <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-sm text-muted-foreground">
-                        <p>{project.company}</p>
+                        <p>{getCompanyLabel(project.company)}</p>
                         <p>{project.period}</p>
                         {project.location && <p>{project.location}</p>}
                       </div>
@@ -159,6 +173,7 @@ const ProjectsSection = () => {
 };
 
 export default ProjectsSection;
+
 
 
 

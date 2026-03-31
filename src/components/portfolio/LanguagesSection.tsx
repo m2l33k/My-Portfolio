@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+﻿import { useState, useEffect, useCallback } from "react";
 import { Languages, ChevronLeft, ChevronRight } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
@@ -141,7 +141,7 @@ const LanguagesSection = () => {
               <ChevronRight className="h-5 w-5" />
             </button>
 
-            <Carousel setApi={setApi} opts={{ align: "center", loop: false }} className="w-full">
+            <Carousel dir="ltr" setApi={setApi} opts={{ align: "center", loop: false }} className="w-full">
               <CarouselContent>
                 {categories.map((cat) => (
                   <CarouselItem key={cat.title}>
@@ -196,3 +196,4 @@ const LanguagesSection = () => {
 };
 
 export default LanguagesSection;
+

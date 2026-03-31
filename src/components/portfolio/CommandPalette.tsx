@@ -104,16 +104,21 @@ const CommandPalette = () => {
   const actions: CommandItem[] = [
     {
       label: theme === "dark"
-        ? (language === "en" ? "Switch to Light Mode" : "Passer en mode clair")
-        : (language === "en" ? "Switch to Dark Mode" : "Passer en mode sombre"),
+        ? ({ en: "Switch to Light Mode", fr: "Passer en mode clair", ar: "التبديل للوضع الفاتح" }[language])
+        : ({ en: "Switch to Dark Mode", fr: "Passer en mode sombre", ar: "التبديل للوضع الداكن" }[language]),
       icon: theme === "dark" ? Sun : Moon,
       action: () => { setTheme(theme === "dark" ? "light" : "dark"); setOpen(false); },
       group: "actions",
     },
     {
-      label: language === "en" ? "Switch to French" : "Passer en Anglais",
+      label: { en: "Switch Language", fr: "Changer de langue", ar: "تغيير اللغة" }[language],
       icon: Globe,
-      action: () => { setLang(lang === "en" ? "fr" : "en"); setOpen(false); },
+      action: () => {
+        const langs: Array<"en" | "fr" | "ar"> = ["en", "fr", "ar"];
+        const idx = langs.indexOf(lang);
+        setLang(langs[(idx + 1) % langs.length]);
+        setOpen(false);
+      },
       group: "actions",
     },
     {
@@ -127,7 +132,7 @@ const CommandPalette = () => {
       group: "actions",
     },
     {
-      label: language === "en" ? "Back to Top" : "Retour en haut",
+      label: { en: "Back to Top", fr: "Retour en haut", ar: "العودة للأعلى" }[language],
       icon: ArrowUp,
       action: () => { window.scrollTo({ top: 0, behavior: "smooth" }); setOpen(false); },
       group: "actions",
@@ -136,11 +141,11 @@ const CommandPalette = () => {
 
   return (
     <CommandDialog open={open} onOpenChange={setOpen}>
-      <CommandInput placeholder={language === "en" ? "Type a command or search..." : "Tapez une commande..."} />
+      <CommandInput placeholder={{ en: "Type a command or search...", fr: "Tapez une commande...", ar: "اكتب أمراً أو ابحث..." }[language]} />
       <CommandList>
-        <CommandEmpty>{language === "en" ? "No results found." : "Aucun resultat."}</CommandEmpty>
+        <CommandEmpty>{{ en: "No results found.", fr: "Aucun resultat.", ar: "لا توجد نتائج." }[language]}</CommandEmpty>
 
-        <CommandGroup heading={language === "en" ? "Pages" : "Pages"}>
+        <CommandGroup heading={{ en: "Pages", fr: "Pages", ar: "الصفحات" }[language]}>
           {pages.map((item) => (
             <CommandItem key={item.label} onSelect={item.action}>
               <item.icon className="mr-2 h-4 w-4" />
@@ -152,7 +157,7 @@ const CommandPalette = () => {
 
         <CommandSeparator />
 
-        <CommandGroup heading={language === "en" ? "Sections" : "Sections"}>
+        <CommandGroup heading={{ en: "Sections", fr: "Sections", ar: "الأقسام" }[language]}>
           {sections.map((item) => (
             <CommandItem key={item.label} onSelect={item.action}>
               <item.icon className="mr-2 h-4 w-4" />
@@ -164,7 +169,7 @@ const CommandPalette = () => {
 
         <CommandSeparator />
 
-        <CommandGroup heading={language === "en" ? "Actions" : "Actions"}>
+        <CommandGroup heading={{ en: "Actions", fr: "Actions", ar: "الإجراءات" }[language]}>
           {actions.map((item) => (
             <CommandItem key={item.label} onSelect={item.action}>
               <item.icon className="mr-2 h-4 w-4" />

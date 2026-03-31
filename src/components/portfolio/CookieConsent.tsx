@@ -29,12 +29,14 @@ const CookieConsent = () => {
 
   if (!visible) return null;
 
-  const text = lang === "en"
-    ? "This site uses cookies and local storage for analytics, session management, and language preferences."
-    : "Ce site utilise des cookies et le stockage local pour les analyses, la gestion de session et les preferences de langue.";
+  const text = {
+    en: "This site uses cookies and local storage for analytics, session management, and language preferences.",
+    fr: "Ce site utilise des cookies et le stockage local pour les analyses, la gestion de session et les preferences de langue.",
+    ar: "يستخدم هذا الموقع ملفات تعريف الارتباط والتخزين المحلي للتحليلات وإدارة الجلسات وتفضيلات اللغة.",
+  }[lang];
 
-  const acceptLabel = lang === "en" ? "Accept" : "Accepter";
-  const declineLabel = lang === "en" ? "Decline" : "Refuser";
+  const acceptLabel = { en: "Accept", fr: "Accepter", ar: "قبول" }[lang];
+  const declineLabel = { en: "Decline", fr: "Refuser", ar: "رفض" }[lang];
 
   return (
     <div className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-4 sm:max-w-sm z-50 animate-slide-up">

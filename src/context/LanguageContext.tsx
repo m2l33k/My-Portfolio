@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 
-type Lang = "en" | "fr";
+type Lang = "en" | "fr" | "ar";
 
 const translations = {
   en: {
@@ -429,6 +429,219 @@ const translations = {
     "chat.send": "Envoyer",
     "chat.error": "Desole, une erreur est survenue. Veuillez reessayer.",
   },
+  ar: {
+    "nav.about": "نبذة عني",
+    "nav.certifications": "الشهادات",
+    "nav.projects": "المشاريع",
+    "nav.experience": "التدريب/الخبرة",
+    "nav.education": "التعليم",
+    "nav.skills": "المهارات",
+    "nav.motivation": "الدافع",
+    "nav.volunteering": "التطوع",
+    "nav.blog": "المدونة",
+    "toggle.toFrench": "التبديل إلى الفرنسية",
+    "toggle.toEnglish": "التبديل إلى الإنجليزية",
+
+    "hero.subtitle": "طالب هندسة حاسوب",
+    "hero.greeting": "مرحباً، أنا",
+    "hero.bio": "طالب هندسة يبني",
+    "hero.bio.highlight": "أنظمة أتمتة أمنية مدعومة بنماذج اللغة الكبيرة",
+    "hero.bio.rest": ".",
+    "hero.stat1": "تقليل 60% من الاختبارات اليدوية",
+    "hero.stat2": "85% كشف OWASP",
+    "hero.stat3": "أفضل 5% TryHackMe",
+    "hero.bio2": "خبرة قوية في الذكاء الاصطناعي وDevSecOps وهندسة الأمان القائمة على البلوكتشين.",
+    "hero.downloadCv": "تحميل السيرة الذاتية",
+    "hero.contact": "تواصل معي",
+    "hero.skillsMatrix": "مصفوفة المهارات",
+    "hero.askAi": "اسأل الذكاء الاصطناعي",
+    "hero.activity": "النشاط",
+    "hero.chatbot": "مساعد المحفظة الذكي",
+    "hero.backToPortfolio": "العودة إلى المحفظة",
+    "hero.contactForm": "تواصل معي",
+    "hero.contactName": "اسمك",
+    "hero.contactEmail": "بريدك الإلكتروني",
+    "hero.contactMessage": "رسالتك",
+    "hero.contactSend": "إرسال الرسالة",
+    "hero.contactSuccess": "تم إرسال الرسالة بنجاح!",
+    "hero.contactError": "فشل إرسال الرسالة، يرجى المحاولة مرة أخرى.",
+    "hero.stats.projectsCompleted": "مشاريع مكتملة",
+    "hero.stats.experience": "التدريب/الخبرة",
+    "hero.stats.certifications": "الشهادات",
+    "hero.loading.line1": "تهيئة النظام...",
+    "hero.loading.line2": "تحميل وحدات الأمان...",
+    "hero.loading.line3": "الاتصال بالمحفظة...",
+    "hero.loading.line4": "تم منح الوصول.",
+    "hero.loading.systemLabel": "نظام المحفظة",
+
+    "skills.title": "المهارات والأدوات",
+    "skills.subtitle": "التقنيات والمنهجيات التي أستخدمها للتطوير الآمن والتحليل",
+    "skills.label": "المهارات التقنية",
+    "skills.category.languages": "اللغات",
+    "skills.category.frameworks": "أطر العمل",
+    "skills.category.securityTools": "أدوات الأمان",
+    "skills.category.devops": "DevOps والأدوات",
+
+    "certifications.title": "الشهادات",
+    "certifications.eyebrow": "الاعتمادات المهنية",
+    "certifications.subtitle": "شهادات معترف بها دولياً تثبت الخبرة في الأمن السيبراني والذكاء الاصطناعي والسحابة",
+    "certifications.tab.all": "الكل",
+    "certifications.tab.dev": "تطوير",
+    "certifications.tab.ai": "ذكاء اصطناعي",
+    "certifications.tab.cybersecurity": "أمن سيبراني",
+    "certifications.details": "التفاصيل",
+    "certifications.verify": "التحقق",
+
+    "projects.title": "المشاريع",
+    "projects.eyebrow": "المحفظة",
+    "projects.featured": "المشاريع المميزة",
+    "projects.subtitle": "عرض مشاريع وحلول الأمن السيبراني التي طورتها في بيئات واقعية",
+    "projects.tab.all": "الكل",
+    "projects.tab.cybersecurity": "أمن سيبراني",
+    "projects.tab.ai": "ذكاء اصطناعي",
+    "projects.tab.dev": "تطوير",
+    "projects.source": "عرض الكود المصدري",
+    "projects.highlights": "أبرز النقاط:",
+    "projects.more": "المزيد (انقر للعرض)",
+    "projects.technologies": "التقنيات:",
+    "projects.about": "عن المشروع",
+    "projects.modal.highlights": "أبرز النقاط",
+    "projects.modal.technologies": "التقنيات",
+
+    "education.title": "التعليم",
+    "education.eyebrow": "الخلفية الأكاديمية",
+    "education.subtitle": "التعلم المستمر والتميز الأكاديمي في الأمن السيبراني وعلوم الحاسوب",
+    "education.coursework": "المواد الدراسية الرئيسية:",
+    "education.achievements": "الإنجازات:",
+    "education.continuing": "التعليم المستمر",
+
+    "motivation.title": "الدافع",
+    "motivation.eyebrow": "ما يحركني",
+    "motivation.subtitle": "الشغف والمبادئ التي توجه مسيرتي في الأمن السيبراني",
+    "motivation.story.title": "رحلتي نحو الأمن السيبراني",
+    "motivation.story.p1": "بدأ شغفي بالأمن السيبراني أثناء دراستي لعلوم الحاسوب عندما تعلمت لأول مرة عن هجمات تجاوز المخزن المؤقت. فكرة أن خطأ برمجي بسيط يمكن أن يؤدي إلى اختراق النظام كانت مرعبة ومذهلة في آن واحد.",
+    "motivation.story.p2": "قادني هذا الفضول للمشاركة في أول مسابقة CTF، حيث عشت إثارة القرصنة الأخلاقية ومتعة اكتشاف الثغرات وإصلاحها. الطبيعة التعاونية لمجتمع الأمن السيبراني أقنعتني أن هذا هو المجال الذي أنتمي إليه.",
+    "motivation.story.p3": "اليوم، كل مشروع أعمل عليه وكل ثغرة أكتشفها يعزز إيماني بأن الأمن السيبراني ليس مجرد مهنة - إنه رسالة لحماية وخدمة العالم الرقمي الذي نعتمد عليه جميعاً.",
+    "motivation.section.motivates": "ما يحفزني",
+    "motivation.section.values": "القيم الأساسية",
+    "motivation.quote": "\"الأمن ليس منتجاً، بل عملية. لا يتعلق الأمر بالكمال، بل بالتحسين المستمر والتكيف مع التحديات الجديدة.\"",
+    "motivation.quote.author": "- فلسفتي الشخصية",
+    "motivation.m1.title": "حماية الحياة الرقمية",
+    "motivation.m1.desc": "كل يوم، يعتمد ملايين الأشخاص على الأنظمة الرقمية. أنا محفز بفرصة حماية هذه الأنظمة والأشخاص الذين يعتمدون عليها.",
+    "motivation.m2.title": "حل الألغاز المعقدة",
+    "motivation.m2.desc": "الأمن السيبراني يشبه حل لغز متطور باستمرار. كل ثغرة جديدة أو متجه هجوم يتطلب تفكيراً إبداعياً وخبرة تقنية.",
+    "motivation.m3.title": "التأثير العالمي",
+    "motivation.m3.desc": "التهديدات السيبرانية لا تعرف حدوداً. العمل في الأمن السيبراني يعني المساهمة في السلامة الرقمية العالمية.",
+    "motivation.m4.title": "المجتمع والإرشاد",
+    "motivation.m4.desc": "مجتمع الأمن السيبراني تعاوني. أنا شغوف بمشاركة المعرفة وتوجيه المبتدئين وبناء فرق أمنية أقوى.",
+    "motivation.v1.title": "التعلم المستمر",
+    "motivation.v1.desc": "التكنولوجيا تتطور بسرعة، وكذلك التهديدات. ألتزم بالبقاء على اطلاع بأحدث الأدوات والتقنيات.",
+    "motivation.v2.title": "الأساس الأخلاقي",
+    "motivation.v2.desc": "استخدام مهاراتي بمسؤولية وأخلاقية أمر أساسي. أؤمن بالأمن الدفاعي والإفصاح المسؤول.",
+    "motivation.v3.title": "الابتكار والأتمتة",
+    "motivation.v3.desc": "أسعى لأتمتة عمليات الأمان وتطوير أدوات مبتكرة وتحسين الكفاءة في العمليات الأمنية.",
+    "motivation.v4.title": "مشاركة المعرفة",
+    "motivation.v4.desc": "الأمن يصبح أقوى عندما تُشارك المعرفة. أستمتع بالتوثيق والتعليم والمساهمة في المجتمع.",
+
+    "experience.title": "التدريب/الخبرة",
+    "internships.overview": "نظرة عامة",
+    "internships.technologies": "التقنيات والمهارات",
+    "internships.visitCompany": "زيارة الشركة",
+    "internships.viewCertificate": "عرض الشهادة",
+
+    "activity.eyebrow": "المصادر المفتوحة والأمان",
+    "activity.title": "النشاط والإنجازات",
+    "activity.subtitle": "تتبع مساهماتي في المصادر المفتوحة وتقدمي في تدريب الأمن السيبراني.",
+    "activity.tryhackmeProgress": "تقدم TryHackMe",
+
+    "github.contributions": "مساهمات GitHub",
+    "github.contributions.lastYear": "مساهمة في السنة الماضية",
+    "github.rank": "ترتيب تونس",
+    "github.calendar.loading": "جاري تحميل المساهمات...",
+    "github.calendar.error": "تعذر تحميل نشاط GitHub",
+    "github.calendar.less": "أقل",
+    "github.calendar.more": "أكثر",
+    "github.achievement.title": "إنجازات GitHub",
+    "github.achievement.subtitle": "شارات حصلت عليها من نشاط GitHub",
+    "github.achievement.error": "خطأ في تحميل الإنجازات",
+    "github.achievement.hint": "تأكد من أن الخادم يعمل (npm run dev).",
+
+    "tryhackme.profile": "ملف TryHackMe",
+    "tryhackme.subtitle": "تقدم التدريب على الأمن السيبراني",
+    "tryhackme.level": "المستوى",
+    "tryhackme.globalRank": "الترتيب العالمي",
+    "tryhackme.percentile": "النسبة المئوية",
+    "tryhackme.roomsCompleted": "الغرف المكتملة",
+    "tryhackme.badgesEarned": "الشارات المكتسبة",
+    "tryhackme.error": "خطأ في تحميل إحصائيات TryHackMe",
+
+    "cv.previewTitle": "معاينة السيرة الذاتية",
+
+    "footer.bio": "طالب هندسة يبني أنظمة أتمتة أمنية مدعومة بنماذج اللغة الكبيرة.",
+    "footer.backToTop": "العودة للأعلى",
+    "footer.rights": "جميع الحقوق محفوظة.",
+    "footer.builtWith": "بُني باستخدام React وTypeScript وTailwind CSS",
+
+    "hire.status": "مفتوح للفرص",
+    "hire.detail": "- متاح للتدريب والتعاون",
+    "hire.vcard": "بطاقة",
+    "hire.cta": "وظفني",
+
+    "blog.title": "المدونة والمقالات",
+    "blog.subtitle": "تقارير CTF وأبحاث أمنية ودروس في الذكاء الاصطناعي",
+    "blog.back": "العودة إلى المحفظة",
+    "blog.readMore": "اقرأ المزيد",
+    "blog.comingSoon": "المزيد من المقالات قريباً...",
+    "blog.heading.left": "المدونة",
+    "blog.heading.right": "المقالات",
+    "blog.category.ctf": "CTF",
+    "blog.category.security": "أمان",
+    "blog.category.ai": "ذكاء اصطناعي",
+    "blog.category.tutorial": "درس تعليمي",
+
+    "achievements.title": "الإنجازات في لمحة",
+    "achievements.ieeeRoles": "أدوار IEEE",
+    "achievements.certifications": "الشهادات",
+    "achievements.projects": "المشاريع",
+    "achievements.internships": "التدريب",
+    "achievements.volunteering": "التطوع",
+    "achievements.degrees": "الدرجات العلمية",
+
+    "volunteering.back": "العودة إلى المحفظة",
+    "volunteering.navTitle": "التطوع والقيادة",
+    "volunteering.title.left": "التطوع",
+    "volunteering.title.right": "القيادة",
+    "volunteering.subtitle": "المشاركة المجتمعية والقيادة المهنية والمشاركة المدنية",
+    "volunteering.roles": "أدوار",
+    "volunteering.legend.ieee": "IEEE",
+    "volunteering.legend.community": "المجتمع",
+    "volunteering.legend.jci": "JCI",
+    "volunteering.legend.association": "الجمعيات",
+    "volunteering.badge.leadership": "قيادة",
+    "volunteering.badge.officer": "مسؤول",
+    "volunteering.badge.civic": "مدني",
+
+    "404.title": "الوصول مرفوض",
+    "404.subtitle": "الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
+    "404.home": "العودة إلى الرئيسية",
+
+    "cv.title": "السيرة الذاتية",
+    "cv.english": "النسخة الإنجليزية",
+    "cv.french": "النسخة الفرنسية",
+    "cv.preview": "معاينة",
+    "cv.download": "تحميل",
+
+    "details.noImage": "لا توجد صورة للشهادة",
+    "details.issued": "صدرت في:",
+    "details.description": "الوصف",
+    "details.skillsVerified": "المهارات المُتحقق منها",
+    "details.viewOfficial": "عرض الاعتماد الرسمي",
+
+    "chat.greeting": "مرحباً! أنا المساعد الذكي لمالك. يمكنني إخبارك عن مشاريعه وتدريباته وشهاداته ومهاراته. ماذا تريد أن تعرف؟",
+    "chat.input": "اسأل عن المشاريع، المهارات...",
+    "chat.send": "إرسال",
+    "chat.error": "عذراً، حدث خطأ. يرجى المحاولة مرة أخرى.",
+  },
 } as const;
 
 type TranslationKey = keyof typeof translations.en;
@@ -444,11 +657,13 @@ const LanguageContext = createContext<LanguageContextType | null>(null);
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [lang, setLang] = useState<Lang>(() => {
     const saved = localStorage.getItem("portfolio-lang");
-    return (saved === "fr" ? "fr" : "en") as Lang;
+    if (saved === "fr" || saved === "ar") return saved;
+    return "en";
   });
 
   useEffect(() => {
     document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
   }, [lang]);
 
   const handleSetLang = (newLang: Lang) => {

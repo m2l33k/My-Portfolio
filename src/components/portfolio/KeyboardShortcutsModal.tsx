@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { X, Keyboard } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -51,27 +51,29 @@ const KeyboardShortcutsModal = () => {
     localStorage.setItem(HINT_DISMISSED_KEY, "true");
   };
 
-  const title = lang === "en" ? "Keyboard Shortcuts" : "Raccourcis Clavier";
+  const i = (en: string, fr: string, ar: string) => ({ en, fr, ar }[lang]);
+
+  const title = i("Keyboard Shortcuts", "Raccourcis Clavier", "Ø§Ø®ØªØµØ§Ø±Ø§Øª Ù„ÙˆØ­Ø© Ø§Ù„Ù…ÙØ§ØªÙŠØ­");
 
   const groups = [
     {
-      title: lang === "en" ? "Navigation" : "Navigation",
+      title: i("Navigation", "Navigation", "Ø§Ù„ØªÙ†Ù‚Ù„"),
       shortcuts: [
-        { keys: ["Ctrl", "K"], desc: lang === "en" ? "Open command palette" : "Ouvrir la palette de commandes" },
-        { keys: ["Esc"], desc: lang === "en" ? "Go home / scroll to top" : "Accueil / retour en haut" },
-        { keys: ["?"], desc: lang === "en" ? "Toggle this modal" : "Afficher/masquer ce modal" },
+        { keys: ["Ctrl", "K"], desc: i("Open command palette", "Ouvrir la palette de commandes", "ÙØªØ­ Ù„ÙˆØ­Ø© Ø§Ù„Ø£ÙˆØ§Ù…Ø±") },
+        { keys: ["Esc"], desc: i("Go home / scroll to top", "Accueil / retour en haut", "Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ© / Ø§Ù„Ø¹ÙˆØ¯Ø© Ù„Ù„Ø£Ø¹Ù„Ù‰") },
+        { keys: ["?"], desc: i("Toggle this modal", "Afficher/masquer ce modal", "Ø¥Ø¸Ù‡Ø§Ø±/Ø¥Ø®ÙØ§Ø¡ Ù‡Ø°Ù‡ Ø§Ù„Ù†Ø§ÙØ°Ø©") },
       ],
     },
     {
-      title: lang === "en" ? "Sections" : "Sections",
+      title: i("Sections", "Sections", "Ø§Ù„Ø£Ù‚Ø³Ø§Ù…"),
       shortcuts: [
-        { keys: ["1"], desc: lang === "en" ? "About" : "A propos" },
-        { keys: ["2"], desc: lang === "en" ? "Certifications" : "Certifications" },
-        { keys: ["3"], desc: lang === "en" ? "Projects" : "Projets" },
-        { keys: ["4"], desc: lang === "en" ? "Experience" : "Stages/Experience" },
-        { keys: ["5"], desc: lang === "en" ? "Education" : "Formation" },
-        { keys: ["6"], desc: lang === "en" ? "Skills" : "Competences" },
-        { keys: ["7"], desc: lang === "en" ? "Motivation" : "Motivation" },
+        { keys: ["1"], desc: i("About", "A propos", "Ù†Ø¨Ø°Ø© Ø¹Ù†ÙŠ") },
+        { keys: ["2"], desc: i("Certifications", "Certifications", "Ø§Ù„Ø´Ù‡Ø§Ø¯Ø§Øª") },
+        { keys: ["3"], desc: i("Projects", "Projets", "Ø§Ù„Ù…Ø´Ø§Ø±ÙŠØ¹") },
+        { keys: ["4"], desc: i("Experience", "Stages/Experience", "\u0627\u0644\u062A\u062F\u0631\u064A\u0628/\u0627\u0644\u062E\u0628\u0631\u0629") },
+        { keys: ["5"], desc: i("Education", "Formation", "Ø§Ù„ØªØ¹Ù„ÙŠÙ…") },
+        { keys: ["6"], desc: i("Skills", "Competences", "Ø§Ù„Ù…Ù‡Ø§Ø±Ø§Øª") },
+        { keys: ["7"], desc: i("Motivation", "Motivation", "Ø§Ù„Ø¯Ø§ÙØ¹") },
       ],
     },
   ];
@@ -83,7 +85,7 @@ const KeyboardShortcutsModal = () => {
         <button
           type="button"
           onClick={handleButtonClick}
-          aria-label={lang === "en" ? "Keyboard shortcuts" : "Raccourcis clavier"}
+          aria-label={i("Keyboard shortcuts", "Raccourcis clavier", "Ø§Ø®ØªØµØ§Ø±Ø§Øª Ù„ÙˆØ­Ø© Ø§Ù„Ù…ÙØ§ØªÙŠØ­")}
           className="group relative rounded-full border border-primary/30 bg-card/85 p-3 text-primary shadow-[0_10px_24px_hsl(120,100%,50%,0.2)] backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50 hover:bg-card hover:shadow-[0_12px_30px_hsl(120,100%,50%,0.28)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           <Keyboard className="h-4 w-4" />
@@ -97,13 +99,11 @@ const KeyboardShortcutsModal = () => {
         {showHint && (
           <div className="animate-fade-in rounded-lg border border-primary/20 bg-card/95 backdrop-blur-md px-3 py-2 shadow-lg shadow-primary/5 max-w-[200px]">
             <p className="text-xs text-muted-foreground">
-              {lang === "en"
-                ? "Try keyboard shortcuts! Press "
-                : "Essayez les raccourcis ! Appuyez sur "}
+              {{ en: "Try keyboard shortcuts! Press ", fr: "Essayez les raccourcis ! Appuyez sur ", ar: "Ø¬Ø±Ù‘Ø¨ Ø§Ù„Ø§Ø®ØªØµØ§Ø±Ø§Øª! Ø§Ø¶ØºØ· " }[lang]}
               <kbd className="inline-flex items-center justify-center min-w-[1.25rem] h-5 px-1 rounded border border-primary/20 bg-primary/5 text-[10px] font-mono font-medium text-foreground">
                 ?
               </kbd>
-              {lang === "en" ? " to see all" : " pour tout voir"}
+              {{ en: " to see all", fr: " pour tout voir", ar: " Ù„Ø±Ø¤ÙŠØ© Ø§Ù„ÙƒÙ„" }[lang]}
             </p>
           </div>
         )}
@@ -163,9 +163,7 @@ const KeyboardShortcutsModal = () => {
             {/* Footer hint */}
             <div className="mt-5 pt-4 border-t border-primary/10 text-center">
               <p className="text-xs text-muted-foreground">
-                {lang === "en"
-                  ? "Press ? to close"
-                  : "Appuyez sur ? pour fermer"}
+                {{ en: "Press ? to close", fr: "Appuyez sur ? pour fermer", ar: "Ø§Ø¶ØºØ· ? Ù„Ù„Ø¥ØºÙ„Ø§Ù‚" }[lang]}
               </p>
             </div>
           </div>
@@ -176,3 +174,6 @@ const KeyboardShortcutsModal = () => {
 };
 
 export default KeyboardShortcutsModal;
+
+
+

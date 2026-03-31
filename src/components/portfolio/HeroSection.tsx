@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
@@ -65,6 +65,10 @@ const HeroSection = () => {
   const [isContactFormOpen, setContactFormOpen] = useState(false);
   const [isCvModalOpen, setCvModalOpen] = useState(false);
   const [isSkillsMatrixOpen, setSkillsMatrixOpen] = useState(false);
+  const availabilityLabel =
+    lang === "ar" ? "\u0645\u062A\u0627\u062D \u0644\u0644\u0639\u0645\u0644" : lang === "en" ? "Available for hire" : "Disponible";
+  const displayName = lang === "ar" ? "\u0645\u0627\u0644\u0643 \u0639\u0632\u064A\u0632 \u062D\u0633\u064A\u0648\u0646" : "Hassayoun Malek Aziz";
+  const scrollLabel = lang === "ar" ? "\u0645\u0631\u0631" : lang === "en" ? "Scroll" : "Defiler";
 
   const handleOpenContactForm = () => setContactFormOpen(true);
   const handleCloseContactForm = () => setContactFormOpen(false);
@@ -112,13 +116,13 @@ const HeroSection = () => {
                 <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary/40 via-cyan-500/20 to-primary/10 blur-md"></div>
                 <img
                   src="/3d4febb1-a352-4c43-b67f-919a19b6554a-removebg-preview.png"
-                  alt="Hassayoun Malek Aziz"
+                  alt={displayName}
                   className="relative w-full max-w-md mx-auto rounded-full shadow-2xl ring-1 ring-primary/20"
                 />
               </div>
             </motion.div>
 
-            {/* Text Content — staggered children */}
+            {/* Text Content - staggered children */}
             <motion.div
               initial="hidden"
               animate="visible"
@@ -141,7 +145,7 @@ const HeroSection = () => {
                       <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-600 dark:bg-emerald-500"></span>
                     </span>
                     <span className="text-xs font-semibold text-emerald-700 dark:text-emerald-400">
-                      {lang === "en" ? "Available for hire" : "Disponible"}
+                      {availabilityLabel}
                     </span>
                   </div>
                 </div>
@@ -152,7 +156,7 @@ const HeroSection = () => {
                 <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
                   <span className="text-foreground">{t("hero.greeting")}</span>{" "}
                   <span className="bg-gradient-cyber bg-clip-text text-transparent drop-shadow-[0_0_25px_hsl(120,100%,50%,0.3)]">
-                    Hassayoun Malek Aziz
+                    {displayName}
                   </span>
                 </h1>
               </motion.div>
@@ -187,7 +191,7 @@ const HeroSection = () => {
                 </div>
               </motion.div>
 
-              {/* 4. Action Buttons — primary row + secondary row */}
+              {/* 4. Action Buttons - primary row + secondary row */}
               <motion.div variants={fadeUp} className="space-y-3">
                 {/* Primary CTAs */}
                 <div className="flex flex-wrap gap-3">
@@ -210,7 +214,7 @@ const HeroSection = () => {
                   </Button>
                 </div>
 
-                {/* Secondary actions — smaller, subtler */}
+                {/* Secondary actions - smaller, subtler */}
                 <div className="flex flex-wrap gap-2">
                   <Button
                     size="sm"
@@ -300,7 +304,7 @@ const HeroSection = () => {
             aria-label="Scroll down"
           >
             <span className="text-[10px] uppercase tracking-[0.2em] font-medium">
-              {lang === "en" ? "Scroll" : "Defiler"}
+              {scrollLabel}
             </span>
             <motion.div
               animate={{ y: [0, 6, 0] }}
@@ -320,3 +324,6 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
+
+

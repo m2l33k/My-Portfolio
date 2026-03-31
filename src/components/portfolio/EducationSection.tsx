@@ -1,4 +1,4 @@
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
+﻿import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { GraduationCap, Calendar, Award, BookOpen } from "lucide-react";
@@ -8,6 +8,17 @@ import { useLanguage } from "@/context/LanguageContext";
 const EducationSection = () => {
   const { t, lang } = useLanguage();
   const { education, onlineCourses } = usePortfolioData();
+
+  const getStatusLabel = (status: string) => {
+    if (status === "In Progress") return lang === "ar" ? "قيد الدراسة" : lang === "fr" ? "En cours" : "In Progress";
+    if (status === "Graduated") return lang === "ar" ? "متخرج" : lang === "fr" ? "Diplome" : "Graduated";
+    return status;
+  };
+
+  const getPeriodLabel = (period: string) => {
+    if (lang === "ar") return period.replace("Present", "الآن");
+    return period;
+  };
 
   return (
     <section id="education" className="py-24 bg-surface-dark">
@@ -37,10 +48,10 @@ const EducationSection = () => {
                     <div className="flex flex-col gap-2 md:items-end">
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <Calendar className="h-4 w-4" />
-                        {edu.period}
+                        {getPeriodLabel(edu.period)}
                       </div>
                       <Badge variant="default" className="w-fit bg-primary text-primary-foreground">
-                        {edu.status === "In Progress" && lang === "fr" ? "En cours" : edu.status}
+                        {getStatusLabel(edu.status)}
                       </Badge>
                     </div>
                   </div>
@@ -111,6 +122,8 @@ const EducationSection = () => {
 };
 
 export default EducationSection;
+
+
 
 
 

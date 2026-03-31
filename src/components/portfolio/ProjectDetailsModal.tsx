@@ -1,4 +1,4 @@
-import {
+﻿import {
   Dialog,
   DialogContent,
   DialogHeader,
@@ -45,15 +45,35 @@ const ProjectDetailsModal = ({ project, isOpen, onClose }: ProjectDetailsModalPr
   if (!project) return null;
 
   const images = project.images && project.images.length > 0 ? project.images : ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"];
+  const categoryLabel =
+    project.category === "Dev"
+      ? t("projects.tab.dev")
+      : project.category === "AI"
+        ? t("projects.tab.ai")
+        : project.category === "Cybersecurity"
+          ? t("projects.tab.cybersecurity")
+          : project.category;
+  const companyLabel =
+    project.company === "Personal Project"
+      ? lang === "ar"
+        ? "مشروع شخصي"
+        : lang === "fr"
+          ? "Projet Personnel"
+          : "Personal Project"
+      : project.company;
   const statusLabel =
     project.status === "Completed"
-      ? lang === "fr"
-        ? "Termine"
-        : "Completed"
+      ? lang === "ar"
+        ? "مكتمل"
+        : lang === "fr"
+          ? "Termine"
+          : "Completed"
       : project.status === "In Development"
-        ? lang === "fr"
-          ? "En cours"
-          : "In Development"
+        ? lang === "ar"
+          ? "قيد التطوير"
+          : lang === "fr"
+            ? "En cours"
+            : "In Development"
         : project.status;
 
   return (
@@ -66,7 +86,7 @@ const ProjectDetailsModal = ({ project, isOpen, onClose }: ProjectDetailsModalPr
                 <project.icon className="h-6 w-6 text-primary" />
                 {project.title}
               </DialogTitle>
-              <DialogDescription className="mt-2 text-base">{project.category}</DialogDescription>
+              <DialogDescription className="mt-2 text-base">{categoryLabel}</DialogDescription>
             </div>
             <Badge variant={project.status === "Completed" ? "default" : "secondary"} className="shrink-0">
               {statusLabel}
@@ -104,7 +124,7 @@ const ProjectDetailsModal = ({ project, isOpen, onClose }: ProjectDetailsModalPr
                 <div className="flex flex-col gap-3">
                   <div className="flex items-center gap-2 text-muted-foreground">
                     <Building2 className="h-4 w-4 text-primary" />
-                    <span className="font-medium text-foreground">{project.company}</span>
+                    <span className="font-medium text-foreground">{companyLabel}</span>
                   </div>
                   <div className="flex items-center gap-2 text-muted-foreground">
                     <Calendar className="h-4 w-4 text-primary" />
@@ -160,3 +180,4 @@ const ProjectDetailsModal = ({ project, isOpen, onClose }: ProjectDetailsModalPr
 };
 
 export default ProjectDetailsModal;
+
