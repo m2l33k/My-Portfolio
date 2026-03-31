@@ -12,6 +12,7 @@ import PageTransition from "./components/portfolio/PageTransition";
 import Index from "./pages/Index";
 import Chatbot from "./pages/Chatbot";
 import Activity from "./pages/Activity";
+import Volunteering from "./pages/Volunteering";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const AnimatedRoutes = () => {
         <Route path="/" element={<PageTransition><Index /></PageTransition>} />
         <Route path="/chat" element={<PageTransition><Chatbot /></PageTransition>} />
         <Route path="/activity" element={<PageTransition><Activity /></PageTransition>} />
+        <Route path="/volunteering" element={<PageTransition><Volunteering /></PageTransition>} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>

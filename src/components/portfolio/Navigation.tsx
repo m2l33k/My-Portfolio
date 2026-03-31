@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Shield, User, Award, Briefcase, GraduationCap, Languages, Heart } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Menu, X, Shield, User, Award, Briefcase, GraduationCap, Languages, Heart, Users } from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("about");
+  const navigate = useNavigate();
 
   const navItems = [
     { icon: User, label: "About", href: "#about" },
@@ -13,10 +15,13 @@ const Navigation = () => {
     { icon: GraduationCap, label: "Education", href: "#education" },
     { icon: Languages, label: "Skills", href: "#languages" },
     { icon: Heart, label: "Motivation", href: "#motivation" },
+    { icon: Users, label: "Volunteering", href: "/volunteering" },
   ];
 
   useEffect(() => {
-    const sectionIds = navItems.map((item) => item.href.replace("#", ""));
+    const sectionIds = navItems
+      .filter((item) => item.href.startsWith("#"))
+      .map((item) => item.href.replace("#", ""));
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -40,6 +45,11 @@ const Navigation = () => {
   }, []);
 
   const scrollToSection = (href: string) => {
+    if (href.startsWith("/")) {
+      navigate(href);
+      setIsOpen(false);
+      return;
+    }
     const element = document.querySelector(href);
     element?.scrollIntoView({ behavior: 'smooth' });
     setIsOpen(false);
