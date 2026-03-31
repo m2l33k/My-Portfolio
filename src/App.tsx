@@ -19,6 +19,8 @@ import Volunteering from "./pages/Volunteering";
 import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 import CommandPalette from "./components/portfolio/CommandPalette";
+import CookieConsent from "./components/portfolio/CookieConsent";
+import KeyboardShortcutsModal from "./components/portfolio/KeyboardShortcutsModal";
 
 const queryClient = new QueryClient();
 
@@ -61,9 +63,11 @@ const App = () => {
           {loading && <LoadingScreen onComplete={handleLoadingComplete} />}
           <BrowserRouter>
             <CommandPalette />
+            <KeyboardShortcutsModal />
             <AnimatedRoutes />
             <BackToTopButton />
           </BrowserRouter>
+          <CookieConsent />
           <Analytics />
           <SpeedInsights />
         </TooltipProvider>

@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -12,10 +12,13 @@ interface ContactFormProps {
 
 const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
   const form = useRef<HTMLFormElement>(null);
-  const { t } = useLanguage();
+  const [lastSent, setLastSent] = useState(0);
+  const { t, lang } = useLanguage();
   const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
   const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
   const publicKey = import.meta.env.VITE_EMAILJS_USER_ID;
+
+  const RATE_LIMIT_MS = 60_000; // 1 minute between sends
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -35,6 +38,25 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
     }
 
     const formData = new FormData(form.current);
+
+    // Honeypot: if this hidden field is filled, it's a bot
+    const honeypot = String(formData.get("website") ?? "").trim();
+    if (honeypot) {
+      alert(t("hero.contactSuccess")); // fake success for bots
+      onClose();
+      return;
+    }
+
+    // Rate limiting
+    const now = Date.now();
+    if (now - lastSent < RATE_LIMIT_MS) {
+      const wait = Math.ceil((RATE_LIMIT_MS - (now - lastSent)) / 1000);
+      alert(lang === "en"
+        ? `Please wait ${wait}s before sending another message.`
+        : `Veuillez patienter ${wait}s avant d'envoyer un autre message.`);
+      return;
+    }
+
     const userName = String(formData.get("user_name") ?? "").trim();
     const userEmail = String(formData.get("user_email") ?? "").trim();
     const message = String(formData.get("message") ?? "").trim();
@@ -63,6 +85,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
       )
       .then(
         () => {
+          setLastSent(Date.now());
           alert(t("hero.contactSuccess"));
           onClose();
         },
@@ -90,6 +113,15 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
         </CardHeader>
         <CardContent>
           <form ref={form} onSubmit={sendEmail} className="space-y-4">
+            {/* Honeypot field - hidden from real users, bots will fill it */}
+            <input
+              type="text"
+              name="website"
+              autoComplete="off"
+              tabIndex={-1}
+              className="absolute opacity-0 h-0 w-0 overflow-hidden pointer-events-none"
+              aria-hidden="true"
+            />
             <Input placeholder={t("hero.contactName")} name="user_name" required />
             <Input type="email" placeholder={t("hero.contactEmail")} name="user_email" required />
             <Textarea placeholder={t("hero.contactMessage")} name="message" required />
