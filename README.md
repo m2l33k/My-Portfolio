@@ -130,3 +130,34 @@ The output will be in the `dist` folder.
 
 ---
 *Built with ❤️ by Malek Aziz Hassayoun*
+
+## EmailJS Setup Notes
+
+The contact form uses `emailjs.send(...)` from `src/components/portfolio/ContactForm.tsx` and sends these template variables:
+
+- `user_name`
+- `user_email`
+- `message`
+- `title` (mapped from message)
+- `from_name`
+- `from_email`
+- `reply_to`
+- `name`
+- `email`
+
+Recommended template placeholders:
+
+- `{{user_name}}` or `{{name}}`
+- `{{user_email}}` or `{{email}}`
+- `{{message}}` or `{{title}}`
+
+### Common EmailJS Errors
+
+- `400: The template ID not found`
+  - Verify `VITE_EMAILJS_TEMPLATE_ID` matches an existing template in the same EmailJS account/workspace.
+- `412: Gmail_API: Request had insufficient authentication scopes`
+  - Reconnect Gmail in EmailJS service settings and accept all required Google scopes.
+- `Email service is not configured`
+  - Ensure `.env` exists at project root with `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, and `VITE_EMAILJS_USER_ID`.
+  - Restart the dev server after editing `.env`.
+
