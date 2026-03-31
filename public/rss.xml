@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RootKeeper Blog - Hassayoun Malek Aziz</title>
+    <link>https://malekportfolio.vercel.app/blog</link>
+    <description>CTF write-ups, security research, and AI tutorials by Hassayoun Malek Aziz.</description>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 31 Mar 2026 00:00:00 GMT</lastBuildDate>
+    <atom:link href="https://malekportfolio.vercel.app/rss.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>https://malekportfolio.vercel.app/Black_and_Orange_Flat_Illustrative_Social_Media_Agency_Logo-removebg-preview.png</url>
+      <title>RootKeeper Blog</title>
+      <link>https://malekportfolio.vercel.app/blog</link>
+    </image>
+    <!-- Add blog items here as they are published -->
+    <!--
+    <item>
+      <title>Example CTF Write-up</title>
+      <link>https://malekportfolio.vercel.app/blog/example</link>
+      <description>Write-up description here.</description>
+      <pubDate>Mon, 31 Mar 2026 00:00:00 GMT</pubDate>
+      <guid>https://malekportfolio.vercel.app/blog/example</guid>
+    </item>
+    -->
+  </channel>
+</rss>

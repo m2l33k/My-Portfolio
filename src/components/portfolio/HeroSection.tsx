@@ -8,7 +8,6 @@ import { CyberParticles } from "@/components/ui/CyberParticles";
 import ContactForm from './ContactForm';
 import CvDownloadModal from './CvDownloadModal';
 import SkillsMatrixModal from './SkillsMatrixModal';
-import PortfolioStats from './PortfolioStats';
 import { useLanguage } from '@/context/LanguageContext';
 
 const Typewriter = ({ text, speed = 100 }: { text: string; speed?: number }) => {
@@ -163,10 +162,9 @@ const HeroSection = () => {
                   ))}
                 </div>
 
-                {/* Stats & Badge */}
-                <div className="space-y-4">
+                {/* TryHackMe Badge */}
+                <div>
                   <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=3036625" style={{border:"none"}} width="350" height="100"></iframe>
-                  <PortfolioStats />
                 </div>
               </div>
             </ScrollReveal>

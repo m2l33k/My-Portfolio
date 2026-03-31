@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Download, Eye, X, FileText } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { track } from "@vercel/analytics";
 
 interface CvDownloadModalProps {
   onClose: () => void;
@@ -26,7 +27,7 @@ const CvDownloadModal: React.FC<CvDownloadModalProps> = ({ onClose }) => {
             <span className="font-medium">{t("cv.previewTitle")}</span>
           </div>
           <div className="flex items-center gap-2">
-            <a href={previewFile} download>
+            <a href={previewFile} download onClick={() => track("cv_download", { file: previewFile, source: "preview" })}>
               <Button size="sm" variant="outline" className="border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground">
                 <Download className="mr-2 h-3.5 w-3.5" />
                 {t("cv.download")}
@@ -78,7 +79,7 @@ const CvDownloadModal: React.FC<CvDownloadModalProps> = ({ onClose }) => {
                     <Eye className="mr-2 h-3.5 w-3.5" />
                     {t("cv.preview")}
                   </Button>
-                  <a href={cv.file} download className="flex-1">
+                  <a href={cv.file} download className="flex-1" onClick={() => track("cv_download", { file: cv.file, source: "modal" })}>
                     <Button size="sm" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
                       <Download className="mr-2 h-3.5 w-3.5" />
                       {t("cv.download")}

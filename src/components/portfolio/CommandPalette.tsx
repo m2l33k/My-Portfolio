@@ -28,6 +28,7 @@ import {
   Download,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { track } from "@vercel/analytics";
 
 interface CommandItem {
   label: string;
@@ -108,6 +109,7 @@ const CommandPalette = () => {
       icon: Download,
       action: () => {
         setOpen(false);
+        track("cv_download", { file: "/Malek_Aziz_hassayoun_English.pdf", source: "command_palette" });
         window.open("/Malek_Aziz_hassayoun_English.pdf", "_blank");
       },
       group: "actions",
