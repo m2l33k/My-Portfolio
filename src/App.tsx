@@ -11,6 +11,7 @@ import { LanguageProvider } from "./context/LanguageContext";
 import { useKeyboardShortcuts } from "./hooks/useKeyboardShortcuts";
 import LoadingScreen from "./components/portfolio/LoadingScreen";
 import PageTransition from "./components/portfolio/PageTransition";
+import BackToTopButton from "./components/portfolio/BackToTopButton";
 import Index from "./pages/Index";
 import Chatbot from "./pages/Chatbot";
 import Activity from "./pages/Activity";
@@ -59,6 +60,7 @@ const App = () => {
           {loading && <LoadingScreen onComplete={handleLoadingComplete} />}
           <BrowserRouter>
             <AnimatedRoutes />
+            <BackToTopButton />
           </BrowserRouter>
           <Analytics />
           <SpeedInsights />
@@ -69,3 +71,5 @@ const App = () => {
 };
 
 export default App;
+
+
