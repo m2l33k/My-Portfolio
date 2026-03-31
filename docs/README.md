@@ -65,11 +65,11 @@ Add short GIF recordings in `docs/assets/gifs/` and link them here:
 flowchart TD
   U[User Browser] --> A[React App - Vite]
   A --> R[React Router]
-  R --> P1[/]
-  R --> P2[/chat]
-  R --> P3[/activity]
-  R --> P4[/volunteering]
-  R --> P5[/blog]
+  R --> P1["/"]
+  R --> P2["/chat"]
+  R --> P3["/activity"]
+  R --> P4["/volunteering"]
+  R --> P5["/blog"]
 
   A --> G1[Global UI Systems]
   G1 --> K[Keyboard Shortcuts]
@@ -81,9 +81,9 @@ flowchart TD
   A --> S[Contact Form]
   S --> E[EmailJS API]
 
-  P2 --> API[/api/chat]
-  P3 --> API2[/api/github-achievements]
-  P3 --> API3[/api/tryhackme-stats]
+  P2 --> API["/api/chat"]
+  P3 --> API2["/api/github-achievements"]
+  P3 --> API3["/api/tryhackme-stats"]
 
   API --> X[Express server.js]
   API2 --> X
@@ -627,6 +627,7 @@ Current inventory under `src/components/portfolio`:
 
 Documentation owner: Hassayoun Malek Aziz
 Source of truth: this repository's codebase
+
 
 
 
