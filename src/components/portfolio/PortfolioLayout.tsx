@@ -8,6 +8,7 @@ import LanguagesSection from "./LanguagesSection";
 import MotivationSection from "./MotivationSection";
 import CodingActivitySection from "./CodingActivitySection";
 import Footer from "./Footer";
+import HireMeBanner from "./HireMeBanner";
 
 const PortfolioLayout = () => {
   return (
@@ -23,6 +24,7 @@ const PortfolioLayout = () => {
         <MotivationSection />
       </main>
       <Footer />
+      <HireMeBanner />
     </div>
   );
 };
