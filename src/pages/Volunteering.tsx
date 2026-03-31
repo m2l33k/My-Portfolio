@@ -3,6 +3,7 @@ import { ArrowLeft, Calendar } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import Footer from "@/components/portfolio/Footer";
 import { useLanguage } from "@/context/LanguageContext";
+import usePageTitle from "@/hooks/usePageTitle";
 
 interface TimelineEntry {
   role: string;
@@ -101,6 +102,7 @@ const typeConfig = {
 };
 
 const Volunteering = () => {
+  usePageTitle("Volunteering");
   const navigate = useNavigate();
   const { t } = useLanguage();
 

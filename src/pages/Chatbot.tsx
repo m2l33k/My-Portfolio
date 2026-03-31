@@ -8,6 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Send, Bot, User, ArrowLeft, Loader2 } from "lucide-react";
 import { usePortfolioData } from "@/hooks/usePortfolioData";
 import { useLanguage } from "@/context/LanguageContext";
+import usePageTitle from "@/hooks/usePageTitle";
 
 interface Message {
   role: "user" | "assistant" | "developer";
@@ -15,6 +16,7 @@ interface Message {
 }
 
 const Chatbot = () => {
+  usePageTitle("AI Chat");
   const navigate = useNavigate();
   const { t } = useLanguage();
   const { projects, internships, certifications, education, onlineCourses } = usePortfolioData();

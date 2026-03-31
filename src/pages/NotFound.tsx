@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Shield, ArrowLeft } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import usePageTitle from "@/hooks/usePageTitle";
 
 const terminalLines = [
   { text: "$ ssh root@portfolio.local", delay: 0 },
@@ -17,6 +18,7 @@ const terminalLines = [
 ];
 
 const NotFound = () => {
+  usePageTitle("404 Not Found");
   const location = useLocation();
   const navigate = useNavigate();
   const { t } = useLanguage();

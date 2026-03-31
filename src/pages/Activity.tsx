@@ -1,7 +1,9 @@
 import Navigation from "@/components/portfolio/Navigation";
 import CodingActivitySection from "@/components/portfolio/CodingActivitySection";
+import usePageTitle from "@/hooks/usePageTitle";
 
 const Activity = () => {
+  usePageTitle("Activity");
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />

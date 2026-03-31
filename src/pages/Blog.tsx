@@ -3,8 +3,10 @@ import { ArrowLeft, Bot, Clock3, ShieldCheck } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import Footer from "@/components/portfolio/Footer";
 import { useLanguage } from "@/context/LanguageContext";
+import usePageTitle from "@/hooks/usePageTitle";
 
 const Blog = () => {
+  usePageTitle("Blog");
   const navigate = useNavigate();
   const { t } = useLanguage();
 
