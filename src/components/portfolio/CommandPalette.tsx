@@ -26,8 +26,11 @@ import {
   Globe,
   ArrowUp,
   Download,
+  Sun,
+  Moon,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { useTheme } from "next-themes";
 import { track } from "@vercel/analytics";
 
 interface CommandItem {
@@ -43,6 +46,7 @@ const CommandPalette = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { t, lang, setLang } = useLanguage();
+  const { theme, setTheme } = useTheme();
   const language = lang;
 
   useEffect(() => {
@@ -98,6 +102,14 @@ const CommandPalette = () => {
   ];
 
   const actions: CommandItem[] = [
+    {
+      label: theme === "dark"
+        ? (language === "en" ? "Switch to Light Mode" : "Passer en mode clair")
+        : (language === "en" ? "Switch to Dark Mode" : "Passer en mode sombre"),
+      icon: theme === "dark" ? Sun : Moon,
+      action: () => { setTheme(theme === "dark" ? "light" : "dark"); setOpen(false); },
+      group: "actions",
+    },
     {
       label: language === "en" ? "Switch to French" : "Passer en Anglais",
       icon: Globe,

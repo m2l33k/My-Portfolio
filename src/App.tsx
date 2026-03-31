@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { ThemeProvider } from "next-themes";
 import { LanguageProvider } from "./context/LanguageContext";
 import { useKeyboardShortcuts } from "./hooks/useKeyboardShortcuts";
 import LoadingScreen from "./components/portfolio/LoadingScreen";
@@ -56,6 +57,7 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
       <LanguageProvider>
         <TooltipProvider>
           <Toaster />
@@ -72,6 +74,7 @@ const App = () => {
           <SpeedInsights />
         </TooltipProvider>
       </LanguageProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 };

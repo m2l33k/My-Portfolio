@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Menu, X, Shield, User, Award, Briefcase, GraduationCap, Languages, Heart, Users, PenLine } from "lucide-react";
 import LanguageToggle from "./LanguageToggle";
+import ThemeToggle from "./ThemeToggle";
 import { useLanguage } from "@/context/LanguageContext";
 
 const Navigation = () => {
@@ -98,8 +99,9 @@ const Navigation = () => {
             })}
           </div>
 
-          {/* Right side: language toggle + mobile menu */}
+          {/* Right side: theme + language toggle + mobile menu */}
           <div className="flex items-center gap-2">
+            <ThemeToggle />
             <LanguageToggle />
             <button
               className="lg:hidden relative p-2 rounded-lg border border-primary/10 bg-card/50 text-foreground hover:text-primary hover:border-primary/30 transition-all duration-200"
