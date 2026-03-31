@@ -9,6 +9,7 @@ import ContactForm from './ContactForm';
 import CvDownloadModal from './CvDownloadModal';
 import SkillsMatrixModal from './SkillsMatrixModal';
 import { useLanguage } from '@/context/LanguageContext';
+import OrbitingIcons from './OrbitingIcons';
 
 const Typewriter = ({ text, speed = 100 }: { text: string; speed?: number }) => {
   const [displayText, setDisplayText] = useState('');
@@ -97,7 +98,7 @@ const HeroSection = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
 
-            {/* Image — scale-in animation */}
+            {/* Image with orbiting tech icons */}
             <motion.div
               initial="hidden"
               animate="visible"
@@ -107,6 +108,7 @@ const HeroSection = () => {
               <div className="absolute inset-0 bg-primary/15 blur-[80px] rounded-full"></div>
               <div className="absolute inset-0 bg-cyan-500/10 blur-[60px] rounded-full translate-x-8 -translate-y-4"></div>
               <div className="relative">
+                <OrbitingIcons />
                 <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary/40 via-cyan-500/20 to-primary/10 blur-md"></div>
                 <img
                   src="/3d4febb1-a352-4c43-b67f-919a19b6554a-removebg-preview.png"

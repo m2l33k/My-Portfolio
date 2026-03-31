@@ -230,6 +230,25 @@ section + section::before {
   animation: fade-in 0.3s ease-out both;
 }
 
+/* Orbiting tech icons */
+@keyframes orbit-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbit-reverse {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+.animate-orbit-slow {
+  animation: orbit-slow 60s linear infinite;
+}
+
+.animate-orbit-reverse {
+  animation: orbit-reverse 45s linear infinite;
+}
+
 /* Print stylesheet */
 @media print {
   body {
