@@ -1,6 +1,9 @@
 import { Github, Linkedin, Mail, Shield, Phone, Award, Database, ArrowUp } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -31,7 +34,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
-              Engineering student building LLM-powered security automation systems.
+              {t("footer.bio")}
             </p>
           </div>
 
@@ -58,7 +61,7 @@ const Footer = () => {
               className="group flex items-center gap-2 px-4 py-2.5 rounded-full border border-primary/20 bg-card/50 text-sm font-medium text-muted-foreground hover:text-primary hover:border-primary/40 hover:bg-primary/5 transition-all duration-300"
             >
               <ArrowUp className="h-4 w-4 group-hover:-translate-y-0.5 transition-transform duration-300" />
-              Back to top
+              {t("footer.backToTop")}
             </button>
           </div>
         </div>
@@ -66,10 +69,10 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-primary/5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-muted-foreground/60">
-            &copy; {new Date().getFullYear()} Hassayoun Malek Aziz. All rights reserved.
+            &copy; {new Date().getFullYear()} Hassayoun Malek Aziz. {t("footer.rights")}
           </p>
           <p className="text-xs text-muted-foreground/40">
-            Built with React, TypeScript & Tailwind CSS
+            {t("footer.builtWith")}
           </p>
         </div>
       </div>

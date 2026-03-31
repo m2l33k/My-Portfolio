@@ -9,6 +9,7 @@ import ContactForm from './ContactForm';
 import CvDownloadModal from './CvDownloadModal';
 import SkillsMatrixModal from './SkillsMatrixModal';
 import PortfolioStats from './PortfolioStats';
+import { useLanguage } from '@/context/LanguageContext';
 
 const Typewriter = ({ text, speed = 100 }: { text: string; speed?: number }) => {
   const [displayText, setDisplayText] = useState('');
@@ -37,6 +38,7 @@ const Typewriter = ({ text, speed = 100 }: { text: string; speed?: number }) => 
 
 const HeroSection = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
   const [isContactFormOpen, setContactFormOpen] = useState(false);
   const [isCvModalOpen, setCvModalOpen] = useState(false);
   const [isSkillsMatrixOpen, setSkillsMatrixOpen] = useState(false);
@@ -80,11 +82,11 @@ const HeroSection = () => {
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 backdrop-blur-sm">
                     <Terminal className="h-4 w-4 text-primary" />
                     <span className="text-xs font-semibold uppercase tracking-widest text-primary">
-                      <Typewriter text="Computer Engineering Student" />
+                      <Typewriter text={t("hero.subtitle")} />
                     </span>
                   </div>
                   <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-                    <span className="text-foreground">Hi, I'm</span>{" "}
+                    <span className="text-foreground">{t("hero.greeting")}</span>{" "}
                     <span className="bg-gradient-cyber bg-clip-text text-transparent drop-shadow-[0_0_25px_hsl(120,100%,50%,0.3)]">
                       Hassayoun Malek Aziz
                     </span>
@@ -96,24 +98,24 @@ const HeroSection = () => {
                   <div className="absolute -inset-px rounded-xl bg-gradient-to-r from-primary/40 via-cyan-500/20 to-primary/10 blur-sm"></div>
                   <div className="relative rounded-xl border border-primary/20 bg-card/80 backdrop-blur-md p-5 space-y-3">
                     <p className="text-base leading-relaxed text-foreground/90">
-                      Engineering student building <span className="text-primary font-semibold">LLM-powered security automation</span> systems.
+                      {t("hero.bio")} <span className="text-primary font-semibold">{t("hero.bio.highlight")}</span> {t("hero.bio.rest")}
                     </p>
                     <div className="flex flex-wrap gap-2">
                       <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-primary/10 border border-primary/20 text-xs font-medium text-primary">
                         <Shield className="h-3 w-3" />
-                        60% less manual testing
+                        {t("hero.stat1")}
                       </span>
                       <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-primary/10 border border-primary/20 text-xs font-medium text-primary">
                         <Bot className="h-3 w-3" />
-                        85% OWASP detection
+                        {t("hero.stat2")}
                       </span>
                       <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-primary/10 border border-primary/20 text-xs font-medium text-primary">
                         <Award className="h-3 w-3" />
-                        Top 5% TryHackMe
+                        {t("hero.stat3")}
                       </span>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Strong background in AI, DevSecOps, and blockchain-based security architectures.
+                      {t("hero.bio2")}
                     </p>
                   </div>
                 </div>
@@ -122,23 +124,23 @@ const HeroSection = () => {
                 <div className="flex flex-wrap gap-3">
                   <Button className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow font-semibold" onClick={handleOpenCvModal}>
                     <Download className="mr-2 h-4 w-4" />
-                    Download CV
+                    {t("hero.downloadCv")}
                   </Button>
                   <Button variant="outline" className="border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground backdrop-blur-sm" onClick={handleOpenContactForm}>
                     <Mail className="mr-2 h-4 w-4" />
-                    Contact Me
+                    {t("hero.contact")}
                   </Button>
                   <Button variant="outline" className="border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground backdrop-blur-sm" onClick={handleOpenSkillsMatrix}>
                     <Shield className="mr-2 h-4 w-4" />
-                    Skills Matrix
+                    {t("hero.skillsMatrix")}
                   </Button>
                   <Button variant="outline" className="border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground backdrop-blur-sm" onClick={() => navigate('/chat')}>
                     <Bot className="mr-2 h-4 w-4" />
-                    Ask AI
+                    {t("hero.askAi")}
                   </Button>
                   <Button variant="outline" className="border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground backdrop-blur-sm" onClick={() => navigate('/activity')}>
                     <Github className="mr-2 h-4 w-4" />
-                    Activity
+                    {t("hero.activity")}
                   </Button>
                 </div>
 

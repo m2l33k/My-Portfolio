@@ -1,21 +1,25 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Menu, X, Shield, User, Award, Briefcase, GraduationCap, Languages, Heart, Users } from "lucide-react";
+import { Menu, X, Shield, User, Award, Briefcase, GraduationCap, Languages, Heart, Users, PenLine } from "lucide-react";
+import LanguageToggle from "./LanguageToggle";
+import { useLanguage } from "@/context/LanguageContext";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("about");
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   const navItems = [
-    { icon: User, label: "About", href: "#about" },
-    { icon: Award, label: "Certifications", href: "#certifications" },
-    { icon: Briefcase, label: "Projects", href: "#projects" },
-    { icon: Briefcase, label: "Intern/Experience", href: "#internships" },
-    { icon: GraduationCap, label: "Education", href: "#education" },
-    { icon: Languages, label: "Skills", href: "#languages" },
-    { icon: Heart, label: "Motivation", href: "#motivation" },
-    { icon: Users, label: "Volunteering", href: "/volunteering" },
+    { icon: User, label: t("nav.about"), href: "#about" },
+    { icon: Award, label: t("nav.certifications"), href: "#certifications" },
+    { icon: Briefcase, label: t("nav.projects"), href: "#projects" },
+    { icon: Briefcase, label: t("nav.experience"), href: "#internships" },
+    { icon: GraduationCap, label: t("nav.education"), href: "#education" },
+    { icon: Languages, label: t("nav.skills"), href: "#languages" },
+    { icon: Heart, label: t("nav.motivation"), href: "#motivation" },
+    { icon: Users, label: t("nav.volunteering"), href: "/volunteering" },
+    { icon: PenLine, label: "Blog", href: "/blog" },
   ];
 
   useEffect(() => {
@@ -94,13 +98,16 @@ const Navigation = () => {
             })}
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden relative p-2 rounded-lg border border-primary/10 bg-card/50 text-foreground hover:text-primary hover:border-primary/30 transition-all duration-200"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          {/* Right side: language toggle + mobile menu */}
+          <div className="flex items-center gap-2">
+            <LanguageToggle />
+            <button
+              className="lg:hidden relative p-2 rounded-lg border border-primary/10 bg-card/50 text-foreground hover:text-primary hover:border-primary/30 transition-all duration-200"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}

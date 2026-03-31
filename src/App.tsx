@@ -7,18 +7,22 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { LanguageProvider } from "./context/LanguageContext";
+import { useKeyboardShortcuts } from "./hooks/useKeyboardShortcuts";
 import LoadingScreen from "./components/portfolio/LoadingScreen";
 import PageTransition from "./components/portfolio/PageTransition";
 import Index from "./pages/Index";
 import Chatbot from "./pages/Chatbot";
 import Activity from "./pages/Activity";
 import Volunteering from "./pages/Volunteering";
+import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
 const AnimatedRoutes = () => {
   const location = useLocation();
+  useKeyboardShortcuts();
 
   return (
     <AnimatePresence mode="wait">
@@ -27,6 +31,7 @@ const AnimatedRoutes = () => {
         <Route path="/chat" element={<PageTransition><Chatbot /></PageTransition>} />
         <Route path="/activity" element={<PageTransition><Activity /></PageTransition>} />
         <Route path="/volunteering" element={<PageTransition><Volunteering /></PageTransition>} />
+        <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
@@ -47,16 +52,18 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        {loading && <LoadingScreen onComplete={handleLoadingComplete} />}
-        <BrowserRouter>
-          <AnimatedRoutes />
-        </BrowserRouter>
-        <Analytics />
-        <SpeedInsights />
-      </TooltipProvider>
+      <LanguageProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          {loading && <LoadingScreen onComplete={handleLoadingComplete} />}
+          <BrowserRouter>
+            <AnimatedRoutes />
+          </BrowserRouter>
+          <Analytics />
+          <SpeedInsights />
+        </TooltipProvider>
+      </LanguageProvider>
     </QueryClientProvider>
   );
 };

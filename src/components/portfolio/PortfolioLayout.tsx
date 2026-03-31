@@ -9,6 +9,7 @@ import MotivationSection from "./MotivationSection";
 import CodingActivitySection from "./CodingActivitySection";
 import Footer from "./Footer";
 import HireMeBanner from "./HireMeBanner";
+import AchievementsBanner from "./AchievementsBanner";
 
 const PortfolioLayout = () => {
   return (
@@ -16,6 +17,7 @@ const PortfolioLayout = () => {
       <Navigation />
       <main>
         <HeroSection />
+        <AchievementsBanner />
         <CertificationsSection />
         <ProjectsSection />
         <InternshipsSection />
