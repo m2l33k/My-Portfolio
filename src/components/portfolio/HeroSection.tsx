@@ -135,12 +135,12 @@ const HeroSection = () => {
                     </span>
                   </div>
                   {/* 4. Glowing status indicator */}
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/5 backdrop-blur-sm">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-600/40 bg-emerald-500/10 dark:bg-emerald-500/5 backdrop-blur-sm shadow-sm shadow-emerald-500/10">
                     <span className="relative flex h-2.5 w-2.5">
-                      <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
-                      <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500"></span>
+                      <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75 animate-ping"></span>
+                      <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-600 dark:bg-emerald-500"></span>
                     </span>
-                    <span className="text-xs font-medium text-emerald-400">
+                    <span className="text-xs font-semibold text-emerald-700 dark:text-emerald-400">
                       {lang === "en" ? "Available for hire" : "Disponible"}
                     </span>
                   </div>
@@ -271,14 +271,12 @@ const HeroSection = () => {
 
               {/* 6. TryHackMe Badge in styled card */}
               <motion.div variants={fadeUp}>
-                <div className="relative inline-block">
-                  <div className="absolute -inset-px rounded-lg bg-gradient-to-r from-emerald-500/20 via-cyan-500/10 to-emerald-500/20 blur-sm"></div>
-                  <div className="relative rounded-lg border border-primary/15 bg-card/60 backdrop-blur-sm p-2 overflow-hidden">
+                <div className="relative max-w-sm">
+                  <div className="absolute -inset-px rounded-xl bg-gradient-to-r from-emerald-500/20 via-cyan-500/10 to-emerald-500/20 blur-sm"></div>
+                  <div className="relative rounded-xl border border-primary/15 bg-card/60 dark:bg-card/60 backdrop-blur-sm p-3 overflow-hidden">
                     <iframe
                       src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=3036625"
-                      style={{ border: "none" }}
-                      width="350"
-                      height="100"
+                      style={{ border: "none", width: "100%", height: "110px" }}
                       title="TryHackMe Badge"
                       loading="lazy"
                     />

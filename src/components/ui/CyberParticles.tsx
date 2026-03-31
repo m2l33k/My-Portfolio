@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
+import { useTheme } from "next-themes";
 
 export const CyberParticles = () => {
   const [init, setInit] = useState(false);
+  const { resolvedTheme } = useTheme();
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -15,8 +17,15 @@ export const CyberParticles = () => {
 
   if (!init) return null;
 
+  const isDark = resolvedTheme === "dark";
+  const particleColor = isDark ? "#00FF00" : "#0d9488";
+  const linkColor = isDark ? "#00FF00" : "#14b8a6";
+  const linkOpacity = isDark ? 0.2 : 0.12;
+  const particleOpacity = isDark ? 0.5 : 0.35;
+
   return (
     <Particles
+      key={resolvedTheme}
       id="cyber-particles"
       options={{
         fullScreen: { enable: false },
@@ -52,13 +61,13 @@ export const CyberParticles = () => {
         },
         particles: {
           color: {
-            value: "#00FF00",
+            value: particleColor,
           },
           links: {
-            color: "#00FF00",
+            color: linkColor,
             distance: 150,
             enable: true,
-            opacity: 0.2,
+            opacity: linkOpacity,
             width: 1,
           },
           move: {
@@ -79,7 +88,7 @@ export const CyberParticles = () => {
             value: 100,
           },
           opacity: {
-            value: 0.5,
+            value: particleOpacity,
           },
           shape: {
             type: "circle",
