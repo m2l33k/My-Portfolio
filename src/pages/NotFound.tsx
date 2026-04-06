@@ -115,7 +115,7 @@ const NotFound = () => {
           </div>
 
           <button
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/portfolio")}
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/30 bg-primary/10 text-sm font-medium text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-[0_0_20px_hsl(120,100%,50%,0.1)]"
           >
             <ArrowLeft className="h-4 w-4" />

@@ -15,7 +15,7 @@ const Blog = () => {
       <div className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-primary/10 shadow-[0_1px_20px_hsl(120,100%,50%,0.05)]">
         <div className="container mx-auto px-4 h-14 flex items-center justify-between">
           <button
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/portfolio")}
             className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-200"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -84,7 +84,7 @@ const Blog = () => {
 
               <div className="mt-8 flex justify-center">
                 <button
-                  onClick={() => navigate("/")}
+                  onClick={() => navigate("/portfolio")}
                   className="rounded-xl border border-primary/30 bg-primary/10 px-5 py-2.5 text-sm font-semibold text-primary hover:bg-primary/20 transition-colors"
                 >
                   {t("blog.back")}

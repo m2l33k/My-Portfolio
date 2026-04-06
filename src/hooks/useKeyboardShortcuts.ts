@@ -22,8 +22,8 @@ export const useKeyboardShortcuts = () => {
       if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
 
       if (e.key === "Escape") {
-        if (location.pathname !== "/") {
-          navigate("/");
+        if (location.pathname !== "/portfolio") {
+          navigate("/portfolio");
         } else {
           window.scrollTo({ top: 0, behavior: "smooth" });
         }
@@ -32,8 +32,8 @@ export const useKeyboardShortcuts = () => {
 
       const href = sectionMap[e.key];
       if (href) {
-        if (location.pathname !== "/") {
-          navigate("/");
+        if (location.pathname !== "/portfolio") {
+          navigate("/portfolio");
           // Wait for navigation then scroll
           setTimeout(() => {
             document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });

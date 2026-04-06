@@ -1,4 +1,4 @@
-import { useState, useCallback, lazy, Suspense } from "react";
+import { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -10,10 +10,10 @@ import { SpeedInsights } from "@vercel/speed-insights/react";
 import { ThemeProvider } from "next-themes";
 import { LanguageProvider } from "./context/LanguageContext";
 import { useKeyboardShortcuts } from "./hooks/useKeyboardShortcuts";
-import LoadingScreen from "./components/portfolio/LoadingScreen";
 import PageTransition from "./components/portfolio/PageTransition";
 import BackToTopButton from "./components/portfolio/BackToTopButton";
 import Index from "./pages/Index";
+import Welcome from "./pages/Welcome";
 import CommandPalette from "./components/portfolio/CommandPalette";
 import CookieConsent from "./components/portfolio/CookieConsent";
 import KeyboardShortcutsModal from "./components/portfolio/KeyboardShortcutsModal";
@@ -36,7 +36,8 @@ const AnimatedRoutes = () => {
     <AnimatePresence mode="wait">
       <Suspense fallback={null}>
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<PageTransition><Index /></PageTransition>} />
+          <Route path="/" element={<PageTransition><Welcome /></PageTransition>} />
+          <Route path="/portfolio" element={<PageTransition><Index /></PageTransition>} />
           <Route path="/chat" element={<PageTransition><Chatbot /></PageTransition>} />
           <Route path="/activity" element={<PageTransition><Activity /></PageTransition>} />
           <Route path="/volunteering" element={<PageTransition><Volunteering /></PageTransition>} />
@@ -51,16 +52,6 @@ const AnimatedRoutes = () => {
 };
 
 const App = () => {
-  const [loading, setLoading] = useState(() => {
-    const hasVisited = sessionStorage.getItem("portfolio-loaded");
-    return !hasVisited;
-  });
-
-  const handleLoadingComplete = useCallback(() => {
-    sessionStorage.setItem("portfolio-loaded", "true");
-    setLoading(false);
-  }, []);
-
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
@@ -68,7 +59,6 @@ const App = () => {
         <TooltipProvider>
           <Toaster />
           <Sonner />
-          {loading && <LoadingScreen onComplete={handleLoadingComplete} />}
           <BrowserRouter>
             <CommandPalette />
             <KeyboardShortcutsModal />

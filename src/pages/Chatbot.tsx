@@ -108,7 +108,7 @@ const Chatbot = () => {
     <div className="min-h-screen bg-background text-foreground flex flex-col items-center p-4 md:p-8">
       <div className="w-full max-w-4xl flex-1 flex flex-col gap-4">
         <div className="flex items-center justify-between mb-4">
-          <Button variant="ghost" onClick={() => navigate("/")} className="gap-2">
+          <Button variant="ghost" onClick={() => navigate("/portfolio")} className="gap-2">
             <ArrowLeft className="h-4 w-4" /> {t("hero.backToPortfolio")}
           </Button>
           <h1 className="text-xl font-bold flex items-center gap-2">

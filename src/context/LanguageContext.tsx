@@ -215,6 +215,13 @@ const translations = {
     "chat.input": "Ask about my projects, skills...",
     "chat.send": "Send",
     "chat.error": "Sorry, I encountered an error. Please try again.",
+
+    "welcome.title": "Welcome",
+    "welcome.subtitle": "How would you like to explore my portfolio?",
+    "welcome.technical": "I'm Technical",
+    "welcome.technicalDesc": "Full portfolio with projects, skills, blog & more",
+    "welcome.recruiter": "I'm a Recruiter",
+    "welcome.recruiterDesc": "One-page summary optimized for hiring decisions",
   },
   fr: {
     "nav.about": "A propos",
@@ -428,6 +435,13 @@ const translations = {
     "chat.input": "Demandez-moi ses projets, competences...",
     "chat.send": "Envoyer",
     "chat.error": "Desole, une erreur est survenue. Veuillez reessayer.",
+
+    "welcome.title": "Bienvenue",
+    "welcome.subtitle": "Comment souhaitez-vous explorer mon portfolio ?",
+    "welcome.technical": "Je suis Technique",
+    "welcome.technicalDesc": "Portfolio complet avec projets, competences, blog et plus",
+    "welcome.recruiter": "Je suis Recruteur",
+    "welcome.recruiterDesc": "Resume d'une page optimise pour les decisions de recrutement",
   },
   ar: {
     "nav.about": "نبذة عني",
@@ -641,6 +655,13 @@ const translations = {
     "chat.input": "اسأل عن المشاريع، المهارات...",
     "chat.send": "إرسال",
     "chat.error": "عذراً، حدث خطأ. يرجى المحاولة مرة أخرى.",
+
+    "welcome.title": "مرحباً",
+    "welcome.subtitle": "كيف تريد استكشاف ملفي الشخصي؟",
+    "welcome.technical": "أنا تقني",
+    "welcome.technicalDesc": "ملف كامل مع المشاريع والمهارات والمدونة والمزيد",
+    "welcome.recruiter": "أنا مسؤول توظيف",
+    "welcome.recruiterDesc": "ملخص صفحة واحدة مُحسّن لقرارات التوظيف",
   },
 } as const;
 

@@ -64,8 +64,8 @@ const CommandPalette = () => {
   const scrollToSection = useCallback(
     (hash: string) => {
       setOpen(false);
-      if (location.pathname !== "/") {
-        navigate("/");
+      if (location.pathname !== "/portfolio") {
+        navigate("/portfolio");
         setTimeout(() => {
           document.querySelector(hash)?.scrollIntoView({ behavior: "smooth" });
         }, 400);
