@@ -7,44 +7,39 @@ const SectionDivider = ({ variant = "wave" }: { variant?: Variant }) => {
     return (
       <div className="relative w-full h-16 overflow-hidden" aria-hidden="true">
         <div className="absolute inset-0 flex items-center justify-center">
-          {/* Center node */}
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.2 }}
             className="relative z-10 w-3 h-3 rounded-full bg-primary shadow-[0_0_12px_hsl(var(--primary)/0.5)]"
           />
-          {/* Left line */}
           <motion.div
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
             className="absolute left-0 right-1/2 h-px bg-gradient-to-r from-transparent via-primary/30 to-primary/60 origin-right"
           />
-          {/* Right line */}
           <motion.div
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
             className="absolute left-1/2 right-0 h-px bg-gradient-to-l from-transparent via-primary/30 to-primary/60 origin-left"
           />
-          {/* Left node */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
+            transition={{ delay: 0.25 }}
             className="absolute left-[20%] w-1.5 h-1.5 rounded-full bg-primary/40"
           />
-          {/* Right node */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
+            transition={{ delay: 0.25 }}
             className="absolute right-[20%] w-1.5 h-1.5 rounded-full bg-primary/40"
           />
         </div>
@@ -55,13 +50,13 @@ const SectionDivider = ({ variant = "wave" }: { variant?: Variant }) => {
   if (variant === "pulse") {
     return (
       <div className="relative w-full h-12 flex items-center justify-center gap-2" aria-hidden="true">
-        {[0, 0.15, 0.3].map((delay, i) => (
+        {[0, 0.06, 0.12].map((delay, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0, scale: 0 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay, duration: 0.3 }}
+            transition={{ delay, duration: 0.2 }}
             className={`rounded-full bg-primary/40 ${i === 1 ? "w-2 h-2 bg-primary/60" : "w-1.5 h-1.5"}`}
           />
         ))}
@@ -85,7 +80,7 @@ const SectionDivider = ({ variant = "wave" }: { variant?: Variant }) => {
           initial={{ pathLength: 0, opacity: 0 }}
           whileInView={{ pathLength: 1, opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, ease: "easeInOut" }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
         />
         <motion.path
           d="M0,35 C300,55 500,10 700,35 C900,55 1100,15 1200,35"
@@ -95,7 +90,7 @@ const SectionDivider = ({ variant = "wave" }: { variant?: Variant }) => {
           initial={{ pathLength: 0, opacity: 0 }}
           whileInView={{ pathLength: 1, opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 1.2, delay: 0.2, ease: "easeInOut" }}
+          transition={{ duration: 0.6, delay: 0.1, ease: "easeInOut" }}
         />
       </svg>
     </div>

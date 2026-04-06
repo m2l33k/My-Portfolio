@@ -78,7 +78,7 @@ const CertificationsSection = () => {
         </ScrollReveal>
 
         <Tabs defaultValue="All" className="w-full" dir={lang === "ar" ? "rtl" : "ltr"}>
-          <ScrollReveal delay={0.2}>
+          <ScrollReveal delay={0.1}>
             <div className="flex justify-center mb-10">
               <TabsList className="bg-secondary/50 p-1">
                 {categories.map((category) => (
@@ -100,7 +100,7 @@ const CertificationsSection = () => {
                 {certifications
                   .filter((cert) => category.value === "All" || cert.category === category.value)
                   .map((cert, index) => (
-                    <ScrollReveal key={index} delay={index * 0.1}>
+                    <ScrollReveal key={index} delay={Math.min(index * 0.05, 0.2)}>
                       <Card className="group bg-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-glow flex flex-col h-full">
                         <CardHeader>
                           <div className="flex flex-col gap-2">

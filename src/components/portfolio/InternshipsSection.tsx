@@ -27,7 +27,7 @@ const InternshipsSection = () => {
 
         <div className="space-y-8">
           {internships.map((internship, index) => (
-            <ScrollReveal key={index} delay={index * 0.1}>
+            <ScrollReveal key={index} delay={Math.min(index * 0.05, 0.15)}>
               <Card
                 className="bg-card border-border hover:border-primary/50 transition-all duration-300 overflow-hidden cursor-pointer hover:shadow-glow group"
                 onClick={() => handleInternshipClick(internship)}

@@ -63,7 +63,7 @@ const ProjectsSection = () => {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal delay={0.2}>
+        <ScrollReveal delay={0.1}>
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             {categories.map((category) => (
               <Button
@@ -80,7 +80,7 @@ const ProjectsSection = () => {
 
         <div className="grid lg:grid-cols-2 gap-8">
           {filteredProjects.map((project, index) => (
-            <ScrollReveal key={index} delay={index * 0.1}>
+            <ScrollReveal key={index} delay={Math.min(index * 0.05, 0.15)}>
               <Card
                 className="group bg-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-glow cursor-pointer hover:scale-[1.02] active:scale-[0.98] h-full"
                 onClick={() => handleProjectClick(project)}

@@ -9,7 +9,8 @@
       "Bash(find /c/Users/m2l3k/Desktop/My-Portfolio -maxdepth 3 -path */.github/workflows/* -type f)",
       "Bash(find /c/Users/m2l3k/Desktop/My-Portfolio -name *.css -o -name *.scss)",
       "Bash(grep -r \"open.*source\\\\|github.*stars\\\\|github.*contribution\" /c/Users/m2l3k/Desktop/My-Portfolio/src --include=*.tsx --include=*.ts)",
-      "Bash(node -e \"const en = require\\(''./src/data/portfolio.ts''\\); console.log\\(''error: ESM''\\)\")"
+      "Bash(node -e \"const en = require\\(''./src/data/portfolio.ts''\\); console.log\\(''error: ESM''\\)\")",
+      "Bash(grep -r \"skeleton\\\\|loading\\\\|Skeleton\\\\|Loading\" /c/Users/m2l3k/Desktop/My-Portfolio/src/components/portfolio/Certifications* /c/Users/m2l3k/Desktop/My-Portfolio/src/components/portfolio/Projects*)"
     ]
   }
 }

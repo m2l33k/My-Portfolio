@@ -36,7 +36,7 @@ const EducationSection = () => {
 
         <div className="space-y-8 mb-16">
           {education.map((edu, index) => (
-            <ScrollReveal key={index} delay={index * 0.1}>
+            <ScrollReveal key={index} delay={Math.min(index * 0.05, 0.15)}>
               <Card className="bg-card border-border hover:border-primary/50 transition-all duration-300">
                 <CardHeader>
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">

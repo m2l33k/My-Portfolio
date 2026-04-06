@@ -8,16 +8,16 @@ interface ScrollRevealProps {
   duration?: number;
 }
 
-export const ScrollReveal = ({ 
-  children, 
-  className = "", 
+export const ScrollReveal = ({
+  children,
+  className = "",
   delay = 0,
   direction = "up",
-  duration = 0.5
+  duration = 0.35
 }: ScrollRevealProps) => {
-  
+
   const getVariants = () => {
-    const distance = 50;
+    const distance = 24;
     switch (direction) {
       case "up": return { hidden: { opacity: 0, y: distance }, visible: { opacity: 1, y: 0 } };
       case "down": return { hidden: { opacity: 0, y: -distance }, visible: { opacity: 1, y: 0 } };
@@ -32,7 +32,7 @@ export const ScrollReveal = ({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: true, margin: "-30px" }}
       variants={getVariants()}
       transition={{ duration, delay, ease: "easeOut" }}
       className={className}

@@ -195,8 +195,8 @@ const Navigation = () => {
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-72 bg-background/95 backdrop-blur-xl border-l border-primary/10 xl:hidden overflow-y-auto"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              className="fixed top-0 right-0 bottom-0 z-50 w-72 bg-background/95 backdrop-blur-xl border-l border-primary/10 xl:hidden overflow-y-auto will-change-transform"
             >
               {/* Panel header */}
               <div className="flex items-center justify-between px-5 py-4 border-b border-primary/10">
@@ -216,19 +216,16 @@ const Navigation = () => {
                 <p className="px-3 text-[10px] font-bold uppercase tracking-widest text-muted-foreground/50 mb-2">
                   Sections
                 </p>
-                {sectionItems.map((item, idx) => {
+                {sectionItems.map((item) => {
                   const isActive = activeSection === item.href.replace("#", "");
                   return (
-                    <motion.button
+                    <button
                       key={item.href}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.03 }}
                       onClick={() => handleNav(item.href)}
-                      className={`flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+                      className={`flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-sm font-medium transition-colors duration-150 ${
                         isActive
                           ? "text-primary bg-primary/10"
-                          : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                          : "text-muted-foreground hover:text-primary hover:bg-primary/5 active:bg-primary/10"
                       }`}
                     >
                       <item.icon className="h-4 w-4 shrink-0" />
@@ -236,7 +233,7 @@ const Navigation = () => {
                       {isActive && (
                         <span className="ml-auto w-1.5 h-1.5 rounded-full bg-primary" />
                       )}
-                    </motion.button>
+                    </button>
                   );
                 })}
               </div>
@@ -246,18 +243,15 @@ const Navigation = () => {
                 <p className="px-3 text-[10px] font-bold uppercase tracking-widest text-muted-foreground/50 mb-2">
                   Pages
                 </p>
-                {[...pageItems, { icon: UserCheck, label: "Recruiter", href: "/recruiter" }].map((item, idx) => (
-                  <motion.button
+                {[...pageItems, { icon: UserCheck, label: "Recruiter", href: "/recruiter" }].map((item) => (
+                  <button
                     key={item.href}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: (sectionItems.length + idx) * 0.03 }}
                     onClick={() => handleNav(item.href)}
-                    className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-sm font-medium text-muted-foreground hover:text-primary hover:bg-primary/5 transition-all duration-200"
+                    className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-sm font-medium text-muted-foreground hover:text-primary hover:bg-primary/5 active:bg-primary/10 transition-colors duration-150"
                   >
                     <item.icon className="h-4 w-4 shrink-0" />
                     {item.label}
-                  </motion.button>
+                  </button>
                 ))}
               </div>
 

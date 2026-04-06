@@ -65,7 +65,7 @@ const OrbitRing = ({
             key={icon.label}
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: delay + i * 0.12, duration: 0.4 }}
+            transition={{ delay: delay + i * 0.06, duration: 0.25 }}
             className="absolute"
             style={{
               left: x,
@@ -98,8 +98,8 @@ const OrbitRing = ({
 const OrbitingIcons = () => {
   return (
     <div className="absolute inset-0 pointer-events-none z-0" aria-hidden="true">
-      <OrbitRing icons={outerIcons} radius={220} duration={60} size={36} delay={0.8} />
-      <OrbitRing icons={innerIcons} radius={170} duration={45} reverse size={32} delay={1.2} />
+      <OrbitRing icons={outerIcons} radius={220} duration={60} size={36} delay={0.3} />
+      <OrbitRing icons={innerIcons} radius={170} duration={45} reverse size={32} delay={0.5} />
     </div>
   );
 };

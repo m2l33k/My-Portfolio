@@ -3,6 +3,8 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { useTheme } from "next-themes";
 
+const isMobile = () => window.innerWidth < 768;
+
 export const CyberParticles = () => {
   const [init, setInit] = useState(false);
   const { resolvedTheme } = useTheme();
@@ -18,6 +20,7 @@ export const CyberParticles = () => {
   if (!init) return null;
 
   const isDark = resolvedTheme === "dark";
+  const mobile = isMobile();
   const particleColor = isDark ? "#00FF00" : "#0d9488";
   const linkColor = isDark ? "#00FF00" : "#14b8a6";
   const linkOpacity = isDark ? 0.2 : 0.12;
@@ -34,27 +37,27 @@ export const CyberParticles = () => {
             value: "transparent",
           },
         },
-        fpsLimit: 120,
+        fpsLimit: mobile ? 30 : 60,
         interactivity: {
           events: {
             onClick: {
-              enable: true,
+              enable: !mobile,
               mode: "push",
             },
             onHover: {
-              enable: true,
+              enable: !mobile,
               mode: "grab",
             },
             resize: { enable: true },
           },
           modes: {
             push: {
-              quantity: 4,
+              quantity: 2,
             },
             grab: {
-              distance: 140,
+              distance: 120,
               links: {
-                opacity: 0.5,
+                opacity: 0.4,
               },
             },
           },
@@ -65,7 +68,7 @@ export const CyberParticles = () => {
           },
           links: {
             color: linkColor,
-            distance: 150,
+            distance: mobile ? 120 : 150,
             enable: true,
             opacity: linkOpacity,
             width: 1,
@@ -77,15 +80,15 @@ export const CyberParticles = () => {
               default: "bounce",
             },
             random: false,
-            speed: 1,
+            speed: mobile ? 0.5 : 0.8,
             straight: false,
           },
           number: {
             density: {
               enable: true,
-              area: 800,
+              area: mobile ? 1200 : 900,
             },
-            value: 100,
+            value: mobile ? 30 : 60,
           },
           opacity: {
             value: particleOpacity,
@@ -94,7 +97,7 @@ export const CyberParticles = () => {
             type: "circle",
           },
           size: {
-            value: { min: 2, max: 4 },
+            value: { min: 1.5, max: 3 },
           },
         },
         detectRetina: true,
