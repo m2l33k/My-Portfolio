@@ -10,7 +10,10 @@
       "Bash(find /c/Users/m2l3k/Desktop/My-Portfolio -name *.css -o -name *.scss)",
       "Bash(grep -r \"open.*source\\\\|github.*stars\\\\|github.*contribution\" /c/Users/m2l3k/Desktop/My-Portfolio/src --include=*.tsx --include=*.ts)",
       "Bash(node -e \"const en = require\\(''./src/data/portfolio.ts''\\); console.log\\(''error: ESM''\\)\")",
-      "Bash(grep -r \"skeleton\\\\|loading\\\\|Skeleton\\\\|Loading\" /c/Users/m2l3k/Desktop/My-Portfolio/src/components/portfolio/Certifications* /c/Users/m2l3k/Desktop/My-Portfolio/src/components/portfolio/Projects*)"
+      "Bash(grep -r \"skeleton\\\\|loading\\\\|Skeleton\\\\|Loading\" /c/Users/m2l3k/Desktop/My-Portfolio/src/components/portfolio/Certifications* /c/Users/m2l3k/Desktop/My-Portfolio/src/components/portfolio/Projects*)",
+      "Bash(Get-ChildItem -Path \"d:\\\\My-Portfolio\" -Force)",
+      "Bash(Select-Object Name, PSIsContainer)",
+      "Bash(Test-Path \"d:\\\\My-Portfolio\\\\README.md\")"
     ]
   }
 }
