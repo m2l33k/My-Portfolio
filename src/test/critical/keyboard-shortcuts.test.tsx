@@ -31,7 +31,7 @@ const renderWithRoute = (route: string) =>
 describe("useKeyboardShortcuts", () => {
   test("number shortcuts scroll to mapped section on home route", () => {
     const spy = vi.spyOn(Element.prototype, "scrollIntoView");
-    renderWithRoute("/");
+    renderWithRoute("/portfolio");
 
     fireEvent.keyDown(window, { key: "1" });
 
@@ -50,7 +50,7 @@ describe("useKeyboardShortcuts", () => {
   });
 
   test("Escape scrolls to top on home route", () => {
-    renderWithRoute("/");
+    renderWithRoute("/portfolio");
 
     fireEvent.keyDown(window, { key: "Escape" });
 
