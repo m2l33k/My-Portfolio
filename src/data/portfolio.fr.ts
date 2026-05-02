@@ -112,7 +112,7 @@ const projectFr: Record<
       "Projet web pour creer une plateforme moderne et responsive d'apprentissage interactif.",
     highlights: ["Plateforme moderne et responsive", "Orientation apprentissage interactif"],
   },
-  "Luducatio - Robot �ducatif pour l'apprentissage des �checs": {
+  "Luducatio - Robot �ducatif pour l'apprentissage des �checs": {
     description:
       "Projet educatif integrant une plateforme robotique pour l'apprentissage et la progression aux echecs.",
     highlights: ["Integration d'une plateforme robotique", "Application d'apprentissage des echecs"],
@@ -126,6 +126,11 @@ const internshipFr: Record<
     description?: string;
   }
 > = {
+  "CLOUD CORE NETWORK INTERN": {
+    role: "Stagiaire réseau cœur cloud",
+    description:
+      "Intégration dans le pipeline R&D mondial de Huawei avec contribution à 2 flux de travail actifs en ingénierie IA dès le premier mois. Maîtrise de la stack cloud-native propriétaire en moins de 2 semaines, avec livraison autonome des tâches avant le calendrier prévu.",
+  },
   "PROFESSIONAL INSTRUCTOR AI": {
     role: "Formateur professionnel IA",
     description:
@@ -141,7 +146,7 @@ const internshipFr: Record<
     description:
       "Developpement d'un agent de pentest IA pour automatiser l'evaluation securite des applications web avec de meilleures detections et moins de tests manuels.",
   },
-  "BLOCKCHAIN & AI RESEARCH INTERN � SMART GRID SECURITY": {
+  "BLOCKCHAIN & AI RESEARCH INTERN � SMART GRID SECURITY": {
     role: "Stagiaire recherche blockchain & IA - securite smart grid",
     description:
       "Developpement d'une solution blockchain pour la securite smart grid, avec analyse de performance, fiabilite et latence (49.5 ms pour la detection d'anomalies).",

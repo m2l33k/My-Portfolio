@@ -213,6 +213,16 @@ export const projects: Project[] = [
 
 export const internships: Internship[] = [
   {
+    company: "Huawei Tunisia",
+    role: "CLOUD CORE NETWORK INTERN",
+    period: "April 2025 – Present",
+    location: "Tunisia",
+    description: "Joined Huawei's global R&D pipeline contributing to 2 active AI engineering workstreams within the first month. Mastered the proprietary cloud-native stack in under 2 weeks, reaching independent task delivery ahead of schedule.",
+    logoUrl: "https://1000logos.net/wp-content/uploads/2018/08/Huawei-Logo-500x281.png",
+    companyUrl: "https://www.huawei.com",
+    technologies: ["Cloud Native", "AI Engineering", "R&D", "5G Core Network"]
+  },
+  {
     company: "TCodeX (TeachCode X)",
     role: "PROFESSIONAL INSTRUCTOR AI",
     period: "January 2026 – Present",
