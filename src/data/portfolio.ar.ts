@@ -129,6 +129,12 @@ const internshipArByRole: Record<
     description?: string;
   }
 > = {
+  "FREELANCE SECURITY & ARCHITECTURE CONSULTANT": {
+    role: "مستشار مستقل في الأمن والبنية التحتية",
+    period: "فبراير 2026 - الآن",
+    location: "عن بُعد",
+    description: "تقييم مخاطر الأمن، وتصميم بنى شبكية وسحابية آمنة، وتقديم أفضل الممارسات لتعزيز مرونة البنية التحتية، ودعم تنفيذ حلول قابلة للتوسع وعالية التوافر.",
+  },
   "CLOUD CORE NETWORK INTERN": {
     role: "متدرب في شبكة النواة السحابية",
     period: "أبريل 2025 - الآن",

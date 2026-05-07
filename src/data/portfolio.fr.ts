@@ -126,6 +126,11 @@ const internshipFr: Record<
     description?: string;
   }
 > = {
+  "FREELANCE SECURITY & ARCHITECTURE CONSULTANT": {
+    role: "Consultant freelance sécurité & architecture",
+    description:
+      "Évaluation des risques de sécurité, conception d'architectures réseau et cloud sécurisées, recommandations de meilleures pratiques pour la résilience des infrastructures, et accompagnement dans la mise en œuvre de solutions évolutives et hautement disponibles.",
+  },
   "CLOUD CORE NETWORK INTERN": {
     role: "Stagiaire réseau cœur cloud",
     description:

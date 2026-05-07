@@ -223,12 +223,21 @@ export const internships: Internship[] = [
     technologies: ["Cloud Native", "AI Engineering", "R&D", "5G Core Network"]
   },
   {
+    company: "Amilcar Cyber SA",
+    role: "FREELANCE SECURITY & ARCHITECTURE CONSULTANT",
+    period: "February 2026 – Present",
+    location: "Remote",
+    description: "Assessed security risks, designed secure network and cloud architectures, recommended best practices for infrastructure resilience, and supported implementation of scalable, high-availability solutions aligned with business needs.",
+    logoUrl: "https://res.cloudinary.com/dvmuvjukn/image/upload/v1778159029/amilcar_cyber_sa_logo_nl6fhx.jpg",
+    technologies: ["Security Architecture", "Cloud Security", "Network Security", "Risk Assessment", "Infrastructure"]
+  },
+  {
     company: "TCodeX (TeachCode X)",
     role: "PROFESSIONAL INSTRUCTOR AI",
     period: "January 2026 – Present",
     location: "Tunisia",
     description: "Delivering hands-on training programs focused on Artificial Intelligence, LLM systems, and applied cybersecurity automation. Designing and teaching practical workshops covering Large Language Models, RAG architectures, Prompt Engineering, AI agents, Machine Learning fundamentals, AI-driven cybersecurity automation, and Python for AI development. Mentoring students through real-world projects, guiding them in building AI-powered applications and secure automation systems.",
-    logoUrl: "https://media.licdn.com/dms/image/v2/D4D0BAQHqVxbwllodtw/company-logo_200_200/B4DZusYwimI8AI-/0/1768123730777?e=1776297600&v=beta&t=vOSr-BDX9hIiONEedTbhuF268SoWCGUAHTJUL-7IpnY",
+    logoUrl: "https://res.cloudinary.com/dvmuvjukn/image/upload/v1778158979/1768123730777_i4g6b1.jpg",
     technologies: ["LLMs", "RAG", "Prompt Engineering", "AI Agents", "Machine Learning", "Python", "Cybersecurity Automation"]
   },
   {
@@ -237,7 +246,7 @@ export const internships: Internship[] = [
     period: "January 2024 – December 2025",
     location: "Tunisia",
     description: "Assisted in organizing career-related events such as job fairs, company forums, workshops, and coaching sessions.",
-    logoUrl: "https://media.licdn.com/dms/image/v2/D4D0BAQH_jyovpjlKug/company-logo_200_200/company-logo_200_200/0/1696320293598?e=1776297600&v=beta&t=LuwdXzFrFnW_tyAjsF7n93DMLpubXucSDqMfwwty7KA",
+    logoUrl: "https://res.cloudinary.com/dvmuvjukn/image/upload/v1778158979/1696320293598_dn66es.jpg",
     technologies: ["Event Organization", "Career Development", "Workshops", "Coaching"]
   },
   {
