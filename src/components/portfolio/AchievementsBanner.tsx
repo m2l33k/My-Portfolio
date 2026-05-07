@@ -49,10 +49,10 @@ const AchievementsBanner = () => {
 
   const achievements = [
     { icon: Users, value: 11, label: t("achievements.ieeeRoles"), color: "text-blue-400" },
-    { icon: Award, value: 6, label: t("achievements.certifications"), color: "text-amber-400" },
-    { icon: Briefcase, value: 5, label: t("achievements.projects"), color: "text-primary" },
-    { icon: Shield, value: 4, label: t("achievements.internships"), color: "text-cyan-400" },
-    { icon: Heart, value: 3, suffix: " yrs", label: t("achievements.volunteering"), color: "text-rose-400" },
+    { icon: Award, value: 23, label: t("achievements.certifications"), color: "text-amber-400" },
+    { icon: Briefcase, value: 13, label: t("achievements.projects"), color: "text-primary" },
+    { icon: Shield, value: 8, label: t("achievements.internships"), color: "text-cyan-400" },
+    { icon: Heart, value: 6, suffix: "+ yrs", label: t("achievements.volunteering"), color: "text-rose-400" },
     { icon: GraduationCap, value: 2, label: t("achievements.degrees"), color: "text-violet-400" },
   ];
 

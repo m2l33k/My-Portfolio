@@ -229,6 +229,7 @@ export const internships: Internship[] = [
     location: "Remote",
     description: "Assessed security risks, designed secure network and cloud architectures, recommended best practices for infrastructure resilience, and supported implementation of scalable, high-availability solutions aligned with business needs.",
     logoUrl: "https://res.cloudinary.com/dvmuvjukn/image/upload/v1778159029/amilcar_cyber_sa_logo_nl6fhx.jpg",
+    companyUrl: "https://www.amilcarcyber.com/",
     technologies: ["Security Architecture", "Cloud Security", "Network Security", "Risk Assessment", "Infrastructure"]
   },
   {
@@ -263,7 +264,7 @@ export const internships: Internship[] = [
   {
     company: "ESPRIT",
     role: "BLOCKCHAIN & AI RESEARCH INTERN – SMART GRID SECURITY",
-    period: "July 2025 – Present",
+    period: "July 2025 – September 2025",
     location: "Tunis, Tunisia",
     description: "Developed a blockchain-based solution for smart grid security, analyzing performance, reliability, and latency in a simulated environment, achieving a benchmark latency of 49.5 ms for anomaly detection in the model.",
     logoUrl: "https://res.cloudinary.com/dvmuvjukn/image/upload/v1724034102/My-Resume/sdwjguyjgdvlkw3cmh56.png",
