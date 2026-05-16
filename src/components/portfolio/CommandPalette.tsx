@@ -128,8 +128,8 @@ const CommandPalette = () => {
       icon: Download,
       action: () => {
         setOpen(false);
-        track("cv_download", { file: "/Malek_Aziz_hassayoun_English.pdf", source: "command_palette" });
-        window.open("/Malek_Aziz_hassayoun_English.pdf", "_blank");
+        track("cv_download", { file: "/Cvs/malek_Hassayoun_Cv_EN.pdf", source: "command_palette" });
+        window.open("/Cvs/malek_Hassayoun_Cv_EN.pdf", "_blank");
       },
       group: "actions",
     },

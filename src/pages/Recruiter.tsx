@@ -91,7 +91,7 @@ const Recruiter = () => {
             {/* CTA Buttons */}
             <div className="flex flex-wrap justify-center gap-3 pt-2 print:hidden">
               <a
-                href="/Malek_Aziz_hassayoun_English.pdf"
+                href="/Cvs/malek_Hassayoun_Cv_EN.pdf"
                 target="_blank"
                 onClick={() => track("cv_download", { source: "recruiter_page" })}
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground font-semibold text-sm shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all"

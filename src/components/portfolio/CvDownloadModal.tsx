@@ -10,7 +10,7 @@ interface CvDownloadModalProps {
 }
 
 const cvFiles = [
-  { key: "cv.english" as const, file: "/Malek_Aziz_hassayoun_English.pdf" },
+  { key: "cv.english" as const, file: "/Cvs/malek_Hassayoun_Cv_EN.pdf" },
   { key: "cv.french" as const, file: "/Malek_Aziz_hassayoun.pdf" },
 ];
 
