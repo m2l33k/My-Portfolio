@@ -114,7 +114,7 @@ const HeroSection = () => {
                 <OrbitingIcons />
                 <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary/20 via-cyan-500/10 to-transparent blur-md"></div>
                 <img
-                  src="/3d4febb1-a352-4c43-b67f-919a19b6554a-removebg-preview.png"
+                  src="/malek-hero.png"
                   alt={displayName}
                   className="relative w-full max-w-md mx-auto rounded-full shadow-2xl ring-1 ring-primary/20"
                 />
