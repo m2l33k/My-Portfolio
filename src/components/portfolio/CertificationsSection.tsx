@@ -25,9 +25,12 @@ import CertificationDetailsModal, { Certification } from "./CertificationDetails
 import { usePortfolioData } from "@/hooks/usePortfolioData";
 import { useLanguage } from "@/context/LanguageContext";
 
+const VISIBLE_COUNT = 6;
+
 const CertificationsSection = () => {
   const [selectedCert, setSelectedCert] = useState<Certification | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showAll, setShowAll] = useState(false);
   const { t, lang } = useLanguage();
   const { certifications } = usePortfolioData();
 
@@ -77,7 +80,12 @@ const CertificationsSection = () => {
           </div>
         </ScrollReveal>
 
-        <Tabs defaultValue="All" className="w-full" dir={lang === "ar" ? "rtl" : "ltr"}>
+        <Tabs
+          defaultValue="All"
+          className="w-full"
+          dir={lang === "ar" ? "rtl" : "ltr"}
+          onValueChange={() => setShowAll(false)}
+        >
           <ScrollReveal delay={0.1}>
             <div className="flex justify-center mb-10">
               <TabsList className="bg-secondary/50 p-1">
@@ -94,11 +102,15 @@ const CertificationsSection = () => {
             </div>
           </ScrollReveal>
 
-          {categories.map((category) => (
+          {categories.map((category) => {
+            const filtered = certifications.filter(
+              (cert) => category.value === "All" || cert.category === category.value
+            );
+            const visibleCerts = showAll ? filtered : filtered.slice(0, VISIBLE_COUNT);
+            return (
             <TabsContent key={category.value} value={category.value} className="mt-0">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {certifications
-                  .filter((cert) => category.value === "All" || cert.category === category.value)
+                {visibleCerts
                   .map((cert, index) => (
                     <ScrollReveal key={index} delay={Math.min(index * 0.05, 0.2)}>
                       <Card className="group bg-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-glow flex flex-col h-full">
@@ -174,8 +186,19 @@ const CertificationsSection = () => {
                     </ScrollReveal>
                   ))}
               </div>
+
+              {filtered.length > VISIBLE_COUNT && (
+                <div className="flex justify-center mt-10">
+                  <Button variant="outline" size="lg" onClick={() => setShowAll((prev) => !prev)}>
+                    {showAll
+                      ? t("common.showLess")
+                      : `${t("common.showAll")} (${filtered.length})`}
+                  </Button>
+                </div>
+              )}
             </TabsContent>
-          ))}
+            );
+          })}
         </Tabs>
       </div>
 

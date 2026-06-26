@@ -8,10 +8,13 @@ import ProjectDetailsModal from "./ProjectDetailsModal";
 import { usePortfolioData } from "@/hooks/usePortfolioData";
 import { useLanguage } from "@/context/LanguageContext";
 
+const VISIBLE_COUNT = 4;
+
 const ProjectsSection = () => {
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState("All");
+  const [showAll, setShowAll] = useState(false);
   const { t, lang } = useLanguage();
   const { projects } = usePortfolioData();
 
@@ -23,6 +26,7 @@ const ProjectsSection = () => {
   ];
 
   const filteredProjects = activeCategory === "All" ? projects : projects.filter((project) => project.category === activeCategory);
+  const visibleProjects = showAll ? filteredProjects : filteredProjects.slice(0, VISIBLE_COUNT);
 
   const handleProjectClick = (project: any) => {
     setSelectedProject(project);
@@ -69,7 +73,10 @@ const ProjectsSection = () => {
               <Button
                 key={category.value}
                 variant={activeCategory === category.value ? "default" : "outline"}
-                onClick={() => setActiveCategory(category.value)}
+                onClick={() => {
+                  setActiveCategory(category.value);
+                  setShowAll(false);
+                }}
                 className="min-w-[100px] transition-all duration-300"
               >
                 {category.label}
@@ -79,7 +86,7 @@ const ProjectsSection = () => {
         </ScrollReveal>
 
         <div className="grid lg:grid-cols-2 gap-8">
-          {filteredProjects.map((project, index) => (
+          {visibleProjects.map((project, index) => (
             <ScrollReveal key={index} delay={Math.min(index * 0.05, 0.15)}>
               <Card
                 className="group bg-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-glow cursor-pointer hover:scale-[1.02] active:scale-[0.98] h-full"
@@ -165,6 +172,14 @@ const ProjectsSection = () => {
             </ScrollReveal>
           ))}
         </div>
+
+        {filteredProjects.length > VISIBLE_COUNT && (
+          <div className="flex justify-center mt-12">
+            <Button variant="outline" size="lg" onClick={() => setShowAll((prev) => !prev)}>
+              {showAll ? t("common.showLess") : `${t("common.showAll")} (${filteredProjects.length})`}
+            </Button>
+          </div>
+        )}
       </div>
 
       <ProjectDetailsModal project={selectedProject} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
