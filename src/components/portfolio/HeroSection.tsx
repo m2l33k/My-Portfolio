@@ -109,11 +109,10 @@ const HeroSection = () => {
               variants={scaleIn}
               className="relative lg:justify-self-start flex items-center justify-center"
             >
-              <div className="absolute inset-0 bg-primary/15 blur-[80px] rounded-full"></div>
-              <div className="absolute inset-0 bg-cyan-500/10 blur-[60px] rounded-full translate-x-8 -translate-y-4"></div>
+              <div className="absolute inset-0 bg-primary/10 blur-[90px] rounded-full"></div>
               <div className="relative">
                 <OrbitingIcons />
-                <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary/40 via-cyan-500/20 to-primary/10 blur-md"></div>
+                <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary/20 via-cyan-500/10 to-transparent blur-md"></div>
                 <img
                   src="/3d4febb1-a352-4c43-b67f-919a19b6554a-removebg-preview.png"
                   alt={displayName}
@@ -155,7 +154,7 @@ const HeroSection = () => {
               <motion.div variants={fadeUp}>
                 <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
                   <span className="text-foreground">{t("hero.greeting")}</span>{" "}
-                  <span className="bg-gradient-cyber bg-clip-text text-transparent drop-shadow-[0_0_25px_hsl(120,100%,50%,0.3)]">
+                  <span className="bg-gradient-cyber bg-clip-text text-transparent">
                     {displayName}
                   </span>
                 </h1>
@@ -163,8 +162,7 @@ const HeroSection = () => {
 
               {/* 3. Bio Card */}
               <motion.div variants={fadeUp} className="relative max-w-xl">
-                <div className="absolute -inset-px rounded-xl bg-gradient-to-r from-primary/40 via-cyan-500/20 to-primary/10 blur-sm"></div>
-                <div className="relative rounded-xl border border-primary/20 bg-card/80 backdrop-blur-md p-5 space-y-3">
+                <div className="relative rounded-xl border border-border bg-card/80 backdrop-blur-md p-5 space-y-3">
                   <p className="text-base leading-relaxed text-foreground/90">
                     {t("hero.bio")} <span className="text-primary font-semibold">{t("hero.bio.highlight")}</span> {t("hero.bio.rest")}
                   </p>
