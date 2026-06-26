@@ -111,13 +111,13 @@ const KeyboardShortcutsModal = () => {
 
       {/* Modal */}
       {open && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm" onClick={() => setOpen(false)}>
+        <div className="fixed inset-0 z-[60] flex items-center justify-center overflow-y-auto bg-black/60 backdrop-blur-sm p-4" onClick={() => setOpen(false)}>
           <div
-            className="relative w-full max-w-md mx-4 rounded-xl border border-primary/20 bg-card/95 backdrop-blur-md p-6 shadow-lg shadow-primary/5"
+            className="relative flex max-h-[90vh] w-full max-w-md flex-col rounded-xl border border-primary/20 bg-card/95 backdrop-blur-md shadow-lg shadow-primary/5"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="flex items-center justify-between mb-5">
+            <div className="flex items-center justify-between p-6 pb-4 shrink-0">
               <div className="flex items-center gap-2">
                 <Keyboard className="h-5 w-5 text-primary" />
                 <h2 className="text-lg font-semibold text-foreground">{title}</h2>
@@ -131,7 +131,7 @@ const KeyboardShortcutsModal = () => {
             </div>
 
             {/* Shortcut groups */}
-            <div className="space-y-5">
+            <div className="space-y-5 overflow-y-auto px-6 grow">
               {groups.map((group) => (
                 <div key={group.title}>
                   <h3 className="text-xs font-medium text-emerald-400 uppercase tracking-wider mb-3">
@@ -161,7 +161,7 @@ const KeyboardShortcutsModal = () => {
             </div>
 
             {/* Footer hint */}
-            <div className="mt-5 pt-4 border-t border-primary/10 text-center">
+            <div className="shrink-0 m-6 mt-4 pt-4 border-t border-primary/10 text-center">
               <p className="text-xs text-muted-foreground">
                 {{ en: "Press ? to close", fr: "Appuyez sur ? pour fermer", ar: "Ø§Ø¶ØºØ· ? Ù„Ù„Ø¥ØºÙ„Ø§Ù‚" }[lang]}
               </p>
