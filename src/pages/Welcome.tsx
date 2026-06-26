@@ -84,15 +84,17 @@ const Welcome = () => {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            whileHover={{ scale: 1.03, y: -4 }}
+            whileHover={{ y: -6 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => navigate("/portfolio")}
-            className="group relative flex flex-col items-center gap-4 p-8 rounded-2xl border border-border bg-card/80 backdrop-blur-sm hover:border-primary/50 hover:shadow-[0_0_30px_hsl(var(--primary)/0.1)] transition-all duration-300 text-center cursor-pointer"
+            className="group relative flex flex-col items-center gap-4 p-8 rounded-2xl border border-border bg-card/80 text-center cursor-pointer transform-gpu will-change-transform overflow-hidden transition-[border-color,box-shadow] duration-300 hover:border-primary/50 hover:shadow-[0_8px_40px_-12px_hsl(var(--primary)/0.35)]"
           >
-            <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
+            {/* Hover glow (opacity-only, cheap) */}
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,hsl(var(--primary)/0.12),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="relative p-3.5 rounded-xl bg-primary/10 ring-1 ring-primary/15 group-hover:bg-primary/20 group-hover:ring-primary/30 transition-colors duration-300">
               <Code2 className="h-8 w-8 text-primary" />
             </div>
-            <div>
+            <div className="relative">
               <h2 className="text-lg font-semibold text-foreground">
                 {t("welcome.technical")}
               </h2>
@@ -100,7 +102,7 @@ const Welcome = () => {
                 {t("welcome.technicalDesc")}
               </p>
             </div>
-            <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity text-primary text-xs font-mono">
+            <div className="absolute bottom-3 right-3 text-primary text-sm font-mono translate-x-1 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300">
               &rarr;
             </div>
           </motion.button>
@@ -110,15 +112,17 @@ const Welcome = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            whileHover={{ scale: 1.03, y: -4 }}
+            whileHover={{ y: -6 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => navigate("/recruiter")}
-            className="group relative flex flex-col items-center gap-4 p-8 rounded-2xl border border-border bg-card/80 backdrop-blur-sm hover:border-primary/50 hover:shadow-[0_0_30px_hsl(var(--primary)/0.1)] transition-all duration-300 text-center cursor-pointer"
+            className="group relative flex flex-col items-center gap-4 p-8 rounded-2xl border border-border bg-card/80 text-center cursor-pointer transform-gpu will-change-transform overflow-hidden transition-[border-color,box-shadow] duration-300 hover:border-primary/50 hover:shadow-[0_8px_40px_-12px_hsl(var(--primary)/0.35)]"
           >
-            <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
+            {/* Hover glow (opacity-only, cheap) */}
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,hsl(var(--primary)/0.12),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="relative p-3.5 rounded-xl bg-primary/10 ring-1 ring-primary/15 group-hover:bg-primary/20 group-hover:ring-primary/30 transition-colors duration-300">
               <Briefcase className="h-8 w-8 text-primary" />
             </div>
-            <div>
+            <div className="relative">
               <h2 className="text-lg font-semibold text-foreground">
                 {t("welcome.recruiter")}
               </h2>
@@ -126,7 +130,7 @@ const Welcome = () => {
                 {t("welcome.recruiterDesc")}
               </p>
             </div>
-            <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity text-primary text-xs font-mono">
+            <div className="absolute bottom-3 right-3 text-primary text-sm font-mono translate-x-1 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300">
               &rarr;
             </div>
           </motion.button>
