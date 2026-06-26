@@ -86,7 +86,8 @@ export const CyberParticles = () => {
           number: {
             density: {
               enable: true,
-              area: mobile ? 1200 : 900,
+              width: mobile ? 1200 : 900,
+              height: mobile ? 1200 : 900,
             },
             value: mobile ? 30 : 60,
           },
