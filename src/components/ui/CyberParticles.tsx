@@ -2,22 +2,26 @@ import { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { useTheme } from "next-themes";
+import { useReducedMotion } from "framer-motion";
 
 const isMobile = () => window.innerWidth < 768;
 
 export const CyberParticles = () => {
   const [init, setInit] = useState(false);
   const { resolvedTheme } = useTheme();
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
+    if (prefersReducedMotion) return;
     initParticlesEngine(async (engine) => {
       await loadSlim(engine);
     }).then(() => {
       setInit(true);
     });
-  }, []);
+  }, [prefersReducedMotion]);
 
-  if (!init) return null;
+  // Respect users who prefer reduced motion: skip the animated particle field entirely.
+  if (prefersReducedMotion || !init) return null;
 
   const isDark = resolvedTheme === "dark";
   const mobile = isMobile();

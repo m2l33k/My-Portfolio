@@ -4,7 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, MotionConfig } from "framer-motion";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { ThemeProvider } from "next-themes";
@@ -57,17 +57,20 @@ const App = () => {
       <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
       <LanguageProvider>
         <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <CommandPalette />
-            <KeyboardShortcutsModal />
-            <AnimatedRoutes />
-            <BackToTopButton />
-          </BrowserRouter>
-          <CookieConsent />
-          <Analytics />
-          <SpeedInsights />
+          {/* Globally honor the user's "reduce motion" OS/browser setting for all framer-motion animations */}
+          <MotionConfig reducedMotion="user">
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
+              <CommandPalette />
+              <KeyboardShortcutsModal />
+              <AnimatedRoutes />
+              <BackToTopButton />
+            </BrowserRouter>
+            <CookieConsent />
+            <Analytics />
+            <SpeedInsights />
+          </MotionConfig>
         </TooltipProvider>
       </LanguageProvider>
       </ThemeProvider>

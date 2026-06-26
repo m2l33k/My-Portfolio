@@ -1,6 +1,6 @@
 ﻿import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion, type Variants } from 'framer-motion';
+import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import { Download, Mail, Github, Linkedin, Shield, Terminal, Phone, Award, Bot, Database, ChevronDown, BarChart3 } from "lucide-react";
@@ -12,9 +12,15 @@ import { useLanguage } from '@/context/LanguageContext';
 import OrbitingIcons from './OrbitingIcons';
 
 const Typewriter = ({ text, speed = 100 }: { text: string; speed?: number }) => {
+  const prefersReducedMotion = useReducedMotion();
   const [displayText, setDisplayText] = useState('');
 
   useEffect(() => {
+    // Reduced-motion: render the full text immediately, no typing animation.
+    if (prefersReducedMotion) {
+      setDisplayText(text);
+      return;
+    }
     let i = 0;
     const timer = setInterval(() => {
       if (i <= text.length) {
@@ -26,7 +32,7 @@ const Typewriter = ({ text, speed = 100 }: { text: string; speed?: number }) => 
     }, speed);
 
     return () => clearInterval(timer);
-  }, [text, speed]);
+  }, [text, speed, prefersReducedMotion]);
 
   return (
     <span>
@@ -61,6 +67,7 @@ const scaleIn: Variants = {
 
 const HeroSection = () => {
   const navigate = useNavigate();
+  const prefersReducedMotion = useReducedMotion();
   const { t, lang } = useLanguage();
   const [isContactFormOpen, setContactFormOpen] = useState(false);
   const [isCvModalOpen, setCvModalOpen] = useState(false);
@@ -305,8 +312,8 @@ const HeroSection = () => {
               {scrollLabel}
             </span>
             <motion.div
-              animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              animate={prefersReducedMotion ? undefined : { y: [0, 6, 0] }}
+              transition={prefersReducedMotion ? undefined : { duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
             >
               <ChevronDown className="h-4 w-4" />
             </motion.div>
