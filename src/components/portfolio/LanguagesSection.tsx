@@ -93,7 +93,7 @@ const LanguagesSection = () => {
   const scrollTo = useCallback((index: number) => api?.scrollTo(index), [api]);
 
   return (
-    <section id="languages" className="py-24">
+    <section id="languages" className="py-16">
       <div className="container mx-auto px-4">
         <ScrollReveal>
           <div className="text-center mb-16">

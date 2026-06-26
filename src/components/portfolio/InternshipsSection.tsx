@@ -17,7 +17,7 @@ const InternshipsSection = () => {
   };
 
   return (
-    <section id="internships" className="py-24">
+    <section id="internships" className="py-16">
       <div className="container mx-auto px-4">
         <ScrollReveal>
           <div className="text-center mb-16">

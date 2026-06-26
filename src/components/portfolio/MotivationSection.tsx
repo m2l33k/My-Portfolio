@@ -23,7 +23,7 @@ const MotivationSection = () => {
   const storyParagraphs = [t("motivation.story.p1"), t("motivation.story.p2"), t("motivation.story.p3")];
 
   return (
-    <section id="motivation" className="py-24 bg-surface-dark">
+    <section id="motivation" className="py-16 bg-surface-dark">
       <div className="container mx-auto px-4">
         <ScrollReveal>
           <div className="text-center mb-16">

@@ -9,7 +9,7 @@ type Variant = "wave" | "circuit" | "pulse";
 const SectionDivider = ({ variant }: { variant?: Variant }) => {
   void variant;
   return (
-    <div className="relative w-full py-8 flex items-center justify-center" aria-hidden="true">
+    <div className="relative w-full py-4 flex items-center justify-center" aria-hidden="true">
       <div className="h-px w-full max-w-md bg-gradient-to-r from-transparent via-border to-transparent" />
       <div className="absolute h-1.5 w-1.5 rounded-full bg-primary/40 ring-4 ring-background" />
     </div>

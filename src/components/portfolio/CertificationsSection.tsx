@@ -67,7 +67,7 @@ const CertificationsSection = () => {
   ] as const;
 
   return (
-    <section id="certifications" className="py-24 bg-surface-dark">
+    <section id="certifications" className="py-16 bg-surface-dark">
       <div className="container mx-auto px-4">
         <ScrollReveal>
           <div className="text-center mb-16">

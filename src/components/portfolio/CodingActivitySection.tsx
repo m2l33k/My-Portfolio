@@ -10,7 +10,7 @@ const CodingActivitySection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="activity" className="py-24 bg-surface-dark">
+    <section id="activity" className="py-16 bg-surface-dark">
       <div className="container mx-auto px-4">
         <ScrollReveal>
           <div className="text-center mb-16">
