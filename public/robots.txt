@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://malekportfolio.vercel.app/sitemap.xml
+Sitemap: https://malekhassayoun.vercel.app/sitemap.xml

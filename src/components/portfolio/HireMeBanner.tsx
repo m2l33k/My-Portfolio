@@ -15,7 +15,7 @@ FN:Hassayoun Malek Aziz
 N:Hassayoun;Malek Aziz;;;
 EMAIL;TYPE=INTERNET:malekaziz.hassayoun@esprit.tn
 TEL;TYPE=CELL:+21653117541
-URL:https://malekportfolio.vercel.app
+URL:https://malekhassayoun.vercel.app
 TITLE:Security Engineer & AI Developer
 ORG:ESPRIT
 NOTE:Engineering student building LLM-powered security automation systems.
