@@ -35,7 +35,7 @@
 
 ## 🔍 Overview
 
-This is a fully custom-built personal portfolio for **Malek Aziz Hassayoun**, a Software Engineering student at ESPRIT specializing in Cybersecurity, AI/ML, Blockchain Security, and DevSecOps.
+This is a fully custom-built personal portfolio for **Malek Aziz Hassayoun**, a Software Engineer specializing in Cybersecurity, AI/ML, Blockchain Security, and DevSecOps.
 
 The portfolio goes beyond a static page — it includes a live **AI-powered chat assistant**, a **GitHub & TryHackMe activity dashboard**, a **recruiter-focused view**, and full **EN / FR / AR (RTL)** language support.
 

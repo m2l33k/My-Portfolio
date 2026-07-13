@@ -18,7 +18,7 @@ TEL;TYPE=CELL:+21653117541
 URL:https://malekhassayoun.vercel.app
 TITLE:Security Engineer & AI Developer
 ORG:ESPRIT
-NOTE:Engineering student building LLM-powered security automation systems.
+NOTE:Engineer building LLM-powered security automation systems.
 END:VCARD`;
 
     const blob = new Blob([vcard], { type: "text/vcard" });

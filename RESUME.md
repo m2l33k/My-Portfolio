@@ -18,7 +18,7 @@
 
 ## About
 
-Final-year Software Engineering student at ESPRIT with a strong track record in AI systems, multimodal learning, and LLM architectures. Built real-world impact across **6+ internships** in cybersecurity automation, blockchain research, and AI instruction — currently contributing to Huawei's global R&D (Apr 2026). Ranked in the **top 6% on TryHackMe**, active IEEE project contributor, and open-source author. Driven by a passion for XAI, federated learning, and AI-powered security systems.
+Software Engineer with a strong track record in AI systems, multimodal learning, and LLM architectures. Built real-world impact across **6+ internships** in cybersecurity automation, blockchain research, and AI instruction — currently contributing to Huawei's global R&D (Apr 2026). Ranked in the **top 6% on TryHackMe**, active IEEE project contributor, and open-source author. Driven by a passion for XAI, federated learning, and AI-powered security systems.
 
 ---
 

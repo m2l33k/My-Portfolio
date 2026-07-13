@@ -16,9 +16,9 @@ const translations = {
     "toggle.toFrench": "Switch to French",
     "toggle.toEnglish": "Switch to English",
 
-    "hero.subtitle": "Computer Engineering Student",
+    "hero.subtitle": "Computer Engineer",
     "hero.greeting": "Hi, I'm",
-    "hero.bio": "Engineering student building",
+    "hero.bio": "Engineer building",
     "hero.bio.highlight": "LLM-powered security automation",
     "hero.bio.rest": "systems.",
     "hero.stat1": "60% less manual testing",
@@ -153,7 +153,7 @@ const translations = {
 
     "cv.previewTitle": "CV Preview",
 
-    "footer.bio": "Engineering student building LLM-powered security automation systems.",
+    "footer.bio": "Engineer building LLM-powered security automation systems.",
     "footer.backToTop": "Back to top",
     "footer.rights": "All rights reserved.",
     "footer.builtWith": "Built with React, TypeScript & Tailwind CSS",
@@ -238,9 +238,9 @@ const translations = {
     "toggle.toFrench": "Passer en francais",
     "toggle.toEnglish": "Switch to English",
 
-    "hero.subtitle": "Etudiant en genie informatique",
+    "hero.subtitle": "Ingenieur en genie informatique",
     "hero.greeting": "Bonjour, je suis",
-    "hero.bio": "Etudiant en ingenierie developpant des",
+    "hero.bio": "Ingenieur developpant des",
     "hero.bio.highlight": "systemes d'automatisation de securite bases sur les LLM",
     "hero.bio.rest": ".",
     "hero.stat1": "60% moins de tests manuels",
@@ -375,7 +375,7 @@ const translations = {
 
     "cv.previewTitle": "Apercu du CV",
 
-    "footer.bio": "Etudiant en ingenierie developpant des systemes d'automatisation de securite bases sur les LLM.",
+    "footer.bio": "Ingenieur developpant des systemes d'automatisation de securite bases sur les LLM.",
     "footer.backToTop": "Retour en haut",
     "footer.rights": "Tous droits reserves.",
     "footer.builtWith": "Construit avec React, TypeScript & Tailwind CSS",
