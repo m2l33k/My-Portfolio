@@ -6,7 +6,6 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { Calendar, Award, ExternalLink, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
@@ -62,7 +61,7 @@ const CertificationDetailsModal = ({ certification, isOpen, onClose }: Certifica
           </div>
         </DialogHeader>
 
-        <ScrollArea className="flex-1 min-h-0 w-full p-6 pt-2">
+        <div className="flex-1 min-h-0 w-full overflow-y-auto overscroll-contain p-6 pt-2 [-webkit-overflow-scrolling:touch]">
           <div className="space-y-6">
             {certification.imageUrl ? (
               <div className="rounded-lg overflow-hidden border border-border shadow-md bg-muted/10">
@@ -111,7 +110,7 @@ const CertificationDetailsModal = ({ certification, isOpen, onClose }: Certifica
               </Button>
             </div>
           </div>
-        </ScrollArea>
+        </div>
       </DialogContent>
     </Dialog>
   );
