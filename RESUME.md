@@ -18,17 +18,19 @@
 
 ## About
 
-Software Engineer with a strong track record in AI systems, multimodal learning, and LLM architectures. Built real-world impact across **6+ internships** in cybersecurity automation, blockchain research, and AI instruction — currently contributing to Huawei's global R&D (Apr 2026). Ranked in the **top 6% on TryHackMe**, active IEEE project contributor, and open-source author. Driven by a passion for XAI, federated learning, and AI-powered security systems.
+Software Engineer with a strong track record in AI systems, multimodal learning, and LLM architectures. Built real-world impact across **6+ internships** in cybersecurity automation, blockchain research, and AI instruction — currently a Cloud Core Network Intern at Huawei, supporting the Tunisie Telecom Core Network Expansion Project. Ranked in the **top 6% on TryHackMe**, active IEEE project contributor, and open-source author. Driven by a passion for XAI, federated learning, and AI-powered security systems.
 
 ---
 
 ## Professional Experience
 
-### Huawei &nbsp;·&nbsp; Cloud Core Network Intern
-`Apr 4, 2026 – Oct 7, 2026` &nbsp;|&nbsp; Remote / International
+### Huawei Technologies Co Ltd Northern Africa &nbsp;·&nbsp; Cloud Core Network Intern
+`Apr 4, 2026 – Oct 7, 2026` &nbsp;|&nbsp; Tunisia
 
-- Joined Huawei's global R&D pipeline contributing to **2 active AI engineering workstreams** within the first month
-- Mastered the proprietary cloud-native stack in **under 2 weeks**, reaching independent task delivery ahead of schedule
+- Worked within the Delivery and Service Department, supporting cloud core network deployment and service delivery activities
+- Contributed to the **Tunisie Telecom (TT) Core Network Expansion Project**, assisting with hardware installation, deployment support, and expansion activities
+- Coordinated with the engineering team by providing project updates, tracking progress, and communicating technical developments throughout the deployment process
+- Strengthened knowledge of Cloud Core Network technologies through hands-on laboratory practice and achieved the **Huawei Cyber Security Certified (CSC)** certification
 
 ---
 

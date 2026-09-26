@@ -213,14 +213,14 @@ export const projects: Project[] = [
 
 export const internships: Internship[] = [
   {
-    company: "Huawei Tunisia",
+    company: "Huawei Technologies Co Ltd Northern Africa",
     role: "CLOUD CORE NETWORK INTERN",
     period: "April 4, 2026 – October 7, 2026",
     location: "Tunisia",
-    description: "Joined Huawei's global R&D pipeline contributing to 2 active AI engineering workstreams within the first month. Mastered the proprietary cloud-native stack in under 2 weeks, reaching independent task delivery ahead of schedule.",
+    description: "Worked within the Delivery and Service Department, supporting cloud core network deployment and service delivery activities. Contributed to the Tunisie Telecom (TT) Core Network Expansion Project, assisting with hardware installation, deployment support, and expansion activities. Coordinated with the engineering team by providing project updates, tracking progress, and communicating technical developments throughout the deployment process. Strengthened knowledge of Cloud Core Network technologies through hands-on laboratory practice and achieved the Huawei Cyber Security Certified (CSC) certification.",
     logoUrl: "https://1000logos.net/wp-content/uploads/2018/08/Huawei-Logo-500x281.png",
     companyUrl: "https://www.huawei.com",
-    technologies: ["Cloud Native", "AI Engineering", "R&D", "5G Core Network"]
+    technologies: ["Cloud Core Network", "Network Deployment", "Service Delivery", "Hardware Installation", "Cyber Security"]
   },
   {
     company: "Amilcar Cyber SA",

@@ -134,7 +134,7 @@ const internshipFr: Record<
   "CLOUD CORE NETWORK INTERN": {
     role: "Stagiaire réseau cœur cloud",
     description:
-      "Intégration dans le pipeline R&D mondial de Huawei avec contribution à 2 flux de travail actifs en ingénierie IA dès le premier mois. Maîtrise de la stack cloud-native propriétaire en moins de 2 semaines, avec livraison autonome des tâches avant le calendrier prévu.",
+      "Au sein du département Delivery & Service, soutien aux activités de déploiement du réseau cœur cloud et de livraison de services. Contribution au projet d'extension du réseau cœur de Tunisie Telecom (TT) : installation du matériel, support au déploiement et activités d'extension. Coordination avec l'équipe d'ingénierie via des points d'avancement, le suivi de la progression et la communication des évolutions techniques tout au long du déploiement. Approfondissement des technologies Cloud Core Network par la pratique en laboratoire et obtention de la certification Huawei Cyber Security Certified (CSC).",
   },
   "PROFESSIONAL INSTRUCTOR AI": {
     role: "Formateur professionnel IA",
