@@ -35,15 +35,15 @@ const InternshipDetailsModal = ({ internship, isOpen, onClose }: InternshipDetai
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-w-3xl max-h-[90vh] flex flex-col p-0 gap-0 overflow-hidden">
-        <DialogHeader className="p-6 pb-2 shrink-0 bg-muted/20">
-          <div className="flex items-start gap-4">
-            <div className="p-3 bg-background rounded-lg border shadow-sm shrink-0">
-              <img src={internship.logoUrl} alt={`${internship.company} logo`} className="h-12 w-12 object-contain" />
+      <DialogContent className="max-w-3xl max-h-[90vh] max-h-[90dvh] flex flex-col p-0 gap-0 overflow-hidden">
+        <DialogHeader className="p-4 sm:p-6 pb-2 shrink-0 bg-muted/20 text-left">
+          <div className="flex items-start gap-3 sm:gap-4">
+            <div className="p-2 sm:p-3 bg-background rounded-lg border shadow-sm shrink-0">
+              <img src={internship.logoUrl} alt={`${internship.company} logo`} className="h-10 w-10 sm:h-12 sm:w-12 object-contain" />
             </div>
-            <div className="flex-1">
-              <DialogTitle className="text-2xl font-bold text-primary">{internship.role}</DialogTitle>
-              <DialogDescription className="mt-1 text-lg font-medium text-foreground flex items-center gap-2">
+            <div className="flex-1 min-w-0">
+              <DialogTitle className="text-lg sm:text-2xl font-bold text-primary">{internship.role}</DialogTitle>
+              <DialogDescription className="mt-1 text-sm sm:text-lg font-medium text-foreground flex items-center gap-2">
                 <Building2 className="h-4 w-4" />
                 {internship.company}
               </DialogDescription>
@@ -51,7 +51,7 @@ const InternshipDetailsModal = ({ internship, isOpen, onClose }: InternshipDetai
           </div>
         </DialogHeader>
 
-        <ScrollArea className="flex-1 p-6">
+        <ScrollArea className="flex-1 min-h-0 p-4 sm:p-6">
           <div className="space-y-6">
             <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
               <div className="flex items-center gap-2 bg-muted/50 px-3 py-1.5 rounded-full">
