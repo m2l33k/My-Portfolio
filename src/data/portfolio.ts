@@ -215,7 +215,7 @@ export const internships: Internship[] = [
   {
     company: "Huawei Tunisia",
     role: "CLOUD CORE NETWORK INTERN",
-    period: "April 2025 – Present",
+    period: "April 4, 2026 – October 7, 2026",
     location: "Tunisia",
     description: "Joined Huawei's global R&D pipeline contributing to 2 active AI engineering workstreams within the first month. Mastered the proprietary cloud-native stack in under 2 weeks, reaching independent task delivery ahead of schedule.",
     logoUrl: "https://1000logos.net/wp-content/uploads/2018/08/Huawei-Logo-500x281.png",
@@ -225,7 +225,7 @@ export const internships: Internship[] = [
   {
     company: "Amilcar Cyber SA",
     role: "FREELANCE SECURITY & ARCHITECTURE CONSULTANT",
-    period: "February 2026 – Present",
+    period: "February 2026 – April 2026",
     location: "Remote",
     description: "Assessed security risks, designed secure network and cloud architectures, recommended best practices for infrastructure resilience, and supported implementation of scalable, high-availability solutions aligned with business needs.",
     logoUrl: "https://res.cloudinary.com/dvmuvjukn/image/upload/v1778159029/amilcar_cyber_sa_logo_nl6fhx.jpg",
@@ -235,7 +235,7 @@ export const internships: Internship[] = [
   {
     company: "TCodeX (TeachCode X)",
     role: "PROFESSIONAL INSTRUCTOR AI",
-    period: "January 2026 – Present",
+    period: "January 2026 – July 2026",
     location: "Tunisia",
     description: "Delivering hands-on training programs focused on Artificial Intelligence, LLM systems, and applied cybersecurity automation. Designing and teaching practical workshops covering Large Language Models, RAG architectures, Prompt Engineering, AI agents, Machine Learning fundamentals, AI-driven cybersecurity automation, and Python for AI development. Mentoring students through real-world projects, guiding them in building AI-powered applications and secure automation systems.",
     logoUrl: "https://res.cloudinary.com/dvmuvjukn/image/upload/v1778158979/1768123730777_i4g6b1.jpg",

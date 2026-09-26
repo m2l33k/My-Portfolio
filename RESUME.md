@@ -25,7 +25,7 @@ Software Engineer with a strong track record in AI systems, multimodal learning,
 ## Professional Experience
 
 ### Huawei &nbsp;·&nbsp; Cloud Core Network Intern
-`Apr 2026 – Present` &nbsp;|&nbsp; Remote / International
+`Apr 4, 2026 – Oct 7, 2026` &nbsp;|&nbsp; Remote / International
 
 - Joined Huawei's global R&D pipeline contributing to **2 active AI engineering workstreams** within the first month
 - Mastered the proprietary cloud-native stack in **under 2 weeks**, reaching independent task delivery ahead of schedule
@@ -33,7 +33,7 @@ Software Engineer with a strong track record in AI systems, multimodal learning,
 ---
 
 ### TCodeX (TeachCode X) &nbsp;·&nbsp; Professional AI Instructor *(Part-time)*
-`Jan 2026 – Present` &nbsp;|&nbsp; Remote
+`Jan 2026 – Jul 2026` &nbsp;|&nbsp; Remote
 
 - Instructed **100+ students** across LLMs & RAG, Prompt Engineering, AI Agents, and AI-driven cybersecurity, sustaining a **90%+ completion rate**
 - Produced a **72-hour full-pack curriculum** across 8 modules, cutting onboarding time by 30%; validated through personal NVIDIA certification completion in Deep Learning, RAG Agents, NLP, and Anomaly Detection
@@ -42,7 +42,7 @@ Software Engineer with a strong track record in AI systems, multimodal learning,
 ---
 
 ### Self-Employed &nbsp;·&nbsp; Freelance Security & Architecture Consultant
-`Jan 2026 – Present` &nbsp;|&nbsp; Remote
+`Jan 2026 – Apr 2026` &nbsp;|&nbsp; Remote
 
 - Conducted security audits for **3+ clients**, uncovering an average of **8 critical vulnerabilities** per engagement with full remediation roadmaps
 - Planned secure cloud architectures improving infrastructure resilience scores by **35%** on average
