@@ -1,8 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import ModelClient, { isUnexpected } from "@azure-rest/ai-inference";
-import { AzureKeyCredential } from "@azure/core-auth";
 
 dotenv.config();
 
@@ -12,12 +10,12 @@ const port = 3001;
 app.use(cors());
 app.use(express.json());
 
-const token = process.env.GITHUB_TOKEN;
-const endpoint = "https://models.github.ai/inference";
-const modelName = "meta/Llama-3.3-70B-Instruct";
+const apiKey = process.env.GROQ_API_KEY;
+const endpoint = "https://api.groq.com/openai/v1/chat/completions";
+const modelName = "llama-3.3-70b-versatile";
 
-if (!token) {
-  console.error("Error: GITHUB_TOKEN is missing in .env file");
+if (!apiKey) {
+  console.error("Error: GROQ_API_KEY is missing in .env file");
 }
 
 app.post('/api/chat', async (req, res) => {
@@ -28,26 +26,28 @@ app.post('/api/chat', async (req, res) => {
       return res.status(400).json({ error: "Messages are required" });
     }
 
-    const client = ModelClient(
-      endpoint,
-      new AzureKeyCredential(token)
-    );
-
-    const response = await client.path("/chat/completions").post({
-      body: {
-        messages: messages,
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model: modelName,
+        messages,
         temperature: 1.0,
         top_p: 1.0,
         max_tokens: 1000,
-        model: modelName
-      }
+      }),
     });
 
-    if (isUnexpected(response)) {
-      throw response.body.error;
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data?.error?.message || `Groq API error: ${response.status}`);
     }
 
-    res.json(response.body);
+    res.json(data);
 
   } catch (error) {
     console.error("API Error:", error);
