@@ -27,12 +27,20 @@ export default defineConfig(({ mode }) => ({
       output: {
         manualChunks(id) {
           if (!id.includes("node_modules")) return;
-          if (id.includes("tsparticles") || id.includes("tsparticles-engine")) return "particles";
-          if (id.includes("framer-motion")) return "motion";
+          // Keep React + anything that depends on it at eval time (Radix, Router,
+          // Query, Motion) in one chunk to avoid load-order "forwardRef" crashes.
+          if (
+            id.includes("react") ||
+            id.includes("scheduler") ||
+            id.includes("@radix-ui") ||
+            id.includes("react-router") ||
+            id.includes("@tanstack") ||
+            id.includes("framer-motion")
+          ) {
+            return "react-vendor";
+          }
+          if (id.includes("tsparticles")) return "particles";
           if (id.includes("recharts") || id.includes("d3-")) return "charts";
-          if (id.includes("@radix-ui")) return "radix";
-          if (id.includes("react-router") || id.includes("@tanstack")) return "router";
-          if (id.includes("react-dom") || id.includes("/react/") || id.includes("scheduler")) return "react";
           return "vendor";
         },
       },
