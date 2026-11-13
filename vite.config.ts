@@ -23,28 +23,9 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          if (!id.includes("node_modules")) return;
-          // Keep React + anything that depends on it at eval time (Radix, Router,
-          // Query, Motion) in one chunk to avoid load-order "forwardRef" crashes.
-          if (
-            id.includes("react") ||
-            id.includes("scheduler") ||
-            id.includes("@radix-ui") ||
-            id.includes("react-router") ||
-            id.includes("@tanstack") ||
-            id.includes("framer-motion")
-          ) {
-            return "react-vendor";
-          }
-          if (id.includes("tsparticles")) return "particles";
-          if (id.includes("recharts") || id.includes("d3-")) return "charts";
-          return "vendor";
-        },
-      },
-    },
+    // Raise the warning threshold; let Vite handle chunking automatically.
+    // Manual chunk splitting here caused React load-order crashes, so it was removed.
+    chunkSizeWarningLimit: 1500,
   },
   test: {
     environment: "jsdom",
