@@ -159,7 +159,7 @@ const translations = {
     "footer.builtWith": "Built with React, TypeScript & Tailwind CSS",
 
     "hire.status": "Open to opportunities",
-    "hire.detail": "- Available for internships & collaborations",
+    "hire.detail": "- Available for collaborations",
     "hire.vcard": "vCard",
     "hire.cta": "Hire Me",
 
@@ -383,7 +383,7 @@ const translations = {
     "footer.builtWith": "Construit avec React, TypeScript & Tailwind CSS",
 
     "hire.status": "Ouvert aux opportunites",
-    "hire.detail": "- Disponible pour stages et collaborations",
+    "hire.detail": "- Disponible pour collaborations",
     "hire.vcard": "vCard",
     "hire.cta": "Recrutez-moi",
 
@@ -607,7 +607,7 @@ const translations = {
     "footer.builtWith": "بُني باستخدام React وTypeScript وTailwind CSS",
 
     "hire.status": "مفتوح للفرص",
-    "hire.detail": "- متاح للتدريب والتعاون",
+    "hire.detail": "- متاح للتعاون",
     "hire.vcard": "بطاقة",
     "hire.cta": "وظفني",
 
