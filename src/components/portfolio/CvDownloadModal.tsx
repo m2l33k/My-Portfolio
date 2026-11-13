@@ -10,8 +10,8 @@ interface CvDownloadModalProps {
 }
 
 const cvFiles = [
-  { key: "cv.english" as const, file: "/Cvs/malek_Hassayoun_Cv_EN.pdf" },
-  { key: "cv.french" as const, file: "/Malek_Aziz_hassayoun.pdf" },
+  { key: "cv.english" as const, file: "/Malek-hassayoun-cv.pdf" },
+  { key: "cv.french" as const, file: "/Malek-Hassayoun-fr.pdf" },
 ];
 
 const CvDownloadModal: React.FC<CvDownloadModalProps> = ({ onClose }) => {

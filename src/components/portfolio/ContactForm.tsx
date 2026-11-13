@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import React, { useRef, useState } from "react";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 import { useLanguage } from "@/context/LanguageContext";
 
 interface ContactFormProps {
@@ -81,7 +81,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
           name: userName,
           email: userEmail,
         },
-        publicKey
+        { publicKey }
       )
       .then(
         () => {

@@ -1,10 +1,10 @@
 ﻿import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { LanguageProvider } from "@/context/LanguageContext";
 import ContactForm from "@/components/portfolio/ContactForm";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 import { vi } from "vitest";
 
-vi.mock("emailjs-com", () => ({
+vi.mock("@emailjs/browser", () => ({
   default: {
     send: vi.fn(),
   },
