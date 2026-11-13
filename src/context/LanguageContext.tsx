@@ -224,6 +224,8 @@ const translations = {
     "welcome.technicalDesc": "Full portfolio with projects, skills, blog & more",
     "welcome.recruiter": "I'm a Recruiter",
     "welcome.recruiterDesc": "One-page summary optimized for hiring decisions",
+    "welcome.ai": "Ask the AI",
+    "welcome.aiDesc": "Chat with my AI assistant about my projects, skills & more",
   },
   fr: {
     "nav.about": "A propos",
@@ -446,6 +448,8 @@ const translations = {
     "welcome.technicalDesc": "Portfolio complet avec projets, competences, blog et plus",
     "welcome.recruiter": "Je suis Recruteur",
     "welcome.recruiterDesc": "Resume d'une page optimise pour les decisions de recrutement",
+    "welcome.ai": "Demandez a l'IA",
+    "welcome.aiDesc": "Discutez avec mon assistant IA sur mes projets, competences et plus",
   },
   ar: {
     "nav.about": "نبذة عني",
@@ -668,6 +672,8 @@ const translations = {
     "welcome.technicalDesc": "ملف كامل مع المشاريع والمهارات والمدونة والمزيد",
     "welcome.recruiter": "أنا مسؤول توظيف",
     "welcome.recruiterDesc": "ملخص صفحة واحدة مُحسّن لقرارات التوظيف",
+    "welcome.ai": "اسأل الذكاء الاصطناعي",
+    "welcome.aiDesc": "تحدث مع مساعدي الذكي حول مشاريعي ومهاراتي والمزيد",
   },
 } as const;
 

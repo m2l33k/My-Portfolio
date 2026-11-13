@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Shield, Code2, Briefcase, Globe } from "lucide-react";
+import { Shield, Code2, Briefcase, Globe, Sparkles } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import usePageTitle from "@/hooks/usePageTitle";
 
@@ -78,7 +78,7 @@ const Welcome = () => {
         </motion.div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
           {/* Technical Card */}
           <motion.button
             initial={{ opacity: 0, x: -30 }}
@@ -128,6 +128,38 @@ const Welcome = () => {
               </h2>
               <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
                 {t("welcome.recruiterDesc")}
+              </p>
+            </div>
+            <div className="absolute bottom-3 right-3 text-primary text-sm font-mono translate-x-1 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300">
+              &rarr;
+            </div>
+          </motion.button>
+
+          {/* AI Chat Card */}
+          <motion.button
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            whileHover={{ y: -6 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => navigate("/chat")}
+            className="group relative flex flex-col items-center gap-4 p-8 rounded-2xl border border-border bg-card/80 text-center cursor-pointer transform-gpu will-change-transform overflow-hidden transition-[border-color,box-shadow] duration-300 hover:border-primary/50 hover:shadow-[0_8px_40px_-12px_hsl(var(--primary)/0.35)]"
+          >
+            {/* "AI" badge */}
+            <span className="absolute top-3 left-3 text-[10px] font-semibold tracking-wide px-2 py-0.5 rounded-full bg-primary/15 text-primary ring-1 ring-primary/25">
+              AI
+            </span>
+            {/* Hover glow (opacity-only, cheap) */}
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,hsl(var(--primary)/0.12),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="relative p-3.5 rounded-xl bg-primary/10 ring-1 ring-primary/15 group-hover:bg-primary/20 group-hover:ring-primary/30 transition-colors duration-300">
+              <Sparkles className="h-8 w-8 text-primary" />
+            </div>
+            <div className="relative">
+              <h2 className="text-lg font-semibold text-foreground">
+                {t("welcome.ai")}
+              </h2>
+              <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
+                {t("welcome.aiDesc")}
               </p>
             </div>
             <div className="absolute bottom-3 right-3 text-primary text-sm font-mono translate-x-1 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300">
