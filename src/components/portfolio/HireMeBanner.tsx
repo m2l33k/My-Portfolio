@@ -13,7 +13,7 @@ const HireMeBanner = () => {
 VERSION:3.0
 FN:Hassayoun Malek Aziz
 N:Hassayoun;Malek Aziz;;;
-EMAIL;TYPE=INTERNET:malekaziz.hassayoun@esprit.tn
+EMAIL;TYPE=INTERNET:hassayounmalekaziz@gmail.com
 TEL;TYPE=CELL:+21653117541
 URL:https://malekhassayoun.vercel.app
 TITLE:Security Engineer & AI Developer
@@ -58,7 +58,7 @@ END:VCARD`;
                 <span className="hidden sm:inline">{t("hire.vcard")}</span>
               </button>
               <a
-                href="mailto:malekaziz.hassayoun@esprit.tn"
+                href="mailto:hassayounmalekaziz@gmail.com"
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 shadow-[0_0_15px_hsl(120,100%,50%,0.2)]"
               >
                 <Mail className="h-3 w-3" />

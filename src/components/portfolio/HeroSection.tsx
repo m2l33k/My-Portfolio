@@ -92,7 +92,7 @@ const HeroSection = () => {
     { href: "https://www.kaggle.com/malek11azizhassayoun", icon: Database, label: "Kaggle" },
     { href: "https://www.credly.com/users/malek-aziz-hassayoun", icon: Award, label: "Credly" },
     { href: "https://tryhackme.com/p/RootKeeper", icon: Shield, label: "TryHackMe" },
-    { href: "mailto:malekaziz.hassayoun@esprit.tn", icon: Mail, label: "Email" },
+    { href: "mailto:hassayounmalekaziz@gmail.com", icon: Mail, label: "Email" },
     { href: "tel:+21653117541", icon: Phone, label: "Phone" },
   ];
 

@@ -10,7 +10,7 @@ const ContactSection = () => {
           <div className="flex flex-wrap justify-center gap-8">
             <div className="flex items-center gap-4">
               <Mail className="h-6 w-6 text-primary" />
-              <a href="mailto:malekaziz.hassayoun@esprit.tn" className="text-lg">malekaziz.hassayoun@esprit.tn</a>
+              <a href="mailto:hassayounmalekaziz@gmail.com" className="text-lg">hassayounmalekaziz@gmail.com</a>
             </div>
             <div className="flex items-center gap-4">
               <Phone className="h-6 w-6 text-primary" />

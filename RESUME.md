@@ -4,7 +4,7 @@
 
 ### AI Engineer · Cybersecurity & Offensive Automation · LLM Systems
 
-[![Email](https://img.shields.io/badge/Email-malekaziz.hassayoun@esprit.tn-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:malekaziz.hassayoun@esprit.tn)
+[![Email](https://img.shields.io/badge/Email-hassayounmalekaziz@gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:hassayounmalekaziz@gmail.com)
 [![Phone](https://img.shields.io/badge/Phone-%2B216_53_117_541-25D366?style=flat-square&logo=whatsapp&logoColor=white)](tel:+21653117541)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-malek--hassayoun-0A66C2?style=flat-square&logo=linkedin)](https://linkedin.com/in/malek-hassayoun)
 [![GitHub](https://img.shields.io/badge/GitHub-m2l33k-181717?style=flat-square&logo=github)](https://github.com/m2l33k)

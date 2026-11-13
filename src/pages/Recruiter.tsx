@@ -100,7 +100,7 @@ const Recruiter = () => {
                 {i("Download CV", "Telecharger CV", "تحميل السيرة الذاتية")}
               </a>
               <a
-                href="mailto:malekaziz.hassayoun@esprit.tn"
+                href="mailto:hassayounmalekaziz@gmail.com"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-primary/30 bg-primary/5 font-semibold text-sm text-primary hover:bg-primary/10 transition-all"
               >
                 <Mail className="h-4 w-4" />
@@ -248,8 +248,8 @@ const Recruiter = () => {
               {i("Let's Connect", "Prenons Contact", "لنتواصل")}
             </h3>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
-              <a href="mailto:malekaziz.hassayoun@esprit.tn" className="flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors">
-                <Mail className="h-4 w-4" /> malekaziz.hassayoun@esprit.tn
+              <a href="mailto:hassayounmalekaziz@gmail.com" className="flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors">
+                <Mail className="h-4 w-4" /> hassayounmalekaziz@gmail.com
               </a>
               <a href="tel:+21653117541" className="flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors">
                 <Phone className="h-4 w-4" /> +216 53 117 541
