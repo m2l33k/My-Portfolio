@@ -5,7 +5,7 @@ export default async function handler(req, res) {
 
   const apiKey = process.env.GROQ_API_KEY;
   const endpoint = "https://api.groq.com/openai/v1/chat/completions";
-  const modelName = "llama-3.3-70b-versatile";
+  const modelName = "openai/gpt-oss-120b";
 
   if (!apiKey) {
     console.error("Error: GROQ_API_KEY is missing in environment variables");
